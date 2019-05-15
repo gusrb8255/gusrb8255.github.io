@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 웹표준 구현이 가능한 최신 브라우저로 브라우징할 수 있도록 설정 -->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <!-- 스마트기기에서 화면의 크기를 물리적 크기에 맞추어 출력 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0. user-scalable=no">
+    <!-- 스마드기기에서 화면을 풀스크린으로 보이기 위한 설정-->
+    <meta name="mobile-web-app-capable" content="yes"><!-- 비ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- ios -->
+    <!-- 웹앱 또는 모바일 웹사이트 등의 사이트를 정보를 기록 -->
+    <meta name="title" content="여수시청">
+    <meta name="keyword" content="여수, 여수소개, 여수여행, 여수먹거리, 여수찾기">
+    <meta name="description" content="여수의 즐겁고, 자유로운 여행과 맛있는 먹거리를 소개합니다.">
+    <meta name="author" content="parkhyeongyu">
+    <!-- 파비콘 설정 -->
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="shorticon icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 플러그인의 연결방식  - CDN, 다운로드 받아 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="./font/fonts.css">
+    <title>여수시청</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body, html{width: 100%; height: 100%; overflow-x: hidden; } 
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        .ck_item, .ra_item{display: none;}
+        .container{width: 100%; height: 100%; clear: both; padding: 0;}
+        .contents {width: 100%; height: 100%;}
+        .main_box_{width: 100%; height: 100%;}
+        .thum_tit{color: #fff; font-family: "나눔고딕", sans-serif;font-size: 25px; margin-top: 10px; text-shadow: 1px 1px 2px #333;}
+        .contents .item1{ width: 100%; height: 370px;background-image:url(./img/bg1.jpg); background-repeat: no-repeat;
+            background-size: cover; text-align: center;}
+        .contents .main_box img{width: 166px; height: 166px;
+        margin-top: 92px;}
+        .contents .item2{ width: 207px; height: 400px;background-image:url(./img/metro9.jpg); background-repeat: no-repeat; text-align: center;
+           float: left;}
+        .contents .item3{ width: 207px; height: 400px;background-image:url(./img/metro10.jpg); background-repeat: no-repeat; text-align: center;
+           float: left;}
+        .hd{height: 60px; width: 100%; position: fixed; top: 0; left: 0; z-index: 99;}
+        
+        .lst_btn, .close_btn {display: block; width: 48px; height: 48px;
+                            background-repeat: no-repeat; background-position: center center;
+                        background-size: 18px auto; text-indent: -9999px;}
+        .lst_btn{position: absolute; background-image:url(./img/menu2.png); background-size: 35px;
+            left: 5px; top: 3px;}
+        .close_btn{float: right; background-image:url(./img/close2.png); background-size: 35px;
+        margin-top: 5px; margin-right:5px; }
+        .log_box{clear: both; width: 100px; height: 100px; border-radius: 53px;
+            border: 2px solid #c5bbf8; background: #fff; margin: 40px auto;
+            background-image: url(./img/human.png); background-size: 80px;
+            background-repeat: no-repeat;background-position: center center;}
+        .breadcrumb{text-align: center;}
+        .left{width: 100%; height: 100%; position: fixed; background: #515ba7;left: -100%;
+            top: 0; z-index: 999; transition:1s;}
+        #ck1:checked ~ .left {left: 0;}
+        
+        .gnb .dep1{text-indent: 20px; color: #fff; line-height: 30px;}
+        .gnb .dep1 a{display: block; line-height: 40px; color: #c3dfff; text-indent: 50px;}
+        .sub{height: 0; overflow: hidden; opacity: 0; transition: 0.7s;}
+        .ra_item:checked ~ .sub{height: auto; opacity: 1;}
+        .ra_item:checked ~ label{color: #8ac007;}
+        
+        .abs_item {width: 100%; height: 60px; position: absolute; left: 0; top: 0;}
+        .logo{display: block; width: 98px; height: auto; margin: 10px auto;}
+        .logo img{width: 98px; height: auto;}
+        
+        .share_btn, .order_btn, .login_btn{display: block; width: 40px; height: 40px; 
+        color: #fff; line-height: 40px; text-align: center; font-size: 26px;
+        position: absolute; top: 10px;}
+        .share_btn{right: 80px;}
+        .order_btn{right: 40px;}
+        .login_btn{right: 0;}
+        
+        .sns_frame, .order_frame{position: fixed; top: -100%; left: 0; z-index: 990; transition: 0.5s;
+        width: 100%; height: 100%; background: rgba(0,0,0,.7);
+        }
+        
+        .sns_box{width: 80px; margin: 0 auto; margin-top: 250px;}
+        
+        .sns_box li{width: 40px; height: 40px; line-height: 40px; float: left; background: #ccc;}
+        
+        .sns_box li a{display: block; text-align: center; 
+        font-size: 22px; line-height: 40px; color: #333;}
+        
+        .ck2_close, .ck3_close{position: absolute; right: 20px; top: 60px; display: block; width: 40px; height: 40px;
+        background-repeat: no-repeat; background-position: center center; background-size: 20px auto;
+        background-image: url(./img/close2.png);}
+        #ck2:checked ~ .sns_frame {top: 0;}
+        #ck3:checked ~ .order_frame{top: 0;}
+        .order_box {width: 280px; height: 400px; margin: 0 auto;
+            margin-top: 250px;}
+        .order_box img{display: block; width: 70px; height: 70px;}
+        
+    </style>
+</head>
+<body>
+   <!--
+    <h2>폰트어썸 이용하기</h2>
+    <a href=""><i class="fa fa-atom"></i></a>
+    <h2>XE-icon 이용하기</h2>
+    <a href=""><i class="xi-share-alt-o"></i></a>
+    <a href=""><i class="xi-apps"></i></a>
+    <!-- fontawesome 클래스명 : https://fontawesome.com/icon?d=gallery&m=free -->
+    <!-- xe-icon 클래스명 : https://xpressengine.github.io/XEIcon/library-2.3.3.html -->
+    <input type="checkbox" id="ck1" class="ck_item">
+    <div class="container">
+        <header class="hd">
+           <div class="abs_item">
+               <a href="index.html" class="logo">
+                   <img src="./img/logo2.png" alt="로고">
+               </a>
+           </div>
+            <label for="ck1" class="lst_btn">목록</label>
+            <label for="ck2" class="share_btn">
+                <i class="xi-share-alt-o"></i>
+            </label>
+              <label for="ck3" class="order_btn">
+                <i class="xi-tags"></i>
+            </label>
+            <a href="login.html" class="login_btn">
+                <i class="xi-user-o"></i>
+            </a>
+          
+            
+        </header>
+        <main class="contents">
+           <ul class="main_box">
+               <li class="item1"><a href="">
+                       <img src="./img/icon11.png" alt="아이콘"
+                       class="icon1">
+                        <h3 class="thum_tit">
+                           여수 안내
+                       </h3>
+                   </a>
+                </li>
+               <li class="item2"><a href="">
+                       <img src="./img/icon22.png" alt="아이콘">
+                        <h3 class="thum_tit">
+                           관광&먹거리
+                       </h3>
+                       <p class="thum_com"></p>
+                   </a>
+                </li>
+               <li class="item3"><a href="">
+                      
+                        
+                       <img src="./img/icon33.png" alt="아이콘">
+                        <h3 class="thum_tit">
+                           체험&후기
+                       </h3>
+                       <p class="thum_com"></p>
+                   </a>
+                </li>
+           </ul>
+            <h2 class="main_tit"></h2>
+            <div class="mv_box">
+                <a href="">
+                    <img src="" alt="">
+                </a>
+            </div>
+        </main>
+        <footer class="ft">
+            <ul class="fnb">
+                <li class="item1"><a href=""></a></li>
+                <li class="item2"><a href=""></a></li>
+            </ul>
+            <p class="copyright" >&copy; All copyright</p>
+        </footer>
+    </div>
+    <aside class="left" id="callap">
+        <label for="ck1" class="close_btn">닫기</label>
+        <div class="log_box">
+            
+        </div>
+        <div class="breadcrumb">
+            Home
+        </div>
+        <nav class="gnb">
+             <input type="radio" name="rdo" id="ra0" class="ra_item" checked>
+            <ul>
+                <li class="dep1 item1">
+                   <input type="radio" name="rdo" id="ra1" class="ra_item">
+                    <label for="ra1">여수소개</label>
+                    <ul class="sub">
+                        <li><a href="sub1.html#page1">여수 위치</a></li>
+                        <li><a href="sub1.html#page1">여수 마스코트</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item2">
+                   <input type="radio" name="rdo" id="ra2" class="ra_item">
+                    <label for="ra2">여수탐방</label>
+                    <ul class="sub">
+                        <li><a href="sub2.html#page2">여수 관광지</a></li>
+                        <li><a href="sub2.html#page2">여수 먹거리</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item3">
+                   <input type="radio" name="rdo" id="ra3" class="ra_item">
+                    <label for="ra3">여수체험</label>
+                    <ul class="sub">
+                        <li><a href="sub3.html#page3">체험장</a></li>
+                        <li><a href="sub3.html#page3">후기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <input type="checkbox" id="ck2" class="ck_item">
+        <div class="sns_frame">
+            <ul class="sns_box">
+                <li class="item1"><a href="">
+                    <i class="xi-kakaostory"></i>
+            </a></li>
+                <li class="item2"><a href="">
+                    <i class="xi-facebook"></i>
+            </a></li>
+                <li class="item3"><a href="">
+                    <i class="xi-star"></i>
+            </a></li>
+                <li class="item4"><a href="">
+                    <i class="xi-twitter"></i>
+            </a></li>
+        </ul>
+        <label for="ck2" class="ck2_close"></label>
+    </div>
+    <input type="checkbox" id="ck3" class="ck_item">
+    <div class="order_frame">
+        <div class="order_box">
+            <ul>
+                <li><a href="">
+                <img src="" alt="">
+                </a></li>
+            </ul>
+        </div>
+        <label for="ck3" class="ck3_close"></label>
+    </div>
+</body>
+</html>
