@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 웹표준 구현이 가능한 최신 브라우저로 브라우징할 수 있도록 설정 -->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <!-- 스마트기기에서 화면의 크기를 물리적 크기에 맞추어 출력 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0. user-scalable=no">
+    <!-- 스마드기기에서 화면을 풀스크린으로 보이기 위한 설정-->
+    <meta name="mobile-web-app-capable" content="yes"><!-- 비ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- ios -->
+    <!-- 웹앱 또는 모바일 웹사이트 등의 사이트를 정보를 기록 -->
+    <meta name="title" content="여수시청">
+    <meta name="keyword" content="여수, 여수소개, 여수여행, 여수먹거리, 여수찾기">
+    <meta name="description" content="여수의 즐겁고, 자유로운 여행과 맛있는 먹거리를 소개합니다.">
+    <meta name="author" content="parkhyeongyu">
+    <!-- 파비콘 설정 -->
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="shorticon icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 플러그인의 연결방식  - CDN, 다운로드 받아 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="./font/fonts.css">
+    <link rel="stylesheet" href="common.css">
+    <title>여수시청</title>
+    <style>
+       .hd{background: #000;}
+        .contetns_frame{width: 100%; height: 100%;}
+        .page{width: 100%; padding-top:0;}
+        .tb_btn{display: block; width:50%;; line-height: 40px; text-align: center; color: #fff; font-size: 1.1em; position: absolute; top: 60px; z-index: 50; background: #333; text-decoration: none;}
+        #page1 .tb_btn{ left: 0%;}
+        #page2 .tb_btn{ left: 50%;}
+        .page .tb_data{display: none; padding-top: 110px;}
+        .page .tb_data h3 {border-bottom: 1px solid #ccc; 
+        width: 300px; margin: 0 auto;padding: 10px;
+        line-height: 40px;}
+        .page .tb_data h4{margin-top: 30px; }
+        .page .tb_data h4, p{ text-align: center;}
+        .page .tb_data p{font-size: 12px; }
+        .page .tb_data ul{margin-topx;}
+        .page .tb_data ul li{height:  240px; width: 350px;
+        padding: 20px 0; margin: 0 auto; margin-top: -20px;
+        }
+        .page .tb_data img {width: 100px; height: 100px; float: left; margin-top: 50px;}
+        .page:target .tb_data{display: block;}
+        .page:target .tb_btn{background: #2c8; color: #fff;
+        text-decoration: none;}
+        #page1, #page2{text-align: center;
+        font-family: "나눔고딕";}
+        
+    </style>
+</head>
+<body>
+   <!--
+    <h2>폰트어썸 이용하기</h2>
+    <a href=""><i class="fa fa-atom"></i></a>
+    <h2>XE-icon 이용하기</h2>
+    <a href=""><i class="xi-share-alt-o"></i></a>
+    <a href=""><i class="xi-apps"></i></a>
+    <!-- fontawesome 클래스명 : https://fontawesome.com/icon?d=gallery&m=free -->
+    <!-- xe-icon 클래스명 : https://xpressengine.github.io/XEIcon/library-2.3.3.html -->
+    <input type="checkbox" id="ck1" class="ck_item">
+    <div class="container">
+        <header class="hd">
+           <div class="abs_item">
+               <a href="index.html" class="logo">
+                   <img src="./img/logo2.png" alt="로고">
+               </a>
+           </div>
+            <label for="ck1" class="lst_btn">목록</label>
+            <label for="ck2" class="share_btn">
+                <i class="xi-share-alt-o"></i>
+            </label>
+              <label for="ck3" class="order_btn">
+                <i class="xi-tags"></i>
+            </label>
+            <a href="login.html" class="login_btn">
+                <i class="xi-user-o"></i>
+            </a>
+            
+            
+        </header>
+        <main class="contents">
+            <div class="contents_frame">
+                <div class="page" id="page1">
+                    <a href="#page1" class="tb_btn">관광지</a>
+                    <div class="tb_data">
+                       <h3>관광지</h3>
+                        <ul>
+                            <li>
+                                <img src="./img/55slider_1.png" alt="관광지1">
+                                <h4>거문도백도</h4>
+                                <p>
+                                <b>남해안 최초로 불을 밝힌 거문도, 남해의 해금강이라 불리는 백도</b>
+    거문도 백도 지구는 100년 넘는 역사와 함께 남해안 최초로 불을 밝힌 거문도 등대와 녹산등대가는 길, 거문도 동백 숲과
+    더불어 남해의 해금강이라 불리우는 백도의 기암괴석과 천혜의 비경을 자랑한다.
+                           </p>
+                            </li>
+                            <li>
+                                <img src="./img/55slider_2.png" alt="관광지1">
+                                <h4>여수해상 케이블카</h4>
+                                <p>
+                                여수 돌산과 자산공원을 잇는 1.5Km 구간의 국내 첫 해상케이블카로 바닥이 투명한 크리스탈 캐빈 15대(5인승)와 일반 캐빈 35대(8인승), 총 50대가 운행되고 있다.
+    <b>바다 위를 지나 섬과 육지를 연결하는 국내 최초의 해상케이블카</b>
+                           </p>
+                            </li>
+                            <li>
+                                <img src="./img/55slider_3.png" alt="관광지1">
+                                <h4>여수 밤바다</h4>
+                                <p>
+                                    <b>인기그룹 버스커버스커가 노래로 부를 만큼 바다를 끼고 도는 해안선 여수도심야경은 낭만과 황홀함을 더해준다.</b> 
+    여수의 도시 곳곳에는 화려한 조명이 여수의 밤바다를 수놓고 있어 지금도 많은 관광객들이 찾고 있다.      
+                                </p></li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="page" id="page2">
+                <a href="#page2" class="tb_btn">먹거리</a>
+                     <div class="tb_data">
+                       <h3>먹거리</h3>
+                        <ul>
+                            <li>
+                                <img src="./img/food_1.png" alt="먹거리1">
+                                <h4>서대회</h4>
+                                <p>
+                                <b>1년이상 발효시킨 막걸리 식초를 사용한 깊은맛</b>
+   막걸리로 발효시킨 식초와 초고추장, 그리고 온갖 채소와의 조화
+부드러우면서도 새콤달콤한 서대회무침
+따끈한 밥에 버무려 먹으면 서대회의 진미를 느낄 수 있다.
+                           </p>
+                            </li>
+                            <li>
+                                <img src="./img/food_2.png" alt="먹거리2">
+                                <h4>갯장어구이 / 샤브샤브</h4>
+                                <p>
+                                <b>한여름의 인기 보양식</b>
+여름철 인기 만점 보양식인 갯장어 요리, 입에서 살살 녹는 부드러운 갯장어회와
+끓는 물에 살짝 데쳐먹는 갯장어 샤브샤브는 여름철 필수 음식 아이템으로 풍부한 맛과 영양을 자랑한다.
+                           </p>
+                            </li>
+                            <li>
+                                <img src="./img/food_3.png" alt="먹거리3">
+                                <h4>여수 한정식</h4>
+                                <p>
+                                    <b>싱싱한 해산물을 주재료로 만든 다양한 음식들</b> 
+청정지역 남해안의 싱싱한 해산물을 주원료로 하여 40여 개의 다양한 음식들!
+맛의 아름다움에 놀라고 싱싱함에 놀라고 다양한 해산물에 놀란다.  
+                                </p></li>
+                                 <li>
+                                <img src="./img/food_4.png" alt="먹거리4">
+                                <h4>갈치조림</h4>
+                                <p>
+                                    <b>맛과 영양이 뛰어난 별미 중의 별미</b> 
+ 거문도 연근해에서 생산되는 일명 여수‘먹갈치’는 맛과 영양이 뛰어나고
+가을갈치가 제격인 갈치조림이나 구이는 소화촉진, 식욕증진, 성인병 예방에 도움을 줄뿐더러 필수아미노산이 고루 함유돼 성장기 어린이 발육에 탁월한 식품이다. 
+                                </p></li>
+                                 <li>
+                                <img src="./img/food_5.png" alt="먹거리5">
+                                <h4>새조개 샤브샤브</h4>
+                                <p>
+                                    <b>새의 부리모양을 닮은 새조개</b> 
+ 많은 영양분을 함유하고 있어 ‘조개의 황제’로 불리는 새조개는 속살이 새의 부리모양과 닮았다하여 붙여진 이름이며
+샤브샤브는 버섯, 파, 고추, 마늘 등으로 우러낸 야채국물에 살짝 데쳐 소스와 함께 즐기면 감칠맛과 바다향이 몸속으로 깊게 파고드는 느낌을 받는다. </p></li>
+                        </ul>
+                    </div>
+            </div>
+            </div>
+        <footer class="ft">
+                <ul class="fnb">
+                    <li class="ft_item1"><a href="">이용약관</a></li>
+                    <li class="ft_item2"><a href="">개인정보처리방침</a></li>
+                </ul>
+                <p class="copyright">&copy;All copyrights by PARK</p>
+        </footer>
+        </main>
+        
+    </div>
+    <aside class="left" id="callap">
+        <label for="ck1" class="close_btn">닫기</label>
+        <div class="log_box">
+            
+        </div>
+        <div class="breadcrumb">
+            Home
+        </div>
+        <nav class="gnb">
+             <input type="radio" name="rdo" id="ra0" class="ra_item" checked>
+            <ul>
+                <li class="dep1 item1">
+                   <input type="radio" name="rdo" id="ra1" class="ra_item">
+                    <label for="ra1">여수소개</label>
+                    <ul class="sub">
+                        <li><a href="sub1.html#page1">여수 소개</a></li>
+                        <li><a href="sub1.html#page2">여수 마스코트</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item2">
+                   <input type="radio" name="rdo" id="ra2" class="ra_item">
+                    <label for="ra2">여수탐방</label>
+                    <ul class="sub">
+                        <li><a href="sub2.html#page2">여수 관광지</a></li>
+                        <li><a href="sub2.html#page2">여수 먹거리</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item3">
+                   <input type="radio" name="rdo" id="ra3" class="ra_item">
+                    <label for="ra3">여수체험</label>
+                    <ul class="sub">
+                        <li><a href="sub3.html#page3">체험장</a></li>
+                        <li><a href="sub3.html#page3">후기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <input type="checkbox" id="ck2" class="ck_item">
+        <div class="sns_frame">
+            <ul class="sns_box">
+                <li class="item1"><a href="">
+                    <i class="xi-kakaostory"></i>
+            </a></li>
+                <li class="item2"><a href="">
+                    <i class="xi-facebook"></i>
+            </a></li>
+                <li class="item3"><a href="">
+                    <i class="xi-star"></i>
+            </a></li>
+                <li class="item4"><a href="">
+                    <i class="xi-twitter"></i>
+            </a></li>
+        </ul>
+        <label for="ck2" class="ck2_close"></label>
+    </div>
+    <input type="checkbox" id="ck3" class="ck_item">
+    <div class="order_frame">
+        <div class="order_box">
+            <ul>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+            </ul>
+        </div>
+        <label for="ck3" class="ck3_close"></label>
+    </div>
+</body>
+</html>

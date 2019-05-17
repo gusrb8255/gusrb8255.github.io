@@ -27,88 +27,35 @@
     <link rel="stylesheet" href="common.css">
     <title>여수시청</title>
     <style>
-          *{margin: 0;padding: 0;}
-        body, html{width: 100%; height: 100%; overflow-x: hidden;} 
-        ul{list-style: none;}
-        a{text-decoration: none;}
-        .ck_item, .ra_item{display: none;}
-        .container{width: 100%; height: 100%; clear: both; padding: 0;}
-        .contents {width: 100%; height: 100%;}
-        .main_box_{width: 100%; height: 100%;}
-        .thum_tit{color: #fff; font-family: "나눔고딕", sans-serif;font-size: 25px; margin-top: 10px; text-shadow: 1px 1px 2px #333;}
-        .contents .item1{ width: 100%; height: 370px;background-image:url(./img/bg1.jpg); background-repeat: no-repeat;
-            background-size: cover; text-align: center;}
-        .contents .main_box img{width: 166px; height: 166px;
-        margin-top: 92px;}
-        .contents .item2{ width: 207px; height: 400px;background-image:url(./img/metro9.jpg); background-repeat: no-repeat; text-align: center;
-           float: left;}
-        .contents .item3{ width: 207px; height: 400px;background-image:url(./img/metro10.jpg); background-repeat: no-repeat; text-align: center;
-           float: left;}
-        .hd{height: 60px; width: 100%; position: fixed; top: 0; left: 0; z-index: 99;}
+       .hd{background: #000;}
+        .contetns_frame{width: 100%; height: 100%; }
+        .page{width: 100%; padding-top:0;}
+        .tb_btn{display: block; width:50%;; line-height: 40px; text-align: center; color: #fff; font-size: 1.1em; position: absolute; top: 60px; z-index: 50; background: #333; text-decoration: none;}
+        #page1 .tb_btn{ left: 0%;}
+        #page2 .tb_btn{ left: 50%;}
+        .page .tb_data{display: none; padding-top: 110px;}
         
-        .lst_btn, .close_btn {display: block; width: 48px; height: 48px;
-                            background-repeat: no-repeat; background-position: center center;
-                        background-size: 18px auto; text-indent: -9999px;}
-        .lst_btn{position: absolute; background-image:url(./img/menu2.png); background-size: 35px;
-            left: 5px; top: 3px;}
-        .close_btn{float: right; background-image:url(./img/close2.png); background-size: 35px;
-        margin-top: 5px; margin-right:5px; }
-        .log_box{clear: both; width: 100px; height: 100px; border-radius: 53px;
-            border: 2px solid #c5bbf8; background: #fff; margin: 40px auto;
-            background-image: url(./img/human.png); background-size: 80px;
-            background-repeat: no-repeat;background-position: center center;}
-        .breadcrumb{text-align: center;}
-        .left{width: 100%; height: 100%; position: fixed; background: #515ba7;left: -100%;
-            top: 0; z-index: 999; transition:1s;}
-        #ck1:checked ~ .left {left: 0;}
+        .page:target .tb_data{display: block;}
+        .page:target .tb_btn{background: #2c8; color: #fff;
+        text-decoration: none;}
+        #page1, #page2{text-align: center;
+        font-family: "나눔고딕";}
         
-        .gnb .dep1{text-indent: 20px; color: #fff; line-height: 30px;}
-        .gnb .dep1 a{display: block; line-height: 40px; color: #c3dfff; text-indent: 50px;}
-        .sub{height: 0; overflow: hidden; opacity: 0; transition: 0.7s;}
-        .ra_item:checked ~ .sub{height: auto; opacity: 1;}
-        .ra_item:checked ~ label{color: #8ac007;}
+        .border{ border-bottom: 1px solid #ccc; width: 350px;
+        margin: 0 auto; padding: 15px; margin-bottom: 15px;}
         
-        .abs_item {width: 100%; height: 60px; position: absolute; left: 0; top: 0;}
-        .logo{display: block; width: 98px; height: auto; margin: 10px auto;}
-        .logo img{width: 98px; height: auto;}
+        .bus{margin-bottom: 15px;}
+        .text_box0{margin-bottom: 30px;}
+        .text_box2{padding: 0 35px; text-align: left; line-height: 20px; margin-bottom: 20px;}
         
-        .share_btn, .order_btn, .login_btn{display: block; width: 40px; height: 40px; 
-        color: #fff; line-height: 40px; text-align: center; font-size: 26px;
-        position: absolute; top: 10px;}
-        .share_btn{right: 80px;}
-        .order_btn{right: 40px;}
-        .login_btn{right: 0;}
+        .list_1 li{width: 350px; margin: 0 auto; padding: 15px 0;
+        text-align: left;}
         
-        .sns_frame, .order_frame{position: fixed; top: -100%; left: 0; z-index: 990; transition: 0.5s;
-        width: 100%; height: 100%; background: rgba(0,0,0,.7);
-        }
+        .txt_box1{font-size: 16px;}
+        .txt_box2{font-size: 12px; color: #000;}
         
-        .sns_box{width: 80px; margin: 0 auto; margin-top: 250px;}
         
-        .sns_box li{width: 40px; height: 40px; line-height: 40px; float: left; background: #ccc;}
         
-        .sns_box li a{display: block; text-align: center; 
-        font-size: 22px; line-height: 40px; color: #333;}
-        
-        .ck2_close, .ck3_close{position: absolute; right: 20px; top: 60px; display: block; width: 40px; height: 40px;
-        background-repeat: no-repeat; background-position: center center; background-size: 20px auto;
-        background-image: url(./img/close2.png);}
-        #ck2:checked ~ .sns_frame {top: 0;}
-        #ck3:checked ~ .order_frame{top: 0;}
-        .order_box {width: 210px; height: 280px; margin: 0 auto;
-            margin-top: 250px;}
-        .order_box ul li{float: left}
-        .order_box img{display: block; width: 70px; height: 70px;}
-        
-.ft { height: 100px;background: #eee;border-top: 4px solid #ccc; margin-top: 400px;}
-
-.fnb { clear: both; width: 220px;  margin: 0 auto;  padding-top: 15px;}
-
-.fnb li { float: left;  padding: 6px;}
-
-.fnb li.ft_item1 a:after { content: "|"; padding-left: 15px;}
-
-.copyright {  clear: both;  text-align: center; color: #333; line-height: 2.4;}
     </style>
 </head>
 <body>
@@ -138,38 +85,68 @@
             <a href="login.html" class="login_btn">
                 <i class="xi-user-o"></i>
             </a>
-          
+            
             
         </header>
         <main class="contents">
-           <ul class="main_box">
-               <li class="item1"><a href="sub1.html">
-                       <img src="./img/icon11.png" alt="아이콘"
-                       class="icon1">
-                        <h3 class="thum_tit">
-                           여수 안내
-                       </h3>
-                   </a>
-                </li>
-               <li class="item2"><a href="sub2.html">
-                       <img src="./img/icon22.png" alt="아이콘">
-                        <h3 class="thum_tit">
-                           관광&먹거리
-                       </h3>
-                       <p class="thum_com"></p>
-                   </a>
-                </li>
-               <li class="item3"><a href="sub3.html">
-                      
-                        
-                       <img src="./img/icon33.png" alt="아이콘">
-                        <h3 class="thum_tit">
-                           체험&후기
-                       </h3>
-                       <p class="thum_com"></p>
-                   </a>
-                </li>
-           </ul>
+        <div class="contents_frame">
+            <div class="page" id="page1">
+                <a href="#page1" class="tb_btn">체험</a>
+                <div class="tb_data">
+                   <h3 class="border">낭만 버스 예약</h3>
+                    <ul>
+                        <li>
+                            <img src="./img/img_bus.jpg" alt="관광지1" class="bus">
+                            <h4 class="text_box0">낭만버스 예약하기</h4>
+                            
+                            <p class="text_box1"><b>안내사항</b></p><br>
+                            <p class="text_box2">
+1. 해양수산과학관은 매주 월요일에 휴관으로 인하여 코스에서 제외됩니다.
+예약안내 : (유)동서관광 061-692-0900</p>
+<p class="text_box2">
+    2. 여수 낭만 버스의 원활한 운영을 위해 이용객 여러분께서는 사전 예약을 하여 주시기 바랍니다.<br></p>
+<p class="text_box2">
+    3. 이용객은 반드시 개별적으로 여행자보험에 가입해야 합니다. 여행자보험 미가입으로 인한 피해의 모든 책임은 이용객 본인에게 있습니다.<br></p>
+<p class="text_box2">
+    4. 1코스는 매월 둘째주 월요일 휴무입니다.<br></p>
+<p class="text_box2">   
+    5. 2층 버스는 휠체어 탑승 가능합니다.<br></p>
+<p class="text_box2">   
+    6. 청각장애인을 위한 수화통역사를 배치하고 있습니다. 버스 예약 후 연락 부탁드립니다. (☎061-659-3872)</p>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+            <div class="page" id="page2">
+                <a href="#page2" class="tb_btn">후기</a>
+                     <div class="tb_data">
+                       <h3 class="border">후기</h3>
+                        <ul class="list_1">
+                            <li>
+                              <a href="https://blog.naver.com/hellobear28/221375030006" target="_bleck">
+                                <h4 class="txt_box1">여수낭만버스 야간코스 이용한 리얼후기!</h4></a>
+                                <p class="txt_box2">여행을 준비하면서 여수낭만버스가 있다는 사실을 알게되었어요. 찾아보니 1코스, 2코스, 토요유적코스, 코스 등 여러 타입이 있어서 하나하나 보다가 저희는 2층버스...</p>
+                            </li>
+                            <li>
+                              <a href="https://blog.naver.com/goystour/221492980815" target="_bleck">
+                                <h4 class="txt_box1">여수 낭만버스 2코스, 토요유적코스 변경 안내!</h4></a>
+                                <p class="txt_box2">여수 낭만버스 탑승후기 이벤트 지금 여수관광에서는 여수 낭만버스 탑승 후기 이벤트를 진행하고 있는데요~ 2019년 3월부터 12월까지 낭만버스를 탑승 한 후 후기를...</p>
+                            </li>
+                            <li>
+                              <a href="https://qquiop.blog.me/221311952809" target="_bleck">
+                                <h4 class="txt_box1">여수여행 여수낭만버스 처음부터 끝까지 다 좋아♪</h4></a>
+                                <p class="txt_box2">이번에 1박2일로 짧게 여수여행을 다녀왔는데 그 중 제일 재미있게 즐겼던 여수낭만버스 시간을 달리는 버스커 생생후기를 남기려고해요! 제 기준에선 이번 여행의...</p>
+                            </li>
+                            <li>
+                              <a href="https://blog.naver.com/pressinfo/221334275222" target="_bleck">
+                                <h4 class="txt_box1">여수 낭만포차와 낭만버스 시간을 달리는버스커 탑승후기</h4></a>
+                                <p class="txt_box2"> #조선 후기 영국 남자로 태어난 그는 꿈속에서 본 동백꽃과 살결이 흰 여인을 찾아, 거친 바다를 헤치며 거문도까지 찾아온다. #현대_여수낭만버스 시간을 달리는...</p>
+                            </li>
+                            
+                        </ul>
+                    </div>
+            </div>
+            </div>
         <footer class="ft">
                 <ul class="fnb">
                     <li class="ft_item1"><a href="">이용약관</a></li>
@@ -195,8 +172,8 @@
                    <input type="radio" name="rdo" id="ra1" class="ra_item">
                     <label for="ra1">여수소개</label>
                     <ul class="sub">
-                        <li><a href="sub1.html#page1">여수 위치</a></li>
-                        <li><a href="sub1.html#page1">여수 마스코트</a></li>
+                        <li><a href="sub1.html#page1">여수 소개</a></li>
+                        <li><a href="sub1.html#page2">여수 마스코트</a></li>
                     </ul>
                 </li>
                 <li class="dep1 item2">
@@ -244,37 +221,37 @@
                 <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_02.jpg" alt="이미지2">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_03.jpg" alt="이미지3">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_04.jpg" alt="이미지4">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_05.jpg" alt="이미지5">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_06.jpg" alt="이미지6">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_07.jpg" alt="이미지7">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_08.jpg" alt="이미지8">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_09.jpg" alt="이미지9">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_10.jpg" alt="이미지10">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_11.jpg" alt="이미지11">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
                 <li><a href="">
-                <img src="./img/m_icon_12.jpg" alt="이미지12">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
                 </a></li>
             </ul>
         </div>

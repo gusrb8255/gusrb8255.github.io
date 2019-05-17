@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 웹표준 구현이 가능한 최신 브라우저로 브라우징할 수 있도록 설정 -->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <!-- 스마트기기에서 화면의 크기를 물리적 크기에 맞추어 출력 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0. user-scalable=no">
+    <!-- 스마드기기에서 화면을 풀스크린으로 보이기 위한 설정-->
+    <meta name="mobile-web-app-capable" content="yes"><!-- 비ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- ios -->
+    <!-- 웹앱 또는 모바일 웹사이트 등의 사이트를 정보를 기록 -->
+    <meta name="title" content="여수시청">
+    <meta name="keyword" content="여수, 여수소개, 여수여행, 여수먹거리, 여수찾기">
+    <meta name="description" content="여수의 즐겁고, 자유로운 여행과 맛있는 먹거리를 소개합니다.">
+    <meta name="author" content="parkhyeongyu">
+    <!-- 파비콘 설정 -->
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="shorticon icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- 플러그인의 연결방식  - CDN, 다운로드 받아 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="./font/fonts.css">
+    <link rel="stylesheet" href="common.css">
+    <title>여수시청</title>
+    <style>
+        .hd{background: #000;}
+        .contetns_frame{width: 100%; height: auto;}
+        .page{width: 100%; padding-top:0;}
+        .tb_btn{display: block; width:50%;; line-height: 40px; text-align: center; color: #fff; font-size: 1.1em; position: absolute; top: 60px; z-index: 50; background: #333; text-decoration: none;}
+        #page1 .tb_btn{ left: 0%;}
+        #page2 .tb_btn{ left: 50%;}
+        .page .tb_data{display: none; padding-top: 140px;}
+        .page:target .tb_data{display: block;}
+        .page:target .tb_btn{background: #2c8; color: #fff;
+        text-decoration: none;}
+        #page1, #page2, #page3{text-align: center;
+        font-family: "나눔고딕";}
+        .tb_data .gps{width: 300px; height: auto; }
+        .tb_data .mascot{width: 90%;height: auto;;}
+        .tb_data h3{padding: 15px;}
+        .tb_data p{width: 300px; margin: 0 auto; padding-bottom: 80px;}
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+<script> 
+
+//좌표 값을 바꿔서 입력 36.3491563,127.3776857
+
+function initialize() {
+
+  var myLatlng = new google.maps.LatLng(34.7603737,127.66222210000001);
+
+  var mapOptions = {
+
+    zoom: 17,
+
+    center: myLatlng
+
+  }
+
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+ 
+
+  var marker = new google.maps.Marker({
+
+      position: myLatlng,
+
+      map: map,
+
+      title: '여수시청'	  //레이블을 바꿔서 입력
+
+  });
+
+}
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+ </script>
+</head>
+<body onload="initialize()">
+   <!--
+    <h2>폰트어썸 이용하기</h2>
+    <a href=""><i class="fa fa-atom"></i></a>
+    <h2>XE-icon 이용하기</h2>
+    <a href=""><i class="xi-share-alt-o"></i></a>
+    <a href=""><i class="xi-apps"></i></a>
+    <!-- fontawesome 클래스명 : https://fontawesome.com/icon?d=gallery&m=free -->
+    <!-- xe-icon 클래스명 : https://xpressengine.github.io/XEIcon/library-2.3.3.html -->
+    <input type="checkbox" id="ck1" class="ck_item">
+    <div class="container">
+        <header class="hd">
+           <div class="abs_item">
+               <a href="index.html" class="logo">
+                   <img src="./img/logo2.png" alt="로고">
+               </a>
+           </div>
+            <label for="ck1" class="lst_btn">목록</label>
+            <label for="ck2" class="share_btn">
+                <i class="xi-share-alt-o"></i>
+            </label>
+              <label for="ck3" class="order_btn">
+                <i class="xi-tags"></i>
+            </label>
+            <a href="login.html" class="login_btn">
+                <i class="xi-user-o"></i>
+            </a>
+            
+            
+        </header>
+        <main class="contents">
+            <div class="contents_frame">
+                <div class="page" id="page1">
+                    <a href="#page1" class="tb_btn">여수 소개</a>
+                    <div class="tb_data">
+                        <div class="map_frame" style="width:300px;
+                        margin: 10px auto;">
+                            <div id="map_canvas" style="width: 300px;
+                            height: 200px;"></div>
+                        </div>
+                        <h3>< 여수(麗水) ></여수(麗水)></h3>
+                        <p>
+                            <b>아직은 이르지 싶은 봄, 매스컴을 붉게 물들이며 화려하게 소개되는 동백꽃의 고장 여수(麗水)</b>는 전남의 동쪽 경계에 툭 불거져나온 반도이다. 서쪽으로는 순천만을 사이에 두고 전남 고흥반도가 있으며, 동쪽으로는 광양만을 사이에 두고 경남 남해도가 자리잡고 있다.
+                        </p>
+                    </div>
+                </div>
+                <div class="page" id="page2">
+                    <a href="#page2" class="tb_btn">마스코트</a>
+                    <div class="tb_data">
+                        <img src="./img/mascot.jpg" class="mascot" alt="마스코트">
+                        <h3>< 구키와구니 ></구키와구니></h3>
+                        <p>
+                           <b>왼쪽부터 구니와 구키, 구니는 한자의 거북 구(龜)자와 여성스런 호칭의 '니' 구키는 거북 구(龜)자와 어린이의 영어표현인 키드(kid)를 합하여 지은 이름이고 의미는</b>
+                            두마리의 거북이는 한마음, 한뜻으로 노력하는 여수시민을 나타내며, 귀여우면서도 친근함이 떠오르는 어린이의 이미지를 통해 성장과 발전의 도시, 여수를 표현하고 있다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <footer class="ft">
+                    <ul class="fnb">
+                        <li class="ft_item1"><a href="">이용약관</a></li>
+                        <li class="ft_item2"><a href="">개인정보처리방침</a></li>
+                    </ul>
+                    <p class="copyright">&copy;All copyrights by PARK</p>
+            </footer>
+        </main>
+        
+    </div>
+    <aside class="left" id="callap">
+        <label for="ck1" class="close_btn">닫기</label>
+        <div class="log_box">
+            
+        </div>
+        <div class="breadcrumb">
+            Home
+        </div>
+        <nav class="gnb">
+             <input type="radio" name="rdo" id="ra0" class="ra_item" checked>
+            <ul>
+                <li class="dep1 item1">
+                   <input type="radio" name="rdo" id="ra1" class="ra_item">
+                    <label for="ra1">여수소개</label>
+                    <ul class="sub">
+                        <li><a href="sub1.html#page1">여수 소개</a></li>
+                        <li><a href="sub1.html#page2">여수 마스코트</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item2">
+                   <input type="radio" name="rdo" id="ra2" class="ra_item">
+                    <label for="ra2">여수탐방</label>
+                    <ul class="sub">
+                        <li><a href="sub2.html#page2">여수 관광지</a></li>
+                        <li><a href="sub2.html#page2">여수 먹거리</a></li>
+                    </ul>
+                </li>
+                <li class="dep1 item3">
+                   <input type="radio" name="rdo" id="ra3" class="ra_item">
+                    <label for="ra3">여수체험</label>
+                    <ul class="sub">
+                        <li><a href="sub3.html#page3">체험장</a></li>
+                        <li><a href="sub3.html#page3">후기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <input type="checkbox" id="ck2" class="ck_item">
+        <div class="sns_frame">
+            <ul class="sns_box">
+                <li class="item1"><a href="">
+                    <i class="xi-kakaostory"></i>
+            </a></li>
+                <li class="item2"><a href="">
+                    <i class="xi-facebook"></i>
+            </a></li>
+                <li class="item3"><a href="">
+                    <i class="xi-star"></i>
+            </a></li>
+                <li class="item4"><a href="">
+                    <i class="xi-twitter"></i>
+            </a></li>
+        </ul>
+        <label for="ck2" class="ck2_close"></label>
+    </div>
+    <input type="checkbox" id="ck3" class="ck_item">
+    <div class="order_frame">
+        <div class="order_box">
+            <ul>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+                <li><a href="">
+                <img src="./img/m_icon_01.jpg" alt="이미지1">
+                </a></li>
+            </ul>
+        </div>
+        <label for="ck3" class="ck3_close"></label>
+    </div>
+</body>
+</html>
