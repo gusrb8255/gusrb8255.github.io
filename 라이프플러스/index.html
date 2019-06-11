@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>LIFE PLUS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 아이콘 계열의 웹앱 설정 -->
+	<meta name="apple-mobile-web-app-title" content="LIFEPLUS">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 안드로이드폰 계열의 웹앱 설정 -->
+	<meta name="title" content="LIFEPLUS">
+	<meta name="keywords" content="라이프플러스, 금융, 엠버더스, 이병헌 금융, 보아 금융, 국내여행, 바로가기">
+	<meta name="description" content="새로워진 한화금융의 LIFEPLUS">
+	<!-- sns에 의한 설정 -->
+	<meta itemprop="name" content="LIFEPLUS">
+	<meta itemprop="description" content="새로워진 한화금융의 LIFEPLUS">
+	<meta itemprop="image" content="./img/m_main1.jpg">
+	<!-- 페북연동 설정 -->
+	<meta property="fb:app_id" content="APP_ID">
+	<!-- 페이스북, 트위터, 카카오톡의 크롤러 연동설정 -->
+	<meta property="og:type" content="Website">
+	<meta property="og:title" content="LIFEPLUS">
+	<meta property="og:url" content="./index.html">
+	<meta property="og:description" content="새로워진 한화금융의 LIFEPLUS">
+	<meta property="og:image" content="./img/m_main1.jpg">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-180x180" sizes="180x180" href="./img/m_main1.jpg">
+	
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+	<!-- 구글 아날리틱스 주소 연결하기 -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="common.css">
+	<style>
+        @media screen and (max-width:767px){
+            .page_tit1{ left: -0.5%; bottom: 21%; font-size: 2.5em;}
+            .num1{ top: 65%;
+            left: 20%;}
+            .plus{margin-top: 13.2%; width: 12px; height: 12px;}
+            .more1{left: 0; bottom: 6%;
+            font-size: 0.9em;}
+            
+            .page_tit2{ right: 0; bottom: 17%; font-size: 2.5em;}
+            .num2{ top: 65%;
+            left: 0;}
+            .plus2{margin-top: 9%; width: 12px; height: 12px;}
+            .more2{right: 0; bottom: 2%;
+            font-size: 0.9em;}
+            
+            .page_tit3{ left: -0.5%; bottom:16%; font-size: 2.5em;}
+            .num3{ top: 65%;
+            left: 20%;}
+            .plus3{margin-top: 10%; width: 12px; height: 12px;}
+            .more3{left: 0; bottom: -0.5%;
+            font-size: 0.9em;}
+            .next_page{display: none;}
+        }
+        @media screen and (min-width:768px){
+            
+            .txt{ line-height: 3;}
+            .logo img{display: block; width: 110px;
+            height: auto; padding-top: 10px;}
+            .menu_call img{width: 28px; height: 28px; padding-top: 5px;}
+            .next_page{display: none;}
+            
+            
+            .page_tit1{ left: -0.5%; bottom: 15%; font-size: 3.5em;}
+            .num1{ top: 73%;
+            left: 55%;}
+            .plus{margin-top: 9.5%; width: 16px; height: 16px;}
+            .more1{left: 0; bottom: 3%;
+            font-size: 1.3em;}
+            
+            .page_tit2{ right: 0; bottom: 12%; font-size: 3.5em;}
+            .num2{ top: 74%;
+            left: 4%;}
+            .plus2{margin-top: 6.5%; width: 16px; height: 16px;}
+            .more2{right: 0; bottom: 0;
+            font-size: 1.3em;}
+            
+            .page_tit3{ left: -0.5%; bottom:11%; font-size: 3.5em;}
+            .num3{ top: 75%;
+            left: 35%;}
+            .plus3{margin-top: 7.5%; width: 16px; height: 16px;}
+            .more3{left: 0; bottom: -0.5%;
+            font-size: 1.3em;}
+        }
+        @media screen and (min-width:960px){
+        #page1{background-image: url("./img/main_kv1.jpg"); width: 50%; height: 100%; float: right;}  
+        #page2{background-image: url("./img/main_kv3.jpg"); width: 50%;
+        float: left; animation: move 1s;}
+        #page3{background-image: url("./img/main_kv4.jpg"); width: 50%; float: right;}
+        }
+            .hd{border-bottom: 2px solid #ccc;}
+        
+            
+        .page_tit1{ left: -55%; bottom: 21%; font-size: 3em;}
+        .num1{ top: 64%; left: -35%;}
+        .plus{margin-top: 9.5%; width: 14px; height: 14px;}
+        .more1{left: -55%; bottom: 10%; font-size: 1em;}
+            
+        .page_tit2{ right: -55%; bottom: 26%; font-size: 3em;}
+        .num2{ top: 59%; left: 105%;}
+        .plus2{margin-top: 6.5%; width: 16px; height: 16px;}
+        .more2{right: -55%; bottom: 13%; font-size: 1.3em;}
+            
+        .page_tit3{ left: -55%; bottom:24%; font-size: 3em;}
+        .num3{ top: 60%; left: -35%;}
+        .plus3{margin-top: 7.5%; width: 14px; height: 14px;}
+        .more3{left: -55%; bottom: 13%; font-size: 1em;}
+        
+        #page1 .next_page{position: absolute; bottom: -5%;
+        left:auto;
+        z-index: 90; background-image: url("./img/next_page2.png"); width: 50px; height:120px; cursor: pointer; transition: 0.5s;
+        background-size:40px auto;; background-repeat: no-repeat;
+        clear: both; display: block;}
+        #page2 .next_page{position: absolute; bottom: -5%;
+        left:calc(100% - 0px);
+        z-index: 90; background-image: url("./img/next_page2.png"); width: 50px; height:120px; cursor: pointer; transition: 0.5s;
+        background-size:40px auto;; background-repeat: no-repeat;
+        clear: both; display: block;}
+        #page3 .next_page{position: absolute; bottom: -5%; left: auto;
+        z-index: 90; background-image: url("./img/top_page.png"); width: 50px; height:120px; cursor: pointer; transition: 0.5s;
+        background-size:40px auto;; background-repeat: no-repeat;
+        clear: both; display: block;}
+        
+        /*font-family: 'Noto Sans KR', sans-serif;*/
+	</style>
+	<script>
+        $(document).ready(function(){
+           $(".fnb li a.ad").click(function(){
+               $(".fnb li a.ad").removeClass("on");
+               $(".fnb li .sub_box").css("display","none");
+               $(this).addClass("on");
+               $(this).siblings(".sub_box").slideDown();
+           });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var win_h = $(window).height();
+            var wd = $(window).width();
+            $(".page").each(function(index){//각 페이지마다 스크롤 해야할 일 지청
+               $(this).attr("data-page", win_h*index); 
+            });
+            $(".page").on("mousewheel",function(e){
+                var secPos = parseInt($(this).attr("data-page"));
+               if(e.originalEvent.wheelDelta > 0){//위로 스크롤 할때
+                   $("body, html").not(":animated").animate({scrollTop:secPos - win_h}, 600);
+               } else if(e.originalEvent.wheelDelta < 10){//아래로 스크롤할 때
+                   $("body, html").not(":animated").animate({scrollTop:secPos + win_h}, 600);
+               }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+           $(".menu_call, .close_btn").click(function(){
+               $(".fnb").toggleClass("on");
+           });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var win_h = $(window).height();
+            var wd = $(window).width();
+            $(".page").each(function(index){
+               $(this).attr("data-page", win_h*index) 
+            });
+            $(".next_page").click(function(){
+                var np = parseInt($(this).attr("data-target"));
+        $("body,html").not(":animated").animate({scrollTop:np*win_h}, 400);
+        });
+        });
+      
+    </script>
+</head>
+<body>
+    <div class="page" id="page1">
+       <div class="motion"></div>
+        <h2 class="page_tit1">LIFE MEETS LIFE</h2>
+        <span class="num1"></span>
+        <a href="" class="more1">
+            <span class="txt">삶을 마주하는 금융을 합니다.</span><br>
+            <span class="txt">VIEW MORE</span>
+            <span class="plus"></span>
+        </a>
+        <div class="next_page" data-target="1"></div>
+    </div>
+    <div class="page" id="page2">
+        <h2 class="page_tit2">LIFEPLUS<br>AMBASSADOR</h2>
+        <span class="num2"></span>
+        <a href="" class="more2">
+            <span class="txt">라이프플러서 엠버서더 4기를 소개합니다.</span><br>
+            <span class="txt">VIEW MORE</span>
+            <span class="plus2"></span>
+        </a>
+        <div class="next_page" data-target="2"></div>
+    </div>
+    <div class="page" id="page3">
+        <h2 class="page_tit3">LIFEPLUS<br>Brand Film</h2>
+        <span class="num3"></span>
+        <a href="" class="more3">
+            <span class="txt">LIFEPLUS가 추구하는 삶의 풍요로움</span><br>
+            <span class="txt">VIEW MORE</span>
+            <span class="plus3"></span>
+        </a>
+        <div class="next_page" data-target="0"></div>
+    </div>
+    <header class="hd">
+        <a href="index.html" class="logo">
+            <img src="./img/logo.png" alt="로고">
+        </a>
+        <label for="ck" class="menu_call">
+            <img src="./img/menu.png" alt="메뉴">
+        </label>
+    
+    <nav class="fnb">
+       <a href="index.html" class="col_logo">
+           <img src="./img/logotype.png" alt="컬랩로고">
+       </a>
+       <label for="ck" class="close_btn">
+           <img src="./img/cancel.png" alt="닫기버튼">
+       </label>
+        <ul class="col_menu">
+            <li class="item1">
+                <a class="ad">ABOUT</a>
+                <ul class="sub_box">
+                    <li class="sub1"><a href="#">ABOUT LIFEPLUS</a></li>
+                    <li class="sub1"><a href="#">LIFEPLUS BI/VI</a></li>
+                </ul>
+            </li>
+            <li class="item2"><a href="">SERVICE</a></li>
+            <li class="item3"><a class="ad">PROMOTION</a>
+                <ul class="sub_box">
+                    <li class="sub1"><a href="#">GALLERY</a></li>
+                </ul>
+            </li>
+            <li class="item4"><a href="">STORY</a></li>
+            <li class="item5"><a href="">AMBASSADOR</a></li>
+            <li class="item6"><a href="">NOTIFICATION</a></li>
+        </ul>
+        <ul class="sns_menu">
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_fb.png" alt="페북">
+                </a>
+            </li>
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_instagram.png" alt="인스타그램">
+                </a>
+            </li>
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_youtube.png" alt="유튜브">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+</body>
+</html>
