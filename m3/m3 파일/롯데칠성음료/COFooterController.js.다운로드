@@ -1,0 +1,53 @@
+define(["ezCtrl"], function(ezCtrl) {
+
+	"use strict";
+
+	// set controller name
+	var exports = {
+		controller : "controller/COFooterController"
+	};
+
+	// get controller object
+	var footerCtrl = new ezCtrl.controller(exports.controller);
+	
+	//Family-url 담기위한 변수
+	var urlLink = null;
+
+	// set model
+	footerCtrl.model = {
+		id : {
+			btn_link : {
+				event : {
+					click : function(e){
+						e.preventDefault();
+						window.open(urlLink);
+					}
+				}
+			}
+		},
+		classname : {
+			chilsungMall : {
+				event : {
+					click : function(e){
+						e.preventDefault();
+						window.open("http://mall.lottechilsung.co.kr/");
+					}
+				}
+			},
+			familyNm : {
+				event : {
+					click : function(){
+						urlLink = $(this).data().val;
+					}
+				}
+			}
+		},
+		immediately : function() {
+		}
+	};
+
+	// execute model
+	footerCtrl.exec();
+
+	return exports.controller;;
+});

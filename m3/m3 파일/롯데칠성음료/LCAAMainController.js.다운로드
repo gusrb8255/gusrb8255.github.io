@@ -1,0 +1,148 @@
+define([ "ezCtrl" ], function(ezCtrl) {
+
+	"use strict";
+
+	// set controller name
+	var exports = {
+		controller : "controller/lca/lcaa/LCAAMainController"
+	};
+
+	// get controller object
+	var ctrl = new ezCtrl.controller(exports.controller);
+	
+	ctrl.newsList = function(){
+		$.ajax({
+			type : 'post',
+			url : './getNewsList.ajax',
+			dataType : 'html',
+			success : function(e){
+				$('#newsList').html(e);
+				
+				//mainCon1 뉴스리스트
+				var newsListN = 0, newsMove = false;
+
+				if($(".mainCon.one .content .newsList .rightA .list").size() < 2) $(".mainCon.one .content .newsList .leftA .btnA").hide();
+				if($(".mainCon.one .content .newsList .rightA .list").size() > 2) $(".mainCon.one .content .newsList .leftA .btnA").show();
+				$(".mainCon.one .content .newsList .leftA .btnA a").each(function(index){
+					$(this).click(function(){
+						if(!index){
+							//위
+							if(!newsMove){
+								newsMove = true;
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0.6, {top:"-100%", ease:Power3.easeOut});
+								newsListN ++;
+								if(newsListN > $(".mainCon.one .content .newsList .rightA .list").size() - 1) newsListN = 0;
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0, {top:"100%", ease:Power3.easeOut});
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0.6, {top:0, ease:Power3.easeOut, onComplete:function(){
+									newsMove = false;
+								}});
+							}
+						}else{
+							//아래
+							if(!newsMove){
+								newsMove = true;
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0.6, {top:"100%", ease:Power3.easeOut});
+								newsListN --;
+								if(newsListN < 0) newsListN = $(".mainCon.one .content .newsList .rightA .list").size() - 1;
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0, {top:"-100%", ease:Power3.easeOut});
+								TweenMax.to($(".mainCon.one .content .newsList .rightA .list").eq(newsListN), 0.6, {top:0, ease:Power3.easeOut, onComplete:function(){
+									newsMove = false;
+								}});
+							}
+						}
+					});
+				});
+			},
+			error : function(){
+				
+			}
+		});
+	};
+	
+	ctrl.olderStoryList = function(){
+		$.ajax({
+			type : 'post',
+			url : './getOlderStoryList.ajax',
+			dataType : 'html',
+			success : function(e){
+				$('#olderStoryList').html(e);
+				
+				//mainCon3 swiper
+				if($(".recruitRollD .swiper-slide").size() < 2){
+					var mCon3Swiper = new Swiper('.recruitRollD .swiper-container', {
+						 pagination: {
+							el: '.swiper-pagination',
+							clickable: true,
+						},
+						on: {
+							init : function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.activeIndex).addClass("on");
+							},
+							slideChangeTransitionStart: function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.previousIndex).removeClass("on");
+							},
+							slideChangeTransitionEnd: function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.activeIndex).addClass("on");
+							},
+						}
+					});
+					mCon3Swiper.allowSlidePrev = false;
+					mCon3Swiper.allowSlideNext = false;
+				}else{
+					var mCon3Swiper = new Swiper('.recruitRollD .swiper-container', {
+						 pagination: {
+							el: '.swiper-pagination',
+							clickable: true,
+						},
+						loop: true,
+						on: {
+							init : function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.activeIndex).addClass("on");
+							},
+							slideChangeTransitionStart: function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.previousIndex).removeClass("on");
+							},
+							slideChangeTransitionEnd: function(){
+								$(".mainVisual .swiper-slide .txtArea").eq(this.activeIndex).addClass("on");
+							},
+						}
+					});
+				}
+			},
+			error : function(){
+				
+			}
+		});
+	};
+	
+	ctrl.recruitList = function(){
+		$.ajax({
+			type : 'post',
+			url : './getRecruitList.ajax',
+			dataType : 'html',
+			success : function(e){
+				$('#recruitList').html(e);
+			},
+			error : function(){
+				
+			}
+		});
+	};
+	
+	// set model
+	ctrl.model = {
+		id : {			
+		},
+		classname : {			
+		},
+		immediately : function() {
+			// do something...
+			ctrl.newsList();
+			ctrl.olderStoryList();
+			ctrl.recruitList();
+		}
+	};
+	// execute model
+	ctrl.exec();
+	return exports.controller;
+});

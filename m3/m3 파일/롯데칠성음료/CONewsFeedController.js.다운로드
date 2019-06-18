@@ -1,0 +1,151 @@
+define(["ezCtrl"], function(ezCtrl) {
+
+	"use strict";
+
+	// set controller name
+	var exports = {
+		controller : "controller/CONewsFeedController"
+	};
+
+	// get controller object
+	var ctrl = new ezCtrl.controller(exports.controller);
+	
+	var getReady = true;
+	var cpage = 0;
+	 
+	// create object function	
+	ctrl.getNewsFeed = function(){
+		
+		if(getReady){
+			
+			cpage += 1;
+			
+			$.ajax({
+				type : 'post',
+				url : '/' + $('body').data('drvNm') + '/newsfeed/list.ajax',
+				data : {
+					pageIndex : cpage
+				},
+				dataType : 'html',
+				beforeSend : function(){
+					getReady = false;
+				},
+				success : function(e){
+					var cnt = 0;
+					
+					var $items;
+					$.each($(e), function(index, elem){					
+						if(elem.nodeName == 'A'){
+						
+							if($(elem).find('p.img').length == 0){
+								$(elem).find(".txtArea").css("border-top","1px solid rgba(255, 255, 255, 0.4)");
+							}
+							
+							if (!$items) {
+								$items = $(elem);
+							} else {
+								$items.after($(elem));
+							}
+
+							cnt++;
+						}
+					});
+					$('#newFeedList').append($items)
+						.isotope('appended' ,$items).imagesLoaded().progress(function() {
+						$("#newFeedList").isotope('layout')
+					}).isotope('layout');
+
+					
+					if(cnt == 0){
+						alert("더 이상 조회 가능한 뉴스피드가 없습니다.");
+					}
+					
+					getReady = true;
+				},
+				error : function(){
+					getReady = true;
+				},
+				complete : function(){
+					getReady = true;
+				}
+			});
+		}
+		
+		
+	};
+	
+	// set model
+	ctrl.model = {
+		id : {
+			feedMore : {
+				event : {
+					click : function(){
+						ctrl.getNewsFeed();	
+					}
+				}
+			},
+			closeNewsFeedPop : {
+				event : {
+					click : function(){
+						//딛기 버튼을 누르면 뉴스피드 페이징이 초기화된다.
+						cpage = 0;
+						
+						//더보기 버튼으로 누적되는 elem 들을 비워준다.
+						$('#newFeedList').empty();
+					}
+				}
+			}
+		},
+		classname : {
+			
+		},
+		immediately : function(){
+			
+
+			
+			try {
+			$(".newsFeed").click(function(){
+
+				
+				$(".newsFeedPop").mCustomScrollbar({
+					scrollInertia:50,
+					advanced:{
+						updateOnContentResize: true
+					}
+				});
+				
+				$(".newsFeedPop .closeBtn").stop(true, true).fadeIn(400, function(){
+					TweenMax.to($(".newsFeedPop .headTit"), 0.6, {opacity:1, ease:Power3.easeOut});
+					TweenMax.to($(".newsFeedPop .listDiv"), 0.6, {opacity:1, delay:0.2, ease:Power3.easeOut});
+				});
+				
+				$(".newsFeedPop").stop(true, true).fadeIn(400,function(){
+					$("#newFeedList").isotope({							
+						itemSelector : "#newFeedList .list",
+					});					
+					$(window).resize();	
+
+					ctrl.getNewsFeed();	
+					
+				});
+				
+				$("body").css("overflow","hidden");
+				
+				/*$(".newsFeedPop .listDiv .list").each(function(){
+					if(!$(this).find("img").size() > 0){
+						$(this).find(".txtArea").css("border-top","1px solid rgba(255, 255, 255, 0.4)");
+					}
+				});*/
+			});
+			
+			} catch(e) {
+				console.log(e);
+			}
+		}
+	};
+
+	// execute model
+	ctrl.exec();
+
+	return ctrl;
+});

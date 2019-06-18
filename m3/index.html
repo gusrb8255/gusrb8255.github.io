@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shorticon icon" href="./img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/reset.css">
+
+    
+    
+    <title>롯데칠성음료</title>
+    <style>
+        *{ margin: 0 auto; padding: 0 auto;}
+        body, html{font-family:'Noto Sans KR', sans-serif; width: 100%; height: 100%; }
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        button,label,input{background: transparent; border: 0; outline: 0;}
+        #page{position: relative;}
+        
+        
+        .hd{width: 100%; height: 70px; position: fixed; 
+        top: 0; left: 0; background-color: #fff;  z-index: 99; transition: all 0.5s; border-bottom: 2px solid #ccc;}
+        .hd.on{background: rgba(0,0,0,0); background-color: transparent;
+        border: none;}
+        .lst{width: 24px; height: 24px; background-image: url("./img/menu.png"); background-position: center center; margin-top: 23px; margin-left: 20px;  background-size: 24px auto; background-repeat: no-repeat;}
+        .lst.on{background-image: url("./img/menu.png");}
+        .logo{width: 190px; height: 48px; background-image: url("./img/logo.png"); background-position: center center; margin: 0 auto; background-repeat: no-repeat; background-size: 150px auto; margin-top: -36px;}
+        
+        .collap{ position: fixed; width: 100vw; height: 100%; z-index: 999; left: -110%; top: 0; transition: all 0.5s; background: #fff;}
+        .collap.on{left: -15%;}
+        .c_logo{width: 50px; height: 70px; background-image: url("./img/c_logo.png"); background-position: center center; background-size: 40px auto; background-repeat: no-repeat; float: left; margin-top: 0; margin-left: 16%; }
+        .close{ width: 24px; height: 24px; background-image: url("./img/close.png"); background-position: center center; background-size: 24px auto; float: right; margin-top: 23px; margin-right: 20px;}
+        .gnb{width: 100%; clear: both; padding-top: 40px;}
+        .gnb ul{width: 100%; height: 70%;  margin: 0 auto;}
+        .gnb li{line-height: 50px; border-bottom: 2px solid #eee;
+        padding: 10px; text-align: right;}
+        .gnb li a{ color: #333; font-size: 24px; margin-right: 15px; font-weight: bold;}
+        .wrap {clear:both; margin-left: 0; width: 100%; height:100%; transition: 0.5s; position:relative; }
+        .wrap.on{margin-left:0; background: rgba(0,0,0,.4);}
+        
+         #vs1{clear:both; width:100vw; height: 100vh; overflow: hidden; position: relative; margin-top: 17%;}
+        .img_box{width: 600%; height: 100%;}
+        .img_box li {float: left; width: 17%; height: 100%; position: relative;}
+        .img_box .img_con {display: block; width:100%; height:auto;}
+        
+        .play{display: block; position: absolute; background-image: url(./img/btn_play.png); background-size:40px 40px; bottom: 19%; left: 5%;  z-index: 11; width: 40px; height: 40px; background-repeat: no-repeat; }
+        
+        .btn_frame { position: absolute; bottom: 15%; left: 38%;
+        z-index: 20; width: 60%;}
+        .btn_box{ height: 16px; width: 100%; position: relative;}
+        .btn_box li {position: absolute; width: 16px; height: 16px; margin: 0 auto; }
+        .btn_box li.on button{background-color: #a36b4f;}
+        .btn_box li.item1 { left: 0;}
+        .btn_box li.item2 { left: 16px;}
+        .btn_box li.item3 { left: 32px;}
+        .btn_box li.item4 { left: 48px;}
+        .btn_box li.item5 { left: 64px;}
+        .btn_box li.item6 { left: 80px;}
+        .btn_box li button{display: block; width: 8px; height:11px; border-radius: 5px; background-color: #ccc;}
+        div.auto_play { left: 94px; top:-1px; position:absolute; width: 16px; height: 16px; z-index:30; }
+        .auto_play button{width: 16px; height:16px;  background-image:url("./img/btn_autostop.png"); background-position:center top; background-repeat:no-repeat; border:0; border-radius:0;}
+        div .auto_play.on button{background-position:center -37px;}
+        
+        #vs2{width: 100vw;height:100%; margin-top: -72px;
+            border-top: 2px solid #ccc;}
+        .slide_01_inner{position: relative;}
+        .p_text{color: #fff; position: absolute; bottom: 55%; left: 8%; font-size: 32px; font-weight: bold; text-shadow: 1px 1px 3px #666;}
+        .p_text2{color: #fff; position: absolute; bottom: 46.5%; left: 8%; font-size: 32px; font-weight: bold; text-shadow: 1px 1px 3px #666;}
+        
+        .vs3{ clear:both; width:100vw; height: 130vh; overflow: hidden; position: relative;}
+        .title{ color: #ccc; font-size: 3em; font-weight: bold; text-align: center; padding-top: 20px;}
+        .vs3 .contents .cont{ width: 250px; height: 250px; display: block;}
+        .contents{ position: relative;}
+        .cont img {width: 250px; height: 250px;}
+        .cont01{ position: absolute; top: 100px; left: 15px;}
+        .cont02{ position: absolute; top: 300px; right: 15px;}
+        .cont03{ position: absolute; top: 500px; left: 15px; z-index: 5;}
+        .cont04{ position: absolute; top: 700px; right: 15px; z-index: 6;}
+        
+        .vs4{clear:both; width:100vw; height: 40vh; overflow: hidden; position: relative; border-bottom: 1px solid #ccc}
+        .banner{ width: 100%; height: auto; display: block; position: absolute; bottom: 0; left: 0;}
+        .banner img{display: block; width: 100%; height: auto;}
+        .tit_box3{ position: absolute; top: 0; left: 0; line-height: 40px; padding: 10px 15px;}
+        .text1{ font-weight: bold; font-size: 1.4em; color: #333;}
+        .text2 {font-weight: lighter; font-size: 1.7em; color: #333;}
+        .text3{ line-height: 20px; font-size: 0.9em; color: #717574;}
+        
+        
+        
+        
+        
+        .ft{ clear: both; height: auto; border-top: 1px solid #ccc; width: 100%; height: auto; background-color: #fff;}
+        .ft_logo{display: block; width: 140px; height: 38px; margin: 0 auto; margin-top: 15px;}
+        .ft_logo img{width: 140px;height: 38px;}
+        .fnb{width:100%;}
+        .fnb_box{margin: 0 auto; text-align: center;}
+        .fnb li {display: inline-block; padding: 15px 0;}
+        .fnb li a{font-size: 0.8em;}
+        .fnb li a:after{content: "·"; padding: 2px;}
+        .fnb li:last-child a:after{content: "";}
+        
+        .item2>a{font-weight: bold}
+        .fnb a{font-size: 14px; color: #8a8d8f;}
+        .addr2{clear: both; font-size: 0.8em; line-height: 20px;
+        padding-left: 15px; color: #8a8d8f;}
+        .copyright{padding-left: 15px; text-align: left; font-size: 0.8em; color: #ccc; line-height: 20px; padding-bottom: 30px;}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+    <script>//collap 스크립//
+        $(document).ready(function(){
+            $(".lst").click(function(){
+               $(".collap").addClass("on");
+                $(".wrap").addClass("on");
+            });
+            $(".close").click(function(){
+               $(".collap").removeClass("on");
+                $(".wrap").removeClass("on");
+            });
+            $(window).scroll(function(){
+                var par = parseInt($(window).scrollTop());
+                if(par>=200){
+            $(".hd").addClass("on");
+            $(".lst").addClass("on");
+                } else {
+            $(".hd").removeClass("on");
+            $(".lst").removeClass("on");
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){ 
+        var wd = parseInt($(window).width());
+        var intv = setInterval(function(){
+            nextAni();
+        }, 3000);
+        function nextAni(){
+            $(".img_box").not(":animated").animate({"margin-left":-wd+"px"},800, function(){
+                $(".img_box li").eq(0).appendTo($(".img_box"));
+                $(".img_box").css("margin-left", "0px");
+                $(".btn_box li").eq(0).appendTo($(".btn_box"));
+                $(".btn_box li").removeClass("on");
+                $(".btn_box li").eq(0).addClass("on");
+            }); 
+        }
+         var sw = true;
+        $(".auto_play").click(function(){ 
+        if(sw==true){
+             $(this).addClass("on");
+             clearInterval(intv);
+         } else {
+             $(this).removeClass("on");
+             nextAni();
+             intv = setInterval(function(){
+             nextAni();
+                        }, 3000);
+                }
+            sw= !sw;
+        }); 
+            
+    });
+    </script>
+    <link rel="stylesheet" href="./css/ktswiper.css">
+    <script src="./js/ktswiper.min.js"></script>
+    <script>
+         $(document).ready(function() {
+            $("#vs2").ktswiper({
+                infinite: true, //양방향 무한 모션
+                speed: 300, // 슬라이드 스피드
+                autoplay: false, //자동플레이 유무( false시 자동플레이 안됨 )
+                autoplaySpeed: 4000, // 자동플레이 스피드
+                slidesToShow: 1, //한 화면에 보여줄 아이템수
+                slidesToScroll: 1, // 한번에 슬라이드 시킬 아이템 개수
+                arrows: false //좌우 화살 버튼 노출 여부 ( false 시 안보임 )
+            });
+        });
+    </script>
+</head>
+<body>
+   <div class="collap">
+       <div class="c_logo">
+       </div>
+       <div class="close"></div>
+       <div class="gnb">
+           <ul class="menu">
+               <li class="item1"><a href="sub1.html">기업소개</a></li>
+               <li class="item2"><a href="sub2.html">제품소개</a></li>
+               <li class="item3"><a href="sub3.html">투자정보</a></li>
+               <li class="item4"><a href="sub4.html">인재채용</a></li>
+               <li class="item5"><a href="sub5.html">오픈이노베이션</a></li>
+           </ul>
+       </div>
+   </div>
+    <div class="wrap">
+        <header class="hd">
+            <div class="lst"></div>
+            <div class="logo"></div>
+        </header>
+        <div id="vs1">
+            <ul class="img_box">
+                <li class="item1">
+                    <img src="././img/cf1.jpg" alt="광고1" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+                <li class="item1">
+                    <img src="././img/cf2.jpg" alt="광고2" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+                <li class="item2">
+                    <img src="././img/cf3.jpg" alt="광고3" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+                <li class="item3">
+                    <img src="././img/cf4.jpg" alt="광고4" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+                <li class="item4">
+                    <img src="././img/cf5.jpg" alt="광고5" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+                <li class="item5">
+                    <img src="././img/cf6.jpg" alt="광고6" class="img_con" width="380" height="550">
+                    <a href="" class="play"></a>
+                </li>
+            </ul>
+            <div class="btn_frame">
+                 <ul class="btn_box">
+                    <li class="item1 on"><button></button></li>
+                    <li class="item2"><button></button></li>
+                    <li class="item3"><button></button></li>
+                    <li class="item4"><button></button></li>
+                    <li class="item5"><button></button></li>
+                    <li class="item6"><button></button></li>
+                </ul>
+                <div class="auto_play"><button></button></div>
+            </div>
+        </div>
+        <ul id="vs2" class="ktswiper-track">
+            <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+                <div class="slide_01_inner">
+                    <div class="img_wrap">
+                        <img src="./img/hand_bg.jpg" alt="페이지전면1">
+                    </div>
+                    <div class="text_box">
+                        <p class="p_text">
+                        언제 어디서나 모든 순간<br><br>
+                        고객의 곁에서<br><br>함께합니다.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+                <div class="slide_01_inner">
+                    <div class="img_wrap">
+                        <img src="./img/ff_bg.jpg" alt="페이지전면2">
+                    </div>
+                    <div class="text_box">
+                        <p class="p_text">
+                        맑고 깨끗한 제품으로,<br><br>건강한
+                        생태계<br><br> 환경을 만듭니다.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+                <div class="slide_01_inner">
+                    <div class="img_wrap">
+                        <img src="./img/puter_bg.jpg" alt="페이지전면3">
+                    </div>
+                    <div class="text_box">
+                        <p class="p_text2">
+                        끊임없는 혁신과<br><br> 변화를 통해,<br><br>
+                        더 큰 미래를 향해<br><br>나아갑니다.
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="vs3" id="#page">
+            <div class="contents">
+                <h2 class="title">Company</h2>
+                <div class="cont cont01">
+                    <img src="./img/conten01.jpg" alt="컨텐츠 1">
+                </div>
+                <div class="cont cont02">
+                    <img src="./img/conten02.jpg" alt="컨텐츠 2">
+                </div>
+                <div class="cont cont03">
+                    <img src="./img/conten03.jpg" alt="컨텐츠 3">
+                </div>
+                <div class="cont cont04">
+                    <img src="./img/conten04.jpg" alt="컨텐츠 4">
+                </div>
+            </div>
+        </div>
+        <div class="vs4" "#page">
+            <div class="banner">
+                    <img src="./img/banner.jpg" alt="배너">
+            </div>
+            <div class="tit_box3">
+                <p class="text1">여러분의 아이디어가 실현되는</p>
+                <p class="text2">오픈이노베이션에 참여하세요!</p>
+                <p class="text3">롯데칠성음료는 누구나 참여할 수 있는 오픈이노베이션을 통해 다향한 아이디어를 발굴하는 열린 혁신을 추구합니다.</p>
+            </div>
+        </div>
+        <footer class="ft">
+               <div class="ft_logo">
+                    <img src="./img/footer_logo.png" alt="푸터로고">
+               </div>
+            <nav class="fnb">
+                <ul class="fnb_box">
+                    <li class="item1"><a href="">이용약관</a></li>
+                    <li class="item2"><a href=""><b>개인정보처리방침</b></a></li>
+                    <li class="item3"><a href="">롯데칠성몰</a></li>
+                    <li class="item4"><a href="">신문고</a></li>
+                    <li class="item5"><a href="">사이트맵</a></li>
+                </ul>
+            </nav>
+        <address class="addr2">서울특별시 송파구 올림픽로 269 롯데캐슬골드 4,5층</address>
+        <address class="addr2">TEL : 02-3479-9114</address>
+        <address class="addr2">FAX : 02-536-9767</address>
+        <address class="addr2">대표이사 : 이영구</address>
+        <p class="copyright">Copyright &copy; 2019 LOTTE CHILSUNG BEVERAGE ALL RIGHTS  RESERVED.</p>
+       
+        </footer>
+    </div>
+        
+</body>
+</html>

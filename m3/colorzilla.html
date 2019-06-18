@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{padding: 0; margin: 0;}
+    .ck1{vertical-align: middle; display: none;}
+    .ck1 + label {display: block; width: 100px; line-height: 2;
+    padding-left: 34px; background-image: url("./img/rdo_box.png"); background-repeat: no-repeat;
+    background-size: 32px; background-position: left center;
+    color: #333;}
+    .ck1:checked + label {display: block; background-image: url("./img/ck_img.png"); color: #e4007f;}
+    ul{width:100%;height: 45px; border: 1px solid #ccc;}
+    ul li{float: left; list-style: none; padding-left: 10px;
+    margin-top: 5px; width: 80px;}
+</style>
+<body>
+    <div class="rd_group">
+        <h4>좋아하는 장르</h4>
+        <ul class="rd_lst">
+            <li class="rdo_frm">
+                <input type="ckeckbox" class="ck1" id="ck_1">
+                <label for="ck1">힙합</label>
+            </li>
+            <li class="rdo_frm">
+                <input type="radio" class="ck1" id="ck_1">
+                <label for="ck1">발라드</label>
+            </li>
+            <li class="rdo_frm">
+                <input type="radio" class="ck1" id="ck_1">
+                <label for="ck1">댄스</label>
+            </li>
+            <li class="rdo_frm">
+                <input type="radio" class="ck1" id="ck_1">
+                <label for="ck1">알앤비</label>
+            </li>
+        </ul>
+    </div>    
+    <div class="sw_group">
+        <ul class="sw_lst">
+            <li class="sw_fr">
+                <input type="checkbox" class="sw" id="sw1">
+                <label for="sw1" id="sw1"></label>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

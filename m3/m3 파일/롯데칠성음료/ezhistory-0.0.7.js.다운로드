@@ -1,0 +1,410 @@
+document.write("<script src=\"/common/js/lib/ezhistory/jquery.history.js\" type=\"text/javascript\"></script>");
+/*
+ * version 0.0.7
+ * 2018.01.17
+ * html5 에 대응하는 history.pushState 메소드를 활용
+ * state 객체의 경우 직렬화 크기는 최대 640 Kb 로 제한
+
+ * ipad, iphone, mac os safari 예외 처리   2018.02.08
+ * parameter 정보가 url 상에 존재할 경우 예외처리 .. 2018.02.08
+ * form 값 및 page 정보 폼에서 전달받기 위한 로직 추가 .. 2018.02.09
+ * form 의 파라미터 값들 히스토리 객체에서 재셋팅 로직 추가 .. 2018.02.13
+ * _getUrlInfos 메서드 추가 .. 2018.02.14
+ * _initChrome => _initSessionStorage 메서드 명 변경 .. 2018.02.14
+ * _getDatasChrome => _getDatasForSessionStorage 메서드 명 변경 .. 2018.02.14
+ * _focus 메서드 추가 .. 2018.02.28
+ * options 에 item node, pagesize, scroll 추가 .. 2018.02.28
+ * _moreBtnProcess, _scroll 메서드 추가 .. 2018.02.28
+ * _checkHistoryUrl 메서드 추가 ... 2019.01.17 -> 다른 페이지에서 잘못된 history 데이터가 쓰일 수 있다.
+ * _checkHistoryUrl 메서드 내에 #init 값이 있으면 (GNB, LNB 에서 초기화 성격으로 접근할 경우)
+ *							historyUrl 을 날려주고, historyData 를 가져오지 않는다.
+ */
+(function ($) {
+	$.fn.ezhistory = function(_options, callback) {
+
+		var options = $.extend({}, $.fn.ezhistory.defaults , _options);
+		var initpage = options.page;
+		var page = !isNaN(initpage) ? parseInt(initpage) : 1;
+		var currUrl = null;
+		var displayClickselectorInit = $(options.clickselector).css("display") != "none" ? true : false;
+		var _init = function(that) {
+
+		    var agent = navigator.userAgent.toLowerCase();
+			_checkHistoryUrl();
+            // IE 11 버전인 경우는 msie 가 삭제 !! IE 10 버전 이하만 검색할 수 있다.
+		    if (agent.indexOf('msie') != -1) {
+		        _initNormal(that);
+		    }
+		    // html5 sessionstorage 를 지원하는 경우는 _initSessionStorage 사용 
+			// html4 브라우저일 경우 _initNormal 사용
+		    // 진짜 모바일디바이스(에뮬레이터 말고) 의 IOS 사파리일 경우 _initNormal(that, true) 사용 -- 사파리도 _initSessionStorage 을 사용 가능하나 브라우저에서 이미 지원됨.
+		    // 사파리 브라우저 중복을 방지하기 위해서 _initSesstionStorage 대신 _initNormal(that, true) 사용
+		    // _initNormal의 경우는 Safari iphone만 적용 ipad는 미적용됨을 Test 결과로 확인 및 아이폰만 예외처리 (safari인 경우 version 이 들어간다) 2018.02.21
+		    // 브라우저 뒤로가기 제외 웹상 a 태그로 이동시 _initNormal이 적용 안되는 현상. _initSessionStorage(that)으로 통일 2018.02.21
+
+		    _initSessionStorage(that);
+
+		    $(window).resize();
+		}
+
+		var _debug = function(obj, title) {
+			if (options.debug && console) {
+				if (title != undefined)
+					console.log(title + ": ",obj);
+				else
+					console.log(obj);
+			}
+		}
+
+		var _getUrlInfos = function(_page) {
+
+		    //var curl = !currUrl ? currUrl : location.href.split('?')[0].split('#')[0];
+		    var curl = currUrl ? currUrl : location.href.split('?')[0].split('#')[0];
+			var param = options.pageparameter.replace("{0}",_page);
+
+			var ajaxurl = "";
+			if (options.ajaxurl.indexOf("{0}") > 0) {
+				ajaxurl = options.ajaxurl.replace("{0}",param);
+			} else {
+				ajaxurl = options.ajaxurl.indexOf("?") > 0 ? 
+							options.ajaxurl + "&" + param :
+							options.ajaxurl + "?" + param;
+			}			
+			var getUrlInfos = {curl:curl, ajaxurl:ajaxurl};
+			_debug(getUrlInfos);
+			return getUrlInfos
+		}
+		var _initNormal = function(that, NotInitialize) {
+			var urlInfos = _getUrlInfos(page);
+			var curl = urlInfos.curl;
+			var ajaxurl = urlInfos.ajaxurl;
+
+			_debug("_initNormal call");
+			
+			if (!NotInitialize) {
+				_debug("initialize");
+				var state = typeof(History.getState) != "undefined" ? History.getState() : null;
+				if (state != null && state.data != null) {
+					$(that).html(state.data.datas);
+					page = state.data.page != null ? state.data.page : initpage;
+					_debug(state.data);
+					$(options.formselector).find("input, select, text").each(function () {
+						var key = $(this).attr("name");
+						var value = state.data[key];
+						if (!value) {
+							if ($(this).attr("type")=="radio") {
+								if (this.value == value)
+									$(this).prop("checked", true);
+							} else {
+								$(this).val(value);
+							}
+							_debug(value, key);
+						}
+						
+						/**/
+						$(".srchSel .selectScroll").find("[data-formname='" + key + "'][data-value='" + value + "']").addClass("active").trigger("click");
+						/**/
+					});
+
+					if (options.reloadatserver)
+						History.replaceState(null, "", curl); // 새로고침 이벤트 대응
+					
+					$(that).find("a").click(function () {
+						var params = { "ajax": "true", 'datas': state.data.datas, 'page': page };
+						$(options.formselector).find("input, select, text").each(function () {
+							if ($(this).attr("type") != "radio" ||
+								($(this).attr("type") == "radio" && $(this).is(":checked")))
+								params[$(this).attr("name")] = $(this).val();
+						});
+						History.replaceState(params, ajaxurl, curl);
+					});
+					_debug(options, "options");
+				}
+			}
+			$(options.clickselector).click(function() {
+				_debug("more click");
+				_getDatasNormal(that);
+			});
+			if (typeof (callback) == "function") {
+				_debug("callback function call");
+				callback("inital");
+			}
+		}
+
+		var _getDatasNormal = function (that) {
+			var pageStr = $(options.formselector).find("input[name='page']").val();
+			alert(pageStr);
+			var fpage = parseInt(pageStr);
+
+			if (!isNaN(fpage)) {
+				$(options.formselector).find("input[name='page']").val(++fpage);
+				page = fpage;
+			}
+			else {
+				page++;
+			}
+
+		    // page 가 1 일경우, 이경우는 초기화에 해당하므로, 더 보기 버튼 노출을 초기값으로 설정해줘야 함.
+			if (page === 1 && displayClickselectorInit)
+			    $(options.clickselector).show();
+
+			var urlInfos = _getUrlInfos(page);
+			var curl = urlInfos.curl;
+			var ajaxurl = urlInfos.ajaxurl;
+
+			_debug(ajaxurl, "ajax url");
+
+			var params = { "ajax": "true" };
+
+			$(options.formselector).find("input, select, text").each(function () {
+				if ($(this).attr("type")!="radio" ||
+					($(this).attr("type")=="radio" && $(this).is(":checked")) )
+					params[$(this).attr("name")] = $(this).val();
+			});
+
+			$.get(ajaxurl, params, function (datas) {
+
+				var contents = "";
+				if (page == 1)
+					contents = $(that).html(datas).html();
+				else
+					contents = $(that).append(datas).html();
+
+				params['datas'] = contents;
+				params['page'] = page;
+				params['historyUrl'] = ajaxurl;
+				if (typeof(History.replaceState) != "undefined") {
+					if (options.reloadatserver) {
+						$(that).find("a").click(function() {
+							if (options.replace)
+								History.replaceState(params, ajaxurl, curl);
+							else
+								History.pushState(params, ajaxurl, curl);
+							
+							_debug(params, "history saved datas");
+						});
+					} else {
+						if (options.replace)
+							History.replaceState(params, ajaxurl, curl);
+
+						else
+							History.pushState(params, ajaxurl, curl);
+
+						_debug(params, "history saved datas");
+					}
+				}
+				_moreBtnProcess($("<div></div>").append(datas));
+				$(window).resize();
+				if (typeof(callback) == "function") {
+					_debug("callback function call");
+					callback(datas);
+				}
+			});
+		}
+		var _checkHistoryUrl = function() {
+			var historyUrl, sessionStorage = window.sessionStorage;
+			
+			if (!!sessionStorage)
+			{
+				historyUrl = sessionStorage.getItem('historyUrl');
+				_debug("historyUrl:" + historyUrl );
+				_debug("options.ajaxurl:" + options.ajaxurl );
+				if (document.location.hash.replace("#","") == "init") {
+					historyUrl = "init";
+					window.location.hash = "";
+				}
+				var ajaxUrl = _absolutePath(options.ajaxurl, true);
+				if (!!historyUrl && historyUrl.indexOf(ajaxUrl) == -1)
+				{
+					window.sessionStorage.removeItem('historyDatas');
+					window.sessionStorage.removeItem('historyPage');
+				}
+
+			}
+		}
+		var _initSessionStorage = function (that) {
+			_debug("_initSessionStorage call");
+			var sessionStorage = window.sessionStorage;
+		
+			if (sessionStorage != null && sessionStorage != undefined) {
+				var historyDatas = sessionStorage.getItem('historyDatas');
+				var historyPage = sessionStorage.getItem('historyPage');
+
+
+
+				if (historyDatas != null && $.trim(historyDatas) != "") {
+					_debug(sessionStorage);
+					$(that).html(historyDatas);
+					page = historyPage != null ? historyPage : initpage;
+					window.sessionStorage.removeItem('historyDatas');
+					window.sessionStorage.removeItem('historyPage');
+					$(options.formselector).find("input, select, text").each(function () {
+						var key = $(this).attr("name");
+						var value = sessionStorage.getItem(key);
+						if ($(this).attr("type")=="radio") {
+							if (this.value == value)
+								$(this).prop("checked", true);
+						} else {
+							$(this).val(value);
+						}
+						
+						/**/
+						$(".srchSel .selectScroll").find("[data-formname='" + key + "'][data-value='" + value + "']").addClass("active").trigger("click");
+						/**/						
+					});
+
+					$(that).find("a").click(function() {
+						var params = { "ajax": "true" };
+						$(options.formselector).find("input, select, text").each(function () {
+							if ($(this).attr("type")!="radio" ||
+								($(this).attr("type")=="radio" && $(this).is(":checked")) )
+								params[$(this).attr("name")] = $(this).val();
+						});
+						window.sessionStorage.setItem('historyDatas', historyDatas);
+						window.sessionStorage.setItem('historyPage', page);
+						$.each(params, function(k,v) {
+							window.sessionStorage.setItem(k, v);
+						});
+						_debug(params, "history saved datas");
+					});
+					_debug(options, "options");
+				}
+			}
+			$(options.clickselector).click(function() {
+				_debug("more click");
+				_getDatasForSessionStorage(that);
+			});
+
+			if (typeof (callback) == "function") {
+				_debug("callback function call");
+				callback("initial");
+			}
+		}
+		var _absolutePath = function(href, ExceptParams) {
+			var link = document.createElement("a");
+			link.href = href;
+			
+			if (link.href && ExceptParams) {
+				link.href = link.href.split('?')[0];
+			}
+			
+			return link.href;			
+		}
+		var _getDatasForSessionStorage = function (that) {
+
+			var pageStr = $(options.formselector).find("input[name='page']").val();
+			var fpage = parseInt(pageStr);
+
+			if (!isNaN(fpage)) {
+				$(options.formselector).find("input[name='page']").val(++fpage);
+				page = fpage;
+			} else {
+				page++;
+			}
+
+		    // page 가 1 일경우, 이경우는 초기화에 해당하므로, 더 보기 버튼 노출을 초기값으로 설정해줘야 함.
+			if (page === 1 && displayClickselectorInit)
+			    $(options.clickselector).show();
+
+			var urlInfos = _getUrlInfos(page);
+			var curl = urlInfos.curl;
+			var ajaxurl = urlInfos.ajaxurl;
+			_debug(ajaxurl, "ajax url");
+
+			var params = { "ajax": "true" };
+
+			$(options.formselector).find("input, select, text").each(function () {
+				if ($(this).attr("type")!="radio" ||
+					($(this).attr("type")=="radio" && $(this).is(":checked")) )
+					params[$(this).attr("name")] = $(this).val();
+			});
+
+
+			$.get(ajaxurl, params, function (datas) {
+				var contents = "";
+				if (page == 1)
+					contents = $(that).html(datas).html();
+				else
+					contents = $(that).append(datas).html();
+			
+				params['historyDatas'] = contents;
+				params['historyPage'] = page;
+
+				params['historyUrl'] = _absolutePath(ajaxurl, true);
+
+				if (window.sessionStorage) {
+					if (options.reloadatserver) {
+						$(that).find("a").click(function(e) {
+							//e.preventDefault();
+							$.each(params, function(k,v) {
+								window.sessionStorage.setItem(k, v);
+							});
+							_debug(params, "history saved datas");
+						});
+					} else {
+							$.each(params, function(k,v) {
+								window.sessionStorage.setItem(k, v);
+							});
+						_debug(params, "history saved datas");
+					}
+
+				}
+				if (typeof(callback) == "function") {
+					callback(datas);
+				}
+				_moreBtnProcess($("<div></div>").append(datas));
+				$(window).resize();
+			});
+		}
+		var _focus = function() {
+			var focusId = document.location.hash.replace("#","");
+			$("#" + focusId).focus();
+		}
+		var _moreBtnProcess = function(that) {
+			
+			var htmlNodeSize = $(that).find(options.item).length;
+			
+			if (htmlNodeSize < options.pagesize) {
+				if (displayClickselectorInit)
+					$(options.clickselector).hide();
+			}
+
+		}
+		var _scroll = function() {
+			$(window).scroll(function () {
+				var scrollTop = $(window).scrollTop();
+				var windowHeight = $(window).height();
+				var docuHeight = $(document).height();
+				if (Math.round(scrollTop + windowHeight) >= docuHeight &&
+					$(options.clickselector).hasClass("on") == true) {
+					$(options.clickselector).trigger("click");
+				}
+			});
+		}
+		return this.each(function(i) {
+			if ($(this).attr("data-history") != "true") {
+				_init(this);
+				_focus();
+				_debug("moreBtnProcess:start");
+				_moreBtnProcess(this);
+				_debug("moreBtnProcess:end");
+                if (options.scroll)
+				    _scroll();				
+				$(this).attr("data-history", "true");
+			}
+		});
+	};
+
+	$.fn.ezhistory.defaults = {
+		ajaxurl:"",
+		page:1,
+		pageparameter:"p={0}",
+		replace:true,
+		clickselector:"#idd",
+		reloadatserver:true,
+		debug:false,
+		item: "a",
+		pagesize: 10,
+        scroll:true
+	}
+})(jQuery);
