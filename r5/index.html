@@ -1,0 +1,420 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable=no>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./common.css">
+	<title>아레나</title>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+	<style>
+    @media screen and (max-width:767px){
+        .collaps{display: none;}
+        .left_btn{display: none;}
+        .right_btn{display: none;}
+        
+        .hd{border-bottom: 1px solid #1d9dd9;}
+        .logo{width: 52px; height: 36px; position: absolute;
+        top: calc(50% - 18px); left: calc(50% - 26px); padding: 0;}
+        .desk_menu{display: none;}
+        #gnb{transition: 0.5s; background-color: #fff; display: block;}
+        .menu_call{display: block;}
+        .lst_box li a{color: red;}
+        .close_btn{top: 24px; right: 24px;}
+        
+        .hd2{display: none;}
+        
+        
+    }    
+    @media screen and (min-width:768px) and (max-width:959px){ /* 태블릿 */
+        
+    }
+    @media screen and (min-width:960px){ /* 데스크탑 */
+        
+    }            
+	</style>
+	<script>
+$(document).ready(function(){
+    $(".menu_call").click(function(){
+       $("#gnb").addClass("on");    
+    });
+    $(".close_btn").click(function(){
+       $("#gnb").removeClass("on");
+    });
+});  
+</script>
+    <script>
+        $(document).ready(function(){
+           $(".left_btn, .right_btn").click(function(){
+              $(".collaps, .right_btn, .right_box").toggleClass("on");
+           });
+        });
+    </script> <!--오른쪽 사이드-->
+<script>
+        $(document).ready(function(){
+           $("#gnb .lst_box .item1 .ad").click(function(){
+               $("#gnb .lst_box .item1 .ad").removeClass("on");
+               $("#gnb .lst_box .item1 .sub").css("display","none");
+               $(this).addClass("on");
+               $(this).siblings(".sub").slideDown();
+           });
+        });
+</script>
+</head>
+<body>
+    <nav id="gnb">
+           <label for="ck" class="close_btn">
+               <img src="./img/close.png" alt="닫기">
+           </label>
+            <ul class="lst_box">
+                <li class="item1">
+                   <a class="ad">실내수영복</a>
+                </li>
+                <li class="item2">
+                    <a href="">일본수영복</a>
+                </li>
+                <li class="item3">
+                    <a href="">비치수영복</a>
+                </li>
+                <li class="item4">
+                    <a href="">스포츠웨어</a>
+                </li>
+                <li class="item5">
+                    <a href="">용품 / 액세서리</a>
+                </li>
+            </ul>
+        </nav>
+    <header class="page hd">
+    <div class="collaps">
+      <label for="ck" class="right_btn"></label>
+       <ul class="lst_box2">
+           <li class="row_lst" id="high_logo"><span class="quick_logo"></span></li>
+           <li class="row_lst"><a href="#"><span class="col_icon1"></span>CART</a></li>
+           <li class="row_lst"><a href="#"><span class="col_icon2"></span>CUSTOMER</a></li>
+           <li class="row_lst"><a href="#"><span class="col_icon3"></span>EMAIL</a></li>
+           <li class="row_lst"><a href="#"><span class="col_icon4"></span>카톡상담</a></li>
+           <li class="row_lst last"><a href="#">최근 본 상품</a></li>
+       </ul>
+   </div>
+        <label for="ck" class="left_btn"></label>
+        <a href="#" class="logo">
+            <img src="./img/header_logo.png" alt="로고">
+        </a>
+        <label for="ck" class="menu_call">
+            <img src="./img/menu.png" alt="메뉴">
+        </label>
+        <nav class="desk_menu">
+            <ul class="desk_box">
+                <li class="desk_lst">
+                   <a href="">아레나</a>
+                </li>
+                <li class="desk_lst">
+                    <a href="">스타일</a>
+                </li>
+                <li class="desk_lst">
+                    <a href="">아레나클럽</a>
+                </li>
+                <li class="desk_lst">
+                    <a href="">이벤트</a>
+                </li>
+                <li class="desk_lst">
+                    <a href="">매장안내</a>
+                </li>
+            </ul>
+            <ul class="right_box">
+                <li class="right_lst">
+                    <a href="#">로그인 / 회원가입</a>
+                </li>
+                <li class="right_lst">
+                    <a href="#">장바구니</a>
+                </li>
+                <li class="right_lst">
+                    <a href="#">주문조회</a>
+                </li>
+                <li class="right_lst">
+                    <a href="#">즐겨찾기</a>
+                </li>
+                <li class="right_lst">
+                    <input type="text" name="search" placeholder="Search" class="search" />
+                    <a class="sh_img"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <header class="hd2">
+        <nav class="menu_bar">
+            <ul class="menu_box">
+                <li class="menu_lst">
+                   <a href="">실내수영복</a>
+                   <ul class="sub_menu">
+                      <li class="sub_lst"><a href="">2019 S/S LOOKBOOK</a></li>
+                      <li class="sub_lst"><a href="">신상품</a></li>
+                      <li class="sub_lst"><a href="">가격인하</a></li>
+                      <li class="sub_lst"><a href="">TOUGHSUIT</a></li>
+                      <li class="sub_lst"><a href="">NUDE RACER</a></li>
+                      <li class="sub_lst"><a href="">FINA / T-MAX</a></li>
+                      <li class="sub_lst"><a href="">여자 / 남자</a></li>
+                      <li class="sub_lst"><a href="">여자 / 남자 아동</a></li>
+                   </ul>
+                </li>
+                <li class="menu_lst">
+                    <a href="">일본수입수영복</a>
+                    <ul class="sub_menu">
+                      <li class="sub_lst"><a href="">여자</a></li>
+                      <li class="sub_lst"><a href="">남자</a></li>
+                      <li class="sub_lst"><a href="">여자아동</a></li>
+                      <li class="sub_lst"><a href="">남자아동</a></li>
+                   </ul>
+                </li>
+                <li class="menu_lst">
+                    <a href="">비치수영복</a>
+                    <ul class="sub_menu">
+                      <li class="sub_lst"><a href="">여자</a></li>
+                      <li class="sub_lst"><a href="">남자</a></li>
+                      <li class="sub_lst"><a href="">여자아동</a></li>
+                      <li class="sub_lst"><a href="">남자아동</a></li>
+                   </ul>
+                </li>
+                <li class="menu_lst">
+                    <a href="">스포츠웨어</a>
+                    <ul class="sub_menu">
+                      <li class="sub_lst"><a href="">여자</a></li>
+                      <li class="sub_lst"><a href="">남자</a></li>
+                      <li class="sub_lst"><a href="">여자 아동</a></li>
+                      <li class="sub_lst"><a href="">남자 아동</a></li>
+                   </ul>
+                </li>
+                <li class="menu_lst">
+                    <a href="">용품 / 액세서리</a>
+                    <ul class="sub_menu">
+                      <li class="sub_lst"><a href="">물안경</a></li>
+                      <li class="sub_lst"><a href="">수영모자</a></li>
+                      <li class="sub_lst"><a href="">가방</a></li>
+                      <li class="sub_lst"><a href="">모자</a></li>
+                      <li class="sub_lst"><a href="">스노쿨</a></li>
+                      <li class="sub_lst"><a href="">구명조끼</a></li>
+                      <li class="sub_lst"><a href="">아쿠아슈즈</a></li>
+                      <li class="sub_lst"><a href="">타올</a></li>
+                      <li class="sub_lst"><a href="">킥보드 / 풀판 /헬퍼</a></li>
+                   </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page" id="page1">
+        <div id="contents">
+			<section id="main_section"  class="fl">
+				<section id="main_contents">
+					<div class="main_ban">
+						<div id="container">
+							<ul>
+								<li class="banner"><a href="#"><img src="./img/main_page1.jpg" width="100%"/ alt="슬라이드1"></a></li>
+								<li class="banner"><a href="#"><img src="./img/main_page2.jpg" width="100%"/ alt="슬라이드1"></a></li>
+								<li class="banner"><a href="#"><img src="./img/main_page3.jpg" width="100%"/ alt="슬라이드1"></a></li>
+								<li class="banner"><a href="#"><img src="./img/main_page4.jpg" width="100%"/ alt="슬라이드1"></a></li>
+								<li class="banner"><a href="#"><img src="./img/main_page5.jpg" width="100%"/ alt="슬라이드1"></a></li>
+							</ul>
+						</div>
+                    </div>
+                 </section>
+            </section>
+        </div>
+    </div>
+    <div class="page" id="page2">
+        <div class="title">
+            <h2 class="tit2">ARENA ONLINE-SHOP</h2>
+            <p class="sub_tit">자신의 가능성을 믿고 도전을 계속하는 모든 사람들을 위해</p>
+        </div>
+        <ul class="img_box">
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/cont1.jpg" alt="컨텐츠1">
+                         <span class="ss_tit">
+                            COMPETITION
+                        </span>
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a href="" class="commt">
+                        <span class="ss_tit2">
+                            세계정상을 목표로하는 TOP SWIMMER를 위한 수영복
+                        </span>
+                        <span class="more">사러가기</span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/cont2.jpg" alt="컨텐츠1">
+                        <span class="ss_tit">
+                            INDOOR
+                        </span>
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a href="" class="commt">
+                        <span class="ss_tit2">
+                            빛처럼 날카롭게 스피드 지향점
+                        </span>
+                        <span class="more">사러가기</span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/cont3.jpg" alt="컨텐츠1">
+                     </a> 
+                     <span class="ss_tit">
+                            BEACHWEAR
+                        </span>
+                </div>
+                <div class="text_box">
+                    <a href="" class="commt">
+                        <span class="ss_tit2">
+                            ACTIVE SPORTS BEACH WEAR
+                        </span>
+                        <span class="more">사러가기</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="page" id="page3">
+      <div class="coll_wrap">
+          <h1 class="page3_tit">ARENA COLLECTION</h1>
+           <div class="collec1">
+              <div class="collec_size">
+                   <ul class="collec_box">
+                       <li class="collec_lst lst1">
+                           <img src="./img/lst_img1.jpg" alt="콜렉션1">
+                       </li>
+                       <li class="collec_lst lst4">
+                           <img src="./img/lst_img3.jpg" alt="콜렉션4">
+                       </li>
+                       <li class="collec_lst lst2">
+                           <img src="./img/lst_img2.jpg" alt="콜렉션2">
+                       </li>
+                       <li class="collec_lst lst3">
+                           <a href="#">
+                               <img src="./img/collection_1.jpg" alt="콜렉션3">
+                           </a>
+                       </li>
+                   </ul>
+                   <ul class="collec_box slide_01_inner">
+                       <li class="collec_lst lst1">
+                           <img src="./img/lst2_img1.jpg" alt="콜렉션1">
+                       </li>
+                       <li class="collec_lst lst4">
+                           <img src="./img/lst2_img3.jpg" alt="콜렉션4">
+                       </li>
+                       <li class="collec_lst lst2">
+                           <img src="./img/lst2_img2.jpg" alt="콜렉션2">
+                       </li>
+                       <li class="collec_lst lst3">
+                           <a href="#">
+                               <img src="./img/collection_2.jpg" alt="콜렉션3">
+                           </a>
+                       </li>
+
+                   </ul>
+               </div>
+       </div>
+    </div>
+    </div>
+    <div class="page" id="page4">
+        <div class="video_fr">
+            <video autoplay muted controls loop >
+	        	<source src="./img/video.mp4"> 
+	        </video>
+        </div>
+    </div>
+    <div class="page" id="page5">
+        <div class="catal">
+            <img src="./img/catalogue.jpg" alt="카탈로그">
+        </div>
+    </div>
+    <footer class="ft">
+        <div class="ft_bar">
+            <ul class="ft_box">
+                <li class="ft_lst">
+                    <a href="#">회사소개</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">채용안내</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">이용약관</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">고객센터</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">contact US</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">Site map</a>
+                </li>
+                <li class="ft_lst ft_last">
+                    <a href="#"><span class="ft_kakao"></span>카카오톡 상담하기</a>
+                </li>
+            </ul>
+        </div>
+        <div ft_rowbg>
+        <div class="ft_row">
+            <ul class="ft_first">
+               <h4 class="ft_tit">매장안내</h4>
+                <li class="ft_img">
+                       <a href="#">
+                            <img src="./img/thumb_store_01.png" alt="매장">
+                        </a>
+                </li>
+            </ul>
+            <ul class="ft_second">
+               <h4 class="ft_tit">ARBNA KOREA 고객센터</h4>
+                <li class="second_commt">
+                    <p class="commt_01">1522-5308</p>
+                    <p class="commt_02">평일 : 10:00 ~ 17:00<br>점심시간 : 12:00 ~ 13:00<br>토,일,공휴일 휴무</p>
+                </li>
+            </ul>
+            <ul class="sns_box">
+               <h4 class="ft_tit">Social channel</h4>
+                <li class="sns_lst">
+                        <a href="#">
+                            <img src="./img/icon_facebook.png" alt="페이스북" >
+                        </a>
+                    </li>
+                    <li class="sns_lst">
+                        <a href="#">
+                            <img src="./img/icon_instagram.png" alt="인스타그램">
+                        </a>
+                    </li>
+                    <li class="sns_lst">
+                        <a href="#">
+                            <img src="./img/icon_youtube.png" alt="유튜브" >
+                        </a>
+                    </li>
+                </ul>
+            <ul class="comm_box">
+               <h4 class="ft_tit">Company</h4>
+                <li class="comm_lst">대표자 : 박동진</li>
+                <li class="comm_lst">개인정보관리책임자: 김예서</li>
+                <li class="comm_lst">사업자등록번호 : 372-86-00724</li>
+                <li class="comm_lst">통신판매신고 : 제 2019 서울송파 0809호</li>
+                <li class="comm_lst">주소 : 서울특별시 송파구 올림픽로 599(풍납동)동인빌딩 아레나코리아 주식회사</li>
+            </ul>
+        </div>
+        </div>
+    </footer>
+</body>
+    </html>
