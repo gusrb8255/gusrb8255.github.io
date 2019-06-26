@@ -33,7 +33,7 @@
         border: none;}
         .lst{width: 24px; height: 24px; background-image: url("./img/menu.png"); background-position: center center; margin-top: 23px; margin-left: 20px;  background-size: 24px auto; background-repeat: no-repeat;}
         .lst.on{background-image: url("./img/menu.png");}
-        .logo{width: 190px; height: 48px; background-image: url("./img/logo.png"); background-position: center center; margin: 0 auto; background-repeat: no-repeat; background-size: 150px auto; margin-top: -36px;}
+        .logo{width: 150px; height: 38px; background-image: url("./img/logo.png"); background-position: center center;  background-repeat: no-repeat; background-size: 150px 38px; position: absolute; top: calc(50% - 19px); left: calc(50% - 75px);}
         
         .collap{ position: fixed; width: 100vw; height: 100%; z-index: 999; left: -110%; top: 0; transition: all 0.5s; background: #fff;}
         .collap.on{left: -15%;}
@@ -45,7 +45,7 @@
         padding: 10px; text-align: right;}
         .gnb li a{ color: #333; font-size: 24px; margin-right: 15px; font-weight: bold;}
         .wrap {clear:both; margin-left: 0; width: 100%; height:100%; transition: 0.5s; position:relative; }
-        .wrap.on{margin-left:0; background: rgba(0,0,0,.4);}
+        .wrap.on{background: rgba(0,0,0,.4);}
         
          #vs1{clear:both; width:100vw; height: 100vh; overflow: hidden; position: relative; margin-top: 17%;}
         .img_box{width: 600%; height: 100%;}
@@ -70,13 +70,13 @@
         .auto_play button{width: 16px; height:16px;  background-image:url("./img/btn_autostop.png"); background-position:center top; background-repeat:no-repeat; border:0; border-radius:0;}
         div .auto_play.on button{background-position:center -37px;}
         
-        #vs2{width: 100vw;height:100%; margin-top: -72px;
+        #vs2{ position: relative; width: 100vw;
             border-top: 2px solid #ccc;}
         .slide_01_inner{position: relative;}
         .p_text{color: #fff; position: absolute; bottom: 55%; left: 8%; font-size: 32px; font-weight: bold; text-shadow: 1px 1px 3px #666;}
         .p_text2{color: #fff; position: absolute; bottom: 46.5%; left: 8%; font-size: 32px; font-weight: bold; text-shadow: 1px 1px 3px #666;}
         
-        .vs3{ clear:both; width:100vw; height: 130vh; overflow: hidden; position: relative;}
+        .vs3{ clear:both; width:100vw; height: 160vh; overflow: hidden; position: relative;}
         .title{ color: #ccc; font-size: 3em; font-weight: bold; text-align: center; padding-top: 20px;}
         .vs3 .contents .cont{ width: 250px; height: 250px; display: block;}
         .contents{ position: relative;}
@@ -86,7 +86,7 @@
         .cont03{ position: absolute; top: 500px; left: 15px; z-index: 5;}
         .cont04{ position: absolute; top: 700px; right: 15px; z-index: 6;}
         
-        .vs4{clear:both; width:100vw; height: 40vh; overflow: hidden; position: relative; border-bottom: 1px solid #ccc}
+        .vs4{clear:both; width:100vw; height: 60vh; overflow: hidden; position: relative; border-bottom: 1px solid #ccc}
         .banner{ width: 100%; height: auto; display: block; position: absolute; bottom: 0; left: 0;}
         .banner img{display: block; width: 100%; height: auto;}
         .tit_box3{ position: absolute; top: 0; left: 0; line-height: 40px; padding: 10px 15px;}
@@ -201,18 +201,18 @@
        <div class="close"></div>
        <div class="gnb">
            <ul class="menu">
-               <li class="item1"><a href="sub1.html">기업소개</a></li>
-               <li class="item2"><a href="sub2.html">제품소개</a></li>
-               <li class="item3"><a href="sub3.html">투자정보</a></li>
-               <li class="item4"><a href="sub4.html">인재채용</a></li>
-               <li class="item5"><a href="sub5.html">오픈이노베이션</a></li>
+               <li class="item1"><a href="#">기업소개</a></li>
+               <li class="item2"><a href="sub1.html">제품소개</a></li>
+               <li class="item3"><a href="#">투자정보</a></li>
+               <li class="item4"><a href="#">인재채용</a></li>
+               <li class="item5"><a href="#">오픈이노베이션</a></li>
            </ul>
        </div>
    </div>
     <div class="wrap">
         <header class="hd">
             <div class="lst"></div>
-            <div class="logo"></div>
+            <a href="index.html" class="logo"></a>
         </header>
         <div id="vs1">
             <ul class="img_box">

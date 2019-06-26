@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shorticon icon" href="./img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/reset.css">
+
+    
+    
+    <title>롯데칠성음료</title>
+    <style>
+        *{ margin: 0 auto; padding: 0 auto;}
+        body, html{font-family:'Noto Sans KR', sans-serif; width: 100%; height: 100%;  overflow-x: hidden}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        button,label,input{background: transparent; border: 0; outline: 0;}
+        .page{position: relative; clear: both;}
+        
+        
+        .hd{width: 100%; height: 70px; position: fixed; 
+        top: 0; left: 0; background-color: #fff;  z-index: 99; transition: all 0.5s; border-bottom: 2px solid #ccc;}
+        .hd.on{background: rgba(0,0,0,0); background-color: transparent;
+        border: none;}
+        .lst{width: 24px; height: 24px; background-image: url("./img/menu.png"); background-position: center center; margin-top: 23px; margin-left: 20px;  background-size: 24px auto; background-repeat: no-repeat;}
+        .lst.on{background-image: url("./img/menu.png");}
+        .logo{width: 150px; height: 38px; background-image: url("./img/logo.png"); background-position: center center;  background-repeat: no-repeat; background-size: 150px 38px; position: absolute; top: calc(50% - 19px); left: calc(50% - 75px);}
+        
+        .collap{ position: fixed; width: 100vw; height: 100%; z-index: 999; left: -110%; top: 0; transition: all 0.5s; background: #fff;}
+        .collap.on{left: -15%;}
+        .c_logo{width: 50px; height: 70px; background-image: url("./img/c_logo.png"); background-position: center center; background-size: 40px auto; background-repeat: no-repeat; float: left; margin-top: 0; margin-left: 16%; }
+        .close{ width: 24px; height: 24px; background-image: url("./img/close.png"); background-position: center center; background-size: 24px auto; float: right; margin-top: 23px; margin-right: 20px;}
+        .gnb{width: 100%; clear: both; padding-top: 40px;}
+        .gnb ul{width: 100%; height: 70%;  margin: 0 auto;}
+        .gnb li{line-height: 50px; border-bottom: 2px solid #eee;
+        padding: 10px; text-align: right;}
+        .gnb li a{ color: #333; font-size: 24px; margin-right: 15px; font-weight: bold;}
+        .wrap {clear:both; margin-left: 0; width: 100%; height:100%; transition: 0.5s; position:relative; }
+        .wrap.on{background: rgba(0,0,0,.4);}
+        .main{position: relative;}
+        #main{background-image: url("./img/main_bg.jpg");width: 100vw; height: 50vh; background-size: cover; background-repeat: no-repeat; background-position: center; padding-top: 70px;}
+        
+        .page{height: 30vh; border-bottom: 1px solid #ddd;}
+        .txt_box{display: block; position: absolute; top: calc(50% - 4px); left: calc(50% - 79.295px);}
+        .tit01{color: #fff; font-size: 3em; font-weight: bold;}
+        
+        #page2{background-image: url("./img/cont1.png"); width: 100%vw; background-repeat: no-repeat; background-position: center right; background-size: 40%;}
+        .ice{background-image: url("./img/ice_water.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: center right; background-size: 40%;}
+        
+        
+        #page3{background-image: url("./img/cont2.png"); width: 100%vw; background-repeat: no-repeat; background-position: center left; background-size: 40%;}
+        .pebsi{background-image: url("./img/pepsi.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: center left; background-size: 40%;}
+        
+        #page4{background-image: url("./img/cont3.png"); width: 100%vw; background-repeat: no-repeat; background-position: bottom right; background-size: 40%;}
+        .orange{background-image: url("./img/orange.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: bottom right; background-size: 40%;}
+        
+        #page5{background-image: url("./img/cont4.png"); width: 100%vw; background-repeat: no-repeat; background-position: center left; background-size: 40%;}
+        .millkiss{background-image: url("./img/millkis.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: bottom left; background-size: 40%;}
+        
+        #page6{background-image: url("./img/coffe.png"); width: 100%vw; background-repeat: no-repeat; background-position: center right; background-size: 40%;}
+        .coffe{background-image: url("./img/cont5.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: center right; background-size: 40%;}
+        
+        #page7{background-image: url("./img/fire.png"); width: 100%vw; background-repeat: no-repeat; background-position: center left; background-size: 40%;}
+        .fire{background-image: url("./img/cont6.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: center left; background-size: 40%;}
+        
+        #page8{background-image: url("./img/cont7.png"); width: 100%vw; background-repeat: no-repeat; background-position: bottom right; background-size: 40%;}
+        .vita{background-image: url("./img/lemon.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: bottom right; background-size: 40%;}
+        
+        #page9{background-image: url("./img/water2.png"); width: 100%vw; background-repeat: no-repeat; background-position: bottom left; background-size: 40%; }
+        .water{background-image: url("./img/cont8.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: bottom left; background-size: 40%;}
+        
+        #page10{background-image: url("./img/cont9.png"); width: 100%vw; background-repeat: no-repeat; background-position: bottom right; background-size: 40%;}
+        .coffe2{background-image: url("./img/coffe2.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: center right; background-size: 40%;}
+        
+        #page11{background-image: url("./img/cont10.png"); width: 100%vw; background-repeat: no-repeat; background-position: bottom left; background-size: 40%; }
+        .peach{background-image: url("./img/peach.png"); width: 100%; height: 100%; background-repeat: no-repeat; background-position: bottom left; background-size: 40%;}
+        
+        
+        
+        
+        
+        .left{position: absolute; top: 15px;left: 10px; text-align: left;}
+        .right{position: absolute; top: 15px;right: 15px; text-align: right;}
+        .tit{font-size: 1.7em; font-weight: bold; line-height: 60px; padding-bottom: 0px; color: #333;}
+        .sub_tit{font-size: 0.9em; padding-bottom: 20px; color: #333;}
+        button{border: 1px solid #000; width: 100px; height: 40px;
+        border-radius: 30px;}
+        button a{font-size: 0.8em; color: #333;}
+        
+        
+         
+        
+        
+        
+        
+        
+        .ft{ clear: both; height: auto; border-top: 1px solid #ccc; width: 100%; height: auto; background-color: #fff;}
+        .ft_logo{display: block; width: 140px; height: 38px; margin: 0 auto; margin-top: 15px;}
+        .ft_logo img{width: 140px;height: 38px;}
+        .fnb{width:100%;}
+        .fnb_box{margin: 0 auto; text-align: center;}
+        .fnb li {display: inline-block; padding: 15px 0;}
+        .fnb li a{font-size: 0.8em;}
+        .fnb li a:after{content: "·"; padding: 2px;}
+        .fnb li:last-child a:after{content: "";}
+        
+        .item2>a{font-weight: bold}
+        .fnb a{font-size: 14px; color: #8a8d8f;}
+        .addr2{clear: both; font-size: 0.8em; line-height: 20px;
+        padding-left: 15px; color: #8a8d8f;}
+        .copyright{padding-left: 15px; text-align: left; font-size: 0.8em; color: #ccc; line-height: 20px; padding-bottom: 30px;}
+           
+    </style>
+    <script>//collap 스크립//
+        $(document).ready(function(){
+            $(".lst").click(function(){
+               $(".collap").addClass("on");
+                $(".wrap").addClass("on");
+            });
+            $(".close").click(function(){
+               $(".collap").removeClass("on");
+                $(".wrap").removeClass("on");
+            });
+            $(window).scroll(function(){
+                var par = parseInt($(window).scrollTop());
+                if(par>=200){
+            $(".hd").addClass("on");
+            $(".lst").addClass("on");
+                } else {
+            $(".hd").removeClass("on");
+            $(".lst").removeClass("on");
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+   <div class="collap">
+       <div class="c_logo">
+       </div>
+       <div class="close"></div>
+       <div class="gnb">
+           <ul class="menu">
+               <li class="item1"><a href="#">기업소개</a></li>
+               <li class="item2"><a href="sub1.html">제품소개</a></li>
+               <li class="item3"><a href="sub3.html">투자정보</a></li>
+               <li class="item4"><a href="sub4.html">인재채용</a></li>
+               <li class="item5"><a href="sub5.html">오픈이노베이션</a></li>
+           </ul>
+       </div>
+   </div>
+    <div class="wrap">
+        <header class="hd">
+            <div class="lst"></div>
+            <a href="index.html" class="logo"></a>
+        </header>
+        <div class="main" id="main">
+            <div class="txt_box">
+                <h1 class="tit01">BRAND</h1>
+            </div>
+        </div>
+        <div class="page" id="page2">
+           <div class="ice"></div>
+            <div class="tit_box left">
+                <h1 class="tit">칠성사이다</h1>
+                <p class="sub_tit">맑고 깨끗한 칠성사이다</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+           
+        </div>
+        <div class="page" id="page3">
+           <div class="pebsi"></div>
+            <div class="tit_box right">
+                <h1 class="tit">펩시콜라</h1>
+                <p class="sub_tit">짜릿하고 통쾌한 콜라</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page4">
+           <div class="orange"></div>
+            <div class="tit_box left">
+                <h1 class="tit">델몬트</h1>
+                <p class="sub_tit">대한민국 대표 주스 브랜드</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page5">
+           <div class="millkiss"></div>
+            <div class="tit_box right">
+                <h1 class="tit">밀키스</h1>
+                <p class="sub_tit">새로운 느낌, 우유와<br>탄산의 만남 밀키스</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page6">
+           <div class="coffe"></div>
+            <div class="tit_box left">
+                <h1 class="tit">칸타타</h1>
+                <p class="sub_tit">원두커피에서 찾은 최적의 밸런스</p>
+                 <button><a href="#">자세히보기</a></button>
+            </div>
+           
+        </div>
+        <div class="page" id="page7">
+           <div class="fire"></div>
+            <div class="tit_box right">
+                <h1 class="tit">핫식스</h1>
+                <p class="sub_tit">대한민국 No.1 에너지드링크</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page8">
+           <div class="vita"></div>
+            <div class="tit_box left">
+                <h1 class="tit">데일리C</h1>
+                <p class="sub_tit">상큼하게 기분까지 채우는 비타민<br>충전음료</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page9">
+           <div class="water"></div>
+            <div class="tit_box right">
+                <h1 class="tit">아이시스 8.0</h1>
+                <p class="sub_tit">핑크빛 생기에너지가 가득<br>천연 약 알카리수</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page10">
+           <div class="coffe2"></div>
+            <div class="tit_box left">
+                <h1 class="tit">레쓰비</h1>
+                <p class="sub_tit">대한민국 NO.1 캔커피 레쓰비!</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <div class="page" id="page11">
+           <div class="peach"></div>
+            <div class="tit_box right">
+                <h1 class="tit">2% 부족할 때</h1>
+                <p class="sub_tit">물보다 맛있는 달콤한 미과즙 워터</p>
+                <button><a href="#">자세히보기</a></button>
+            </div>
+            
+        </div>
+        <footer class="ft">
+               <div class="ft_logo">
+                    <img src="./img/footer_logo.png" alt="푸터로고">
+               </div>
+            <nav class="fnb">
+                <ul class="fnb_box">
+                    <li class="item1"><a href="">이용약관</a></li>
+                    <li class="item2"><a href=""><b>개인정보처리방침</b></a></li>
+                    <li class="item3"><a href="">롯데칠성몰</a></li>
+                    <li class="item4"><a href="">신문고</a></li>
+                    <li class="item5"><a href="">사이트맵</a></li>
+                </ul>
+            </nav>
+        <address class="addr2">서울특별시 송파구 올림픽로 269 롯데캐슬골드 4,5층</address>
+        <address class="addr2">TEL : 02-3479-9114</address>
+        <address class="addr2">FAX : 02-536-9767</address>
+        <address class="addr2">대표이사 : 이영구</address>
+        <p class="copyright">Copyright &copy; 2019 LOTTE CHILSUNG BEVERAGE ALL RIGHTS  RESERVED.</p>
+       
+        </footer>
+    </div>
+        
+</body>
+</html>
