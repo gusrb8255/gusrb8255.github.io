@@ -1,0 +1,356 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>LIFE PLUS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 아이콘 계열의 웹앱 설정 -->
+	<meta name="apple-mobile-web-app-title" content="LIFEPLUS">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 안드로이드폰 계열의 웹앱 설정 -->
+	<meta name="title" content="LIFEPLUS">
+	<meta name="keywords" content="라이프플러스, 금융, 엠버더스, 이병헌 금융, 보아 금융, 국내여행, 바로가기">
+	<meta name="description" content="새로워진 한화금융의 LIFEPLUS">
+	<!-- sns에 의한 설정 -->
+	<meta itemprop="name" content="LIFEPLUS">
+	<meta itemprop="description" content="새로워진 한화금융의 LIFEPLUS">
+	<meta itemprop="image" content="./img/m_main1.jpg">
+	<!-- 페북연동 설정 -->
+	<meta property="fb:app_id" content="APP_ID">
+	<!-- 페이스북, 트위터, 카카오톡의 크롤러 연동설정 -->
+	<meta property="og:type" content="Website">
+	<meta property="og:title" content="LIFEPLUS">
+	<meta property="og:url" content="./index.html">
+	<meta property="og:description" content="새로워진 한화금융의 LIFEPLUS">
+	<meta property="og:image" content="./img/m_main1.jpg">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-180x180" sizes="180x180" href="./img/m_main1.jpg">
+	
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+	<!-- 구글 아날리틱스 주소 연결하기 -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="sub1.css">
+	<style>
+        
+        @media screen and (max-width:767px){
+            #page1{background-image: url("./img/about_kv.jpg"); width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center center;}
+.tit_01{color: #fff; text-align: center;
+padding-top: 260px;}
+.sub_titbox{position: absolute; bottom: 0;left: 0;}
+.sub_tit{color: #fff; padding: 5%; text-align: center; font-size: 0.8em;}
+
+.wrap{width: 100%; height: 100%;}
+.con_box{width: 50%; height: 50%; float: left; position: relative;}
+.cont1{background-image: url("./img/financial_bg_1.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+.cont2{background-image: url("./img/financial_bg_2.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+.cont3{background-image: url("./img/financial_bg_3.jpg"); background-size:cover; background-position: center left; background-repeat: no-repeat;}
+.cont4{background-image: url("./img/financial_bg_4.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+
+.txt_box{color: #fff; text-align: center; line-height: 35px; padding-top: 100px;}
+.row_txt{padding:0 14px; font-size: 0.8em; line-height: 20px; text-align: left;}
+
+#page3{width: 100vw; height: 45vh;}
+.tit_02{color: #333; text-align: center; line-height: 30px; padding-top: 30px;}
+.page3_tit{font-size: 1.5em;}
+.row_tit{font-size: 0.9em;}
+.sns_channel{width: 100%;}
+.ch_box{width: 100%;}
+.ch_box li{width: 25%;height: auto; float: left; text-align: center; padding-top: 10%;}
+.ch_lst5{display: none;}
+.ch_box li a{line-height: 20px; font-size: 0.7em; color: #333;}
+.ch_box li a img{width: 70%;}
+
+.ft{width: 100%; background-color: #222;}
+.ft_logo{width: 100%; height: 50px; position: relative; border-bottom: 1px solid #333;}
+.ft_logo a{width: 120px; margin: 0 auto;}
+.ft_logo img{width: 120px; position: absolute; top: calc(50% - 15px); left: calc(50% - 60px);}
+
+.ft .ft_top{width: 100%; height: 40px; border-bottom: 1px solid #333; line-height: 40px; text-align:}
+.ft_top .top_lst{float: left; font-size: 0.6em; padding: 0 11px;}
+.ft_top .top_lst a{color: #ccc}
+.ft_row{width: 100%;}
+.ft_row li{line-height: 30px; padding-left: 10px; color: #ccc; font-size: 0.7em}
+        }
+        @media screen and (min-width:768px){
+            .tit_01{padding-top: 460px;}
+            .tit_01 h4{font-size: 2em;}
+            .tit_01 h1{font-size: 4em;}
+            
+            .sub_tit{font-size: 1.5em; padding: 5% 10%;}
+            
+            #page2{height: 100vh;}
+            .txt_box{padding-top: 160px; font-size: 1.5em; line-height: 45px;}
+            .txt_box h3{font-size: 1.5em;}
+            .row_txt{padding: 10px 15px; text-align: center; font-size: 0.7em;}
+      
+        
+            #page3{height: 50vh;}
+            .tit_02{padding-top: 50px; line-height: 50px;}
+            .page3_tit{font-size: 2em;}
+            .row_tit{font-size: 1.5em;}
+            
+            .ch_box li a{ font-size: 01em; line-height: 30px;}
+            
+            .ft_logo{height: 70px;}
+            
+            .ft_logo img{width: 150px; position: absolute; top: calc(50% - 18.75px); left: calc(50% - 75px);}
+            
+            .ft .ft_top{height: 60px;line-height: 60px; text-align:center;}
+            
+            .ft_top .top_lst{float: left; font-size: 01em; padding: 0 35px;}
+            
+            .ft_row li{line-height: 40px; padding-left: 35px; color: #ccc; font-size: 1.1em}
+    
+        }
+        @media screen and (min-width:960px){
+            
+            .fnb.on{right: -65%;}
+            .close_btn{ display: block; position: absolute; top: 1em; left: 25%;}
+            .sns_menu{ padding-top: 460px; float:left; padding-left: 12%;}
+            
+            .tit_01{padding-top: 400px;}
+            .tit_01 h4{font-size: 2.5em;}
+            .tit_01 h1{font-size: 4.5em;}
+            .sub_titbox{left: calc(50% - 349.75px);}
+            .sub_tit{font-size: 1em; padding: 5% 0; }
+            
+            #page2{height: 50vh;}
+            .txt_box{padding-top: 120px; font-size: 1.5em; line-height: 60px;}
+            .txt_box h3{font-size: 2em;}
+            .row_txt{padding: 20px 30px; text-align: center; font-size: 0.6em;}
+            .con_box{width: 25%; height: 100%;}
+        
+            #page3{height: 50vh;}
+            
+            .tit_02{color: #333; text-align: center; line-height: 50px;  }
+            .page3_tit{font-size: 2em;}
+            .row_tit{font-size: 1.5em;}
+            .sns_channel{width: 100%;}
+            .ch_box{width: 100%;}
+            .ch_box>li{width: 25%;height: auto; float: left; text-align: center; padding-top: 2%; display: inline;}
+            .ch_lst4{display: none;}
+            .ch_box li{line-height: 30px; font-size: 0.5em; color: #333;display: }
+            .ch_box li a img{width: 30%;}
+
+            
+            .ch_box li a{ clear: both; font-size: 2em; line-height: 30px;}
+            .ft{position: relative; clear: both;}
+            
+            .ft_logo{height: 70px;}
+            
+            .ft_logo img{width: 150px; position: absolute; top: calc(50% - 18.75px); left: calc(50% - 75px);}
+            
+            .ft .ft_top{height: 60px;line-height: 60px; text-align:center;}
+            
+            .ft_top .top_lst{float: left; font-size: 0.9em; padding: 0 129.5px;}
+            
+            .ft_row li{ line-height: 40px; padding-left: 35px; color: #ccc; font-size: 1.1em;}
+        
+        }
+        /*font-family: 'Noto Sans KR', sans-serif;*/
+	</style>
+	<script>
+        $(document).ready(function(){
+           $(".fnb li a.ad").click(function(){
+               $(".fnb li a.ad").removeClass("on");
+               $(".fnb li .sub_box").css("display","none");
+               $(this).addClass("on");
+               $(this).siblings(".sub_box").slideDown();
+           });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+           $(".menu_call, .close_btn").click(function(){
+               $(".fnb").toggleClass("on");
+           });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var win_h = $(window).height();
+            var wd = $(window).width();
+            $(".page").each(function(index){
+               $(this).attr("data-page", win_h*index) 
+            });
+            $(".next_page").click(function(){
+                var np = parseInt($(this).attr("data-target"));
+        $("body,html").not(":animated").animate({scrollTop:np*win_h}, 400);
+        });
+        });
+      
+    </script>
+</head>
+<body>
+    <div class="page" id="page1">
+       <div class="tit_01">
+           <h4>ABOUT</h4>
+           <h1>LIFEPLUS</h1>
+       </div>
+       <div class="sub_titbox">
+          <p class="sub_tit">
+           LIFEPLUS는 한화금융(한화생명, 한화손해보험, 한화투자증권, 한화자산운용, 한화저축은행)와 함께합니다.
+           </p>
+       </div>
+    </div>
+    <div class="page" id="page2">
+       <div class="wrap">
+            <div class="con_box cont1">
+                <div class="txt_box">
+                    <p class="top_txt">
+                        BRAND MISSION
+                    </p>
+                    <h3>
+                        Life-Enhancing
+                    </h3>
+                    <p class="row_txt">
+                        고객의 삶을 더 잘 살게 해주는 금융을 지향합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="con_box cont2">
+                <div class="txt_box">
+                    <p class="top_txt">
+                        BRAND ESSENCE
+                    </p>
+                    <h3>
+                        Life as a Service
+                    </h3>
+                    <p class="row_txt">
+                        금융의 선행적인 경험을 기반으로 삶에서 필요한 핵심 요소를 서비스화하여 제공합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="con_box cont3">
+                <div class="txt_box">
+                    <p class="top_txt">
+                        SLOGAN
+                    </p>
+                    <h3>
+                        LIFE MEETS LIFE
+                    </h3>
+                    <p class="row_txt">
+                        개개인의 삶이 LIFEPLUS의 가치를 통해 변화하고 성장합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="con_box cont4">
+                <div class="txt_box">
+                    <p class="top_txt">
+                        BRAND MISSION
+                    </p>
+                    <h3>
+                        Life-Enhancing
+                    </h3>
+                    <p class="row_txt">
+                        고객의 삶을 더 잘 살게 해주는 금융을 지향합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page3">
+        <div class="tit_02">
+            <h3 class="page3_tit">
+                LIFEPLUS SNS ChanneL
+            </h3>
+            <p class="row_tit">
+                LIFEPLUS의 더 많은 이야기를 만나보세요.
+            </p>
+        </div>
+        <div class="sns_channel">
+            <ul class="ch_box">
+                <li class="ch_lst1"><a href="">
+                <img src="./img/icon_fb.png" alt="페이스북"><br>
+                <b>FACEBOOK</b><br><span>바로가기</span></a></li>
+                <li class="ch_lst2"><a href="">
+                <img src="./img/icon_insta.png" alt="인스타"><br>
+                <b>INSTAGRAM</b><br><span>바로가기</span></a></li>
+                <li class="ch_lst3"><a href="">
+                <img src="./img/icon_yt.png" alt="유튜브"><br>
+                <b>YOUTUBE</b><br><span>바로가기</span></a></li>
+                <li class="ch_lst4"><a href="">
+                <img src="./img/icon_br.png" alt="#"><br>
+                <b>BRUNCH</b><br><span>바로가기</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <footer class="ft">
+       <div class="ft_logo">
+           <a href="">
+               <img src="./img/ft_logo.png" alt="푸터로고">
+           </a>
+       </div>
+        <ul class="ft_top">
+            <li class="top_lst"><a href="">한화생명</a></li>
+            <li class="top_lst"><a href="">한화손해보험</a></li>
+            <li class="top_lst"><a href="">한화투자증권</a></li>
+            <li class="top_lst"><a href="">한화자산운용</a></li>
+            <li class="top_lst"><a href="">한화저축은행</a></li>
+        </ul>
+        <ul class="ft_row">
+            <li>NEWSLETTER</li>
+            <li>이용약관 | 개인정보취급방침</li>
+            <li>&copy; 2019 LIFEPLUS All Rights Reserved</li>
+        </ul>
+    </footer>
+    <header class="hd">
+        <a href="index.html" class="logo">
+            <img src="./img/logo.png" alt="로고">
+        </a>
+        <label for="ck" class="menu_call">
+            <img src="./img/menu.png" alt="메뉴">
+        </label>
+    
+    <nav class="fnb">
+       <a href="index.html" class="col_logo">
+           <img src="./img/logotype.png" alt="컬랩로고">
+       </a>
+       <label for="ck" class="close_btn">
+           <img src="./img/cancel.png" alt="닫기버튼">
+       </label>
+        <ul class="col_menu">
+            <li class="item1">
+                <a class="ad">ABOUT</a>
+                <ul class="sub_box">
+                    <li class="sub1"><a href="sub1.html">ABOUT LIFEPLUS</a></li>
+                    <li class="sub1"><a href="#">LIFEPLUS BI/VI</a></li>
+                </ul>
+            </li>
+            <li class="item2"><a href="">SERVICE</a></li>
+            <li class="item3"><a class="ad">PROMOTION</a>
+                <ul class="sub_box">
+                    <li class="sub1"><a href="#">GALLERY</a></li>
+                </ul>
+            </li>
+            <li class="item4"><a href="">STORY</a></li>
+            <li class="item5"><a href="">AMBASSADOR</a></li>
+            <li class="item6"><a href="">NOTIFICATION</a></li>
+        </ul>
+        <ul class="sns_menu">
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_fb.png" alt="페북">
+                </a>
+            </li>
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_instagram.png" alt="인스타그램">
+                </a>
+            </li>
+            <li class="sns_lst">
+                <a href="">
+                    <img src="./img/ico_youtube.png" alt="유튜브">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+</body>
+</html>

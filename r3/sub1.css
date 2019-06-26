@@ -1,0 +1,78 @@
+@charset "utf-8";
+ *{margin: 0; padding: 0;}
+        body, html{width: 100%; height: 100%; font-family:'Noto Sans KR', sans-serif; }
+        ul{list-style: none;}
+        label, input, button{ outline: 0; border: 0; background-color: transparent; user-select: none;}
+        a {text-decoration: none;}
+        img {border: 0;}
+        .container{width: 100%; height: 100%;}
+        .page{width:100%; height: 100%; position: relative; clear: both;
+        background-repeat: no-repeat; background-position: center center;
+        background-size: 100% auto;}
+
+#page1{background-image: url("./img/about_kv.jpg"); width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center center;}
+.tit_01{color: #fff; text-align: center;
+padding-top: 260px;}
+.sub_titbox{position: absolute; bottom: 0;left: 0;}
+.sub_tit{color: #fff; padding: 5%; text-align: center; font-size: 0.8em }
+
+.wrap{width: 100%; height: 100%;}
+.con_box{width: 50%; height: 50%; float: left; position: relative;}
+.cont1{background-image: url("./img/financial_bg_1.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+.cont2{background-image: url("./img/financial_bg_2.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+.cont3{background-image: url("./img/financial_bg_3.jpg"); background-size:cover; background-position: center left; background-repeat: no-repeat;}
+.cont4{background-image: url("./img/financial_bg_4.jpg"); background-size:cover; background-position: center right; background-repeat: no-repeat;}
+
+.txt_box{color: #fff; text-align: center; line-height: 35px; padding-top: 100px;}
+.row_txt{padding:0 14px; font-size: 0.8em; line-height: 20px; text-align: left;}
+
+#page3{width: 100vw; height: 45vh;}
+.tit_02{color: #333; text-align: center; line-height: 30px; padding-top: 30px;}
+.page3_tit{font-size: 1.5em;}
+.row_tit{font-size: 0.9em;}
+.sns_channel{width: 100%;}
+.ch_box{width: 100%;}
+.ch_box li{width: 25%;height: auto; float: left; text-align: center; padding-top: 10%;}
+.ch_lst5{display: none;}
+.ch_box li a{line-height: 20px; font-size: 0.7em; color: #333;}
+.ch_box li a img{width: 70%;}
+
+.ft{width: 100%; background-color: #222;}
+.ft_logo{width: 100%; height: 50px; position: relative; border-bottom: 1px solid #333;}
+.ft_logo a{width: 120px; margin: 0 auto;}
+.ft_logo img{width: 120px; position: absolute; top: calc(50% - 15px); left: calc(50% - 60px);}
+
+.ft .ft_top{width: 100%; height: 40px; border-bottom: 1px solid #333; line-height: 40px; text-align:}
+.ft_top .top_lst{float: left; font-size: 0.6em; padding: 0 11px;}
+.ft_top .top_lst a{color: #ccc}
+.ft_row{width: 100%;}
+.ft_row li{line-height: 30px; padding-left: 10px; color: #ccc; font-size: 0.7em}
+
+
+
+
+
+
+
+        
+        
+        .hd{position: fixed; width: 100%; z-index: 90; top: 0; left: 0;
+            background-color: #fff; height: 7%; transition: 0.5;}
+        .logo{position: absolute; top: calc(50% - 9px); left: 1em;}
+        .menu_call{position: absolute; right: 1em; top: calc(50% - 12px); display: block;}
+        .menu_call img{width: 24px; height: 24px;}
+        .close_btn{ display: block; position: absolute; top: 1em; right: 1em;}
+        .close_btn img{display: block; width: 24px; height: 24px;}
+        .col_logo img{display: none; width: 82px; height: 12px; position: absolute;
+        top: 1.25em;left: 1em;}
+        .fnb{background-color: rgba(0,0,0,0.95); z-index: 999; position: fixed; width: 90%; height: 100%; padding-top: 60px; right:-110%; top:0; transition:0.6s; overflow: hidden; }
+        .fnb.on { right:0; }
+        .fnb li {line-height: 2.4; padding:10px; padding-left: 2em;          position: relative;}
+        .fnb li a{display: block; color: #fff; font-size: 1em;}
+        .fnb li a.ad:after{content: "+"; display: block; width: 24px; height: 24px; position: absolute; left: 11em; top: 0.6em; font-size:1.6; color: #fff;}
+        .fnb li .sub_box {display: none;}
+        .fnb li a.ad.on:after {content: "-";}
+        
+        .sns_menu{ padding-top: 60px; float: right; padding-right: 5%;}
+        .sns_lst{float: left;}
+        
