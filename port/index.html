@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/mixitup.css">
+    
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="./js/vendor/modernizr.custom.min.js"></script>
+    <!--<script src="./js/vendor/jquery-1.10.2.min.js"></script>-->
+    <script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="./js/main.js"></script>
+    
+    <script src="./js/jquery.mixitup.min.js"></script>
+    <script>
+    $(function () {
+      $('#mixItUp').mixItUp({
+          selectors:{filter:'.filter'}
+      });
+    });
+  </script>
+    
+	<style>
+        *{margin: 0; padding: 0;}
+        body, html{font-family: 'Noto Sans KR', sans-serif; width: 100%; height: 100%; -ms-overflow:none; }
+/*        body, html{overflow-x: hidden;}*/
+        ::-webkit-scrollbar { display:none; }
+        ul{list-style: none;}
+        label, input, button{ outline: 0; border: 0; background-color: transparent; user-select: none;}
+        a {text-decoration: none;}
+        img {border: 0;}
+        .page { clear:both; position:relative; width:100vw; height:100vh; overflow:hidden; box-sizing:border-box;}
+        
+        #page1{width: 100%; height: 100%; background-image: url("./img/dark2.jpg"); background-size: cover; background-position: center center; background-repeat: no-repeat;}
+       
+        /* 인트로 애니메이션*/
+        @keyframes handAni{
+            0%{right: 70%;top: 130%;}  
+            30%{right: -10%;top: 20%;}
+            35%{right: -10%;top: 20%;}
+            95%{right: 20%;top: 0%;}
+            100%{right: 20%;top: 0%;}
+        }
+        @keyframes backgd{
+            0%{opacity: 0;}  
+            100%{opacity: 1;}
+        }
+        
+        .aniwrap{ 
+            position: absolute;  width: 35%; height: 100%;
+            top: 20%;right:0%;
+        
+        }
+        .moon_wrap{position: absolute;top: 1%;left: 2%;width: 30%;height: auto;}
+        .anire{ position:relative; width: 100%; height: 100%; 
+         animation-duration: 3s;
+            animation-direction: alternate;
+            animation-fill-mode: both;
+            animation-iteration-count: 1;
+            -webkit-animation-name: "handAni";
+            -webkit-animation-duration: 3s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-fill-mode: both;
+            -webkit-animation-iteration-count: 1;
+        }
+        
+        .posi{ position: absolute;}
+        
+        .hand { width: 50%; height: auto; position: absolute; top:12%; right: 15%; z-index: 20;  }
+        
+        .moon{ width: 100%; height: auto;
+        top: 0%; left: 0%;}
+        .moon img{ width: 100%; height: 100%; }
+        
+        .m_backgd {width: 300%; height: auto;position: absolute;top: -75%;left: -120%;
+            animation-name: "backgd";
+            animation-duration: 3s;
+            animation-delay: 3s; 
+            animation-direction: alternate;
+             animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: "backgd";
+            -webkit-animation-duration: 3s;
+            -webkit-animation-delay: 3s; 
+            -webkit-animation-direction: alternate;
+           -webkit-animation-fill-mode: both;
+           -webkit-animation-iteration-count: infinite;
+        }
+        .m_backgd img { width: 100%; height: 100%; }
+        
+        .light { position: absolute; width: 38%; height: auto;
+        top: 0.5%; right:40.2%;
+       
+        }
+        .light img { width: 100%; height: 100%; }
+        
+        .fila{ position: absolute;left: 37%;top: 10.5%;width: 98px; height: 93px;
+        }
+        .fila img{ width: 75px; height: 83px;}
+        /*ani  End*/
+        
+        
+        .cloud { width: 110%; height: auto;
+        bottom:-4%;  left: 0%; z-index: 21; animation: move 10s infinite alternate;}
+        @keyframes move{
+            from{left: 0;}
+            to{left:-70px;}
+        }
+        .cloud img { width: 100%; height: auto; }
+        
+        .cloud2 { width: 110%; height:auto;
+        bottom: -6%;  right: 0%; z-index: 21; animation: move2 10s infinite alternate; }
+        @keyframes move2{
+            from{right: 0;}
+            to{right:-70px;}
+        }
+        .cloud2 img { width: 100%; height: auto;}
+        
+        .cloud3 { width: 110%; height:auto;
+        bottom:-5%;  right: -0%; z-index: 21; animation: move 10s infinite alternate; }
+        @keyframes move{
+            from{left: 0;}
+            to{left:-70px;}
+        }
+        .cloud3 img { width: 100%; height: auto; }
+        
+        .list_box{width: 700px; height: 60px; margin: 0 auto;
+        line-height: 120px;}
+        .list{ width: 150px; float: left; text-align: center; padding: 0 10px;}
+        .list>a{color: #fff; font-size: 1.2em; font-weight: bold; font-family: 'Noto Sans KR', sans-serif; display: block;}
+        
+        .hd{position: fixed; top: 15px; left: calc(50% - 350px); z-index: 99; }
+        
+        .nav{ position: relative; width: 700px; text-align: center; overflow: hidden; height:145px; }
+		.nav .menu{display: block; position: relative; width: 20%; float: left; color:#eee; padding: 16px 16px 40px; transition: all 0.7s; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 1.5em; text-shadow: 1px 1px #000; cursor:pointer; }
+        .nav .menu.on { color: #d9ff06; text-shadow:0 0 4px rgba(217, 255, 6 ,0.5); }
+        .border{position:absolute; width:80px; height:4px; background-color: #d9ff06; 
+        box-shadow: 0 0 4px rgba(217, 255, 6 ,0.5); left:0; bottom:-2px; transition:0.7s; }
+        
+        .radio{position:absolute; left:80px; bottom:-6px; width: 12px; height: 12px; border-radius: 50%; background: #d9ff06;  box-shadow: 0 0 10px rgba(217, 255, 6 ,0.7); display: block; 
+        transition:0.7s; }
+		.effect {  transition:0.7s; display:block; position:relative; clear:both; }
+        
+        .effect.sc0 .border {  width:86px; }
+        .effect.sc1 .border {  width:258px; }
+        .effect.sc2 .border { width:430px; }
+        .effect.sc3 .border { width:602px; }
+        .effect.sc0 .radio {  left:80px; }
+        .effect.sc1 .radio {  left:252px; }
+        .effect.sc2 .radio {  left:424px; }
+        .effect.sc3 .radio {  left:596px; }
+
+        
+        
+       
+        
+        .nav.dot::after{content: ""; display: block;  width: 100%; height: 1px; background: #ccc; /*bottom: 20px;*//*position: absolute;*/}
+        
+		.nav.dot a::after{content: ""; position: absolute; width: 3px; height: 3px; background: #ccc; border-radius: 50%;
+			bottom:-2px; left: 50%; }
+    
+
+		
+        
+        .tit_box{clear: both; position: absolute; top: 40%; left: 20%; } 
+        .tit_box .tit1{color: #fff;font-size: 5em; font-family: 'Poiret One', cursive; letter-spacing: 0.3em;}
+        
+        /*page2*/
+        #page2{width: 100%;height: 100%; background-color: #fff; 
+        background-image: url("./img/cell.png"); background-repeat: no-repeat; background-position: right bottom; background-size: 45%;}
+        
+        
+        .title_box{position: absolute; box-sizing: border-box; width: 50%; }
+        .bg_color{width: 10px; height: 28px; background-color: #373052;
+         float: left; transition: all 0.2s;}
+        .hov_tit{ font-size: 2em; line-height: 26px; transition: 0.2s; }
+        .coment1{font-size: 1em; width: 30%; float: left; line-height: 30px; padding-top: 20px;}
+        .about:hover .bg_color{width: 180px;}
+        .profile:hover .bg_color{width: 140px;}
+        .exper:hover .bg_color{width: 220px;}
+        .skill:hover .bg_color{width: 100px;}
+        
+        .title_box:hover .hov_tit{color: #fff;}
+        
+        .about{top: 20%; left: 5%;}
+        .about .hov_tit{ text-indent: 16px; clear: both; width: 170px;}
+        .about .coment1{ line-height: 30px; clear: both; padding-top: 20px;}
+        
+        .profile{top: 20%; left: 25%;}
+        .profile .hov_tit{ text-indent: 16px; clear: both;}
+        .profile .coment2{ line-height: 30px; clear: both; padding-top: 20px;}
+        
+        .exper{top: 50%; left: 5%;}
+        .exper .hov_tit{text-indent: 16px; clear: both; padding-bottom: 20px;}
+        .exper .coment3{line-height: 20px; clear:both;}
+        
+        .skill{top: 20%; left: 45%; width: 100%; position: relative;}
+        .skill .hov_tit{text-indent: 16px; clear: both; padding-bottom: 20px;}
+        .skill .coment4{ clear:both;padding-top: 20px; 
+        width: 100%;}
+        
+        
+        .icon{position: relative; clear: both; float:left; }
+        .icon_lst p{padding-left: 60px; height: 100px; width: 300px;text-align: left;}
+        /*background-color: #8e428b;*/
+        
+        .icon_box .icon1{background-image:url("./img/school.png"); width: 50px; height: 50px; border-radius: 50%; border: 2px solid #373052 ; background-position: center center; background-repeat: no-repeat; background-size: 40px 40px; position: absolute; top: 15px; left: 0; transition: 0.5s;}
+        
+        .icon_box .icon1:hover{background-color: #373052; background-image: url("./img/school_hov.png"); border: 2px solid #373052;}
+        
+        .icon_box .icon2{background-image:url("./img/cook.png"); width: 50px; height: 50px; border-radius: 50%; border: 2px solid #373052; background-position: center center; background-repeat: no-repeat; background-size: 32px 36px; position: absolute; top:15px; left: 450px; transition: 0.5s;}
+        
+        .icon_box .icon2:hover{background-color: #373052; background-image: url("./img/cook_hov.png"); border: 2px solid #373052;}
+        
+        .icon_box .icon3{background-image:url("./img/job.png"); width: 50px; height: 50px; border-radius: 50%; border: 2px solid #373052; background-position: center center; background-repeat: no-repeat; background-size: 32px 32px; position: absolute; top: 90px; left:0; transition: 0.5s;}
+        
+        .icon_box .icon3:hover{background-color: #373052; background-image: url("./img/job_hover.png"); border: 2px solid #373052;}
+        
+        .icon_box .icon4{background-image:url("./img/army.png"); width: 50px; height: 50px; border-radius: 50%; border: 2px solid #373052; background-position: center center; background-repeat: no-repeat; background-size: 32px 36px; position: absolute; top: 90px; left: 450px; transition: 0.5s;}
+        
+        .icon_box .icon4:hover{background-color: #373052; background-image: url("./img/army_hov.png"); border: 2px solid #373052;}
+        
+        .icon_box .icon5{background-image:url("./img/book.png"); width: 50px; height: 50px; border-radius: 50%; border: 2px solid #373052; background-position: center center; background-repeat: no-repeat; background-size: 32px 32px; position: absolute; top: 165px; left: 0; transition: 0.5s;}
+        
+        .icon_box .icon5:hover{background-color: #373052; background-image: url("./img/book_hov.png"); border: 2px solid #373052;}
+        
+        /*page3:hover*/
+        .text_box{width: 100%; height: 290.69px; background-color:rgba(0,0,0,0.7); z-index: 999; position: absolute; top: 0; left: 0; border-radius: 10px; line-height: 180px;
+        transition: 0.5s; opacity: 0;}
+        .text_box .coment{color: #fff; padding-top: 100px; font-size: 0.8em;}
+        .link_box .lst_btn a{color: #fff; font-size: 0.9em;}
+        .lst_btn{float: left; width: 80px; line-height: 40px; margin: 11.9px; transition: 0.5s; cursor: pointer; 
+        height: 40px; border: 1px solid #fff;}
+        .mix:hover .text_box{opacity: 1;}
+        .lst_btn:hover {background-color: rgba(255,255,255,0.8);}
+        .lst_btn:hover a{color: #333;}
+        
+        .nike .lst_btn{margin-left: 80px;}
+        .lifeplus .lst_btn{margin-left: 80px;}
+        .lotte .lst_btn{margin-left: 80px;}
+        .arena .lst_btn{margin-left: 80px;}
+        .nondis .lst_btn{margin-left: 80px;}
+        
+        
+        .nike .lst_btn:nth-child(3){display: none;}  
+        .nike .lst_btn:nth-child(4){display: none;}
+        
+        .lifeplus .lst_btn:nth-child(3){display: none;}
+        .lifeplus .lst_btn:nth-child(4){display: none;}
+        
+        .lotte .lst_btn:nth-child(3){display: none;}
+        .lotte .lst_btn:nth-child(4){display: none;}
+        
+        .arena .lst_btn:nth-child(3){display: none;}
+        .arena .lst_btn:nth-child(4){display: none;}
+        
+        .nondis .lst_btn:nth-child(3){display: none;}
+        .nondis .lst_btn:nth-child(4){display: none;}
+        
+        
+        
+        
+        #page4{width: 100%; height: 100%; background-image: url("./img/ft_bg.jpg"); background-size:cover; background-position:center center; background-repeat: no-repeat;}
+        
+        #page4 .cloud { width: 110%; height: 100px;
+        top: 0%;  left: 0%; z-index: 21; animation: move 10s infinite alternate; transform: rotate(180deg);}
+        
+        #page4 .cloud2 { width: 110%; height:100px;
+        top: 6%;  right: 0%; z-index: 21; animation: move2 10s infinite alternate; transform: rotate(180deg);}
+        
+        #page4 .cloud3 { width: 110%; height: 150px;
+        top: 10%;  left: 0%; z-index: 21; animation: move 10s infinite alternate; transform: rotate(180deg);}
+        
+        .mobile{display: none;}
+        .contact_wrap{width: 100%; height: 100%;}
+        .main_img{width: 1281px; height: 987px; background-image: url("./img/imggggg.png"); background-repeat: no-repeat;
+            background-position: center center; background-size: cover; position: relative; margin-left: 15%; margin-top: 10%;
+            position: relative;}
+        
+        /*.desk{position: absolute; bottom: 15px ; left: calc(50% - 600px); }*/
+        
+        .main_tit{position: absolute;top: 0; left: 3%; line-height: 80px;}
+        .contact_tit{color: #fff; font-size: 4em; text-shadow:  1px 1px 3px #000;}
+        .name{color: #fff;  font-size: 2.5em; text-indent: 30px; margin-top: -10px; text-shadow:  1px 1px 3px #000;}
+        .email{color: #fff; font-size: 2em;text-indent: 30px;
+         text-shadow:  1px 1px 3px #000;}
+        .txt{color: #fff; font-size: 1.5em;text-indent: 30px;
+         text-shadow:  1px 1px 3px #000;}
+        .txt1{color: #fff; font-size: 1.5em;text-indent: 30px;
+         text-shadow:  1px 1px 3px #000;}
+        .row_tit{position: absolute; bottom: 42%; left: 3%; color: #fff; line-height: 30px; }
+        
+        
+        
+        
+        
+        
+        .pageskip { position:fixed; left:0; top:calc(50% - 80px); width:40px; height:160px; z-index:9999; }
+        .pageskip li { height:40px; clear:both; }
+        .pageskip li button { display:block; width:40px; height: 40px; line-height:40px; text-align:right; padding-right: 15px; color:#fff; background:#333; overflow:hidden; transition:0.7s;}
+        .pageskip li.on button { width:120px; background:#2c8; }
+        .skip_tit { display:none; }
+        .pageskip li.on .skip_tit { display:inline;}
+        
+        @media screen and (max-width:767px){
+            .pageskip{display: none;}
+            #page1{background-position: top left;}
+            .hd{width: 100%; top: 0; left: 0;}
+            .nav{width: 100%; left: (50% - 230px);}
+            .nav .menu{width: 25%; padding: 16px 0; font-size: 1em;}
+
+            .nav.dot .effect{margin-left: -45px;}
+            
+            .effect.sc0 .border {  width:92px; }
+            .effect.sc1 .border {  width:186px; }
+            .effect.sc2 .border { width:275px; }
+            .effect.sc3 .border { width:357px; }
+            
+            .effect.sc0 .radio {  left:84px; }
+            .effect.sc1 .radio {  left:176px; }
+            .effect.sc2 .radio {  left:268px; }
+            .effect.sc3 .radio {  left:355px; }
+            
+            .tit_box{ top: 15% ;left: calc(50% - 148.88px);}
+            .tit_box .tit1{font-size: 2.5em;}
+            
+            
+            
+            .aniwrap{ 
+            position: absolute;  width: 150%; height: 100%;
+                top: 30%;left: 25%;}
+            .moon_wrap{position: absolute;top: 1%;left: 2%;width: 30%; height: auto;}
+            
+            .fila{top: 40%; width: 50%; height: 5%; display: none;}
+            .hand{ top: 18%;}
+            .hand img{width: 80%;}
+            
+            @keyframes handAni{
+            0%{right: 40%;top: 130%;}  
+            30%{right: 30%;top: 20%;}
+            35%{right: 30%;top: 20%;}
+            95%{right: 20%;top: 0%;}
+            100%{right: 20%;top: 0%;}
+        }
+            
+            .cloud{width: 200%; bottom: -4%;}
+            
+            .cloud2{width: 200%; bottom: -5%;}
+            
+            .cloud3{width: 200%; bottom: -5%;}
+            
+            #page2{background-size: 120%; background-position: bottom right;height: 160vh;}
+            
+            
+            .title_box{width: 100%; position: relative; clear: both; padding: 30px 0 }
+            
+            .bg_color{ height: 22px;}
+            .hov_tit{font-size: 1.5em; line-height: 22px;}
+            
+            .about{top: 0; left: 0; padding-left: 5%; }
+            .coment1{width: 90%; font-size: 0.9em;}
+            
+            .profile{top: 0; left: 0; padding-left: 5%;}
+            .coment2{width: 90%; font-size: 0.9em;}
+            
+            .exper{top: 0; left: 0; margin-top:-140%; padding-left: 5%;}
+            .coment3{width: 90%;}
+            .icon_lst p{font-size: 0.9em;}
+            .icon_box .icon1{top: 20px; left: 0;}
+            .icon_box .icon2{top: 90px; left: 0;}
+            .icon_box .icon3{top: 165px;left: 0;}
+            .icon_box .icon4{top: 240px; left: 0;}
+            .icon_box .icon5{top: 315px; left: 0;}
+            
+            .skill{top: 0; left: 0; padding-left: 5%;}
+            .coment4{width: 10%;}
+            
+            
+            #page4 .posi{width: 200%;}
+            #page4 .cloud{top:-9%;}
+            #page4 .cloud2{top:-6%;}
+            #page4 .cloud3{top:-9%;}
+            
+            .main_img{width: 100%; height: 100%; background-image: url("./img/m_contac2.png"); background-size: 100%; margin-left: 0;
+            background-position: bottom right;  margin-left: 5%;}
+            .main_tit{left: 5%; top: 18%; line-height: 30px;}
+            .contact_tit{font-size: 2em; text-indent: 0;}
+            .name{font-size: 1.5em; text-indent: 0; }
+            .email{font-size: 1em; text-indent: 0;}
+            .txt, .txt1{font-size: 0.8em; text-indent: 0;}
+            
+            .row_tit{bottom: 30%;left: -5%; font-size: 0.7em; width: 100%; text-align:center;}
+        }
+        @media screen and (min-width:768px){
+            
+            
+        }
+        @media screen and (min-width:960px){
+            
+        }
+        
+        
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="page" id="page1">
+      <header class="hd">
+          <div class="nav dot">
+			<a class="menu on">Home</a>
+			<a class="menu">About Me</a>
+			<a class="menu">Working</a>
+			<a class="menu">Contact</a>
+            <div class="effect">
+			    <span class="border"></span>
+                 <span class="radio"></span>
+              </div>
+		</div>
+        </header>
+        <div class="tit_box">
+            <p class="tit1">
+                PORTFOLIO
+            </p>
+        </div>
+        <div class="aniwrap">
+           <div class="moon_wrap">
+               <div class="moon">
+                    <img src="./img/moon.png" alt="달">
+                </div>
+                <div class="m_backgd">
+                    <img src="./img/moonlight.png" alt="달주위빛">
+                </div>
+           </div>
+            <div class="anire">
+                <div class="hand">
+                    <img src="./img/hand.png" alt="손">
+                </div>
+                <div class="light">
+                    <img src="./img/light.png" alt="전구">
+                </div>
+                <div class="fila">
+                    <img src="./img/filra.png" alt="필라멘트">
+                </div> 
+            </div>
+        </div>
+        
+        <div class="posi cloud">
+            <img src="./img/cloud1.png" alt="구름">
+        </div>
+        <div class="posi cloud2">
+            <img src="./img/cloud2.png" alt="구름">
+        </div>
+        <div class="posi cloud3">
+            <img src="./img/cloud3.png" alt="구름">
+        </div>
+    </div>
+    <div class="page" id="page2">
+       <div class="title_box about">
+           <div class="bg_color">
+           <h2 class="hov_tit">
+                   About Me
+               </h2>
+           </div>
+           <div class="coment1">
+               <b>호기심이 많은</b> 박현규입니다.<br>
+               호기심에 답을 찾기 위하여
+               꾸준한 연구와 계발을 통해
+               명쾌한 답을 찾는 디자이너가 되겠습니다!
+           </div>
+       </div>
+       <div class="title_box profile">
+           <div class="bg_color">
+               <h2 class="hov_tit">
+                   Profile
+               </h2>
+           </div>
+           <div class="coment2">
+               이 름 - <b>박현규</b><br>
+               나 이 - <b>24세</b><br>
+               주 소 - <b>대전 동구</b><br>
+               메 일 - <b>gusrb3585@naver.com</b>
+           </div>
+       </div>
+       <div class="title_box skill">
+           <div class="bg_color">
+               <h2 class="hov_tit">
+                   Skill
+               </h2>
+           </div>
+           <div class="coment4">
+               <div id="scene-2-content">
+            <div class="charts clearfix">
+                <div class="chart" id="water">
+                    <div class="circle-mask-outer left">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="circle-mask-outer right">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="chart-content">
+                        <img class="icon" src="img/ps.png" alt="포토샵">
+                        <p class="text">
+                            <span class="percent-number">80</span><span class="percent-symbol">%</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="chart" id="sunshine">
+                    <div class="circle-mask-outer left">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="circle-mask-outer right">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="chart-content">
+                        <img class="icon" src="img/ai.png" alt="일러스트">
+                        <p class="text">
+                            <span class="percent-number">80</span><span class="percent-symbol">%</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="chart" id="birds">
+                    <div class="circle-mask-outer left">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="circle-mask-outer right">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="chart-content">
+                        <img class="icon" src="img/html.png" alt="html">
+                        <p class="text">
+                            <span class="percent-number">80</span><span class="percent-symbol">%</span>
+                        </p>
+                    </div>
+                </div><!-- /.chart -->
+
+                <div class="chart" id="woods">
+                    <div class="circle-mask-outer left">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="circle-mask-outer right">
+                        <div class="circle-mask-inner">
+                            <div class="circle-body"></div>
+                        </div>
+                    </div>
+                    <div class="chart-content">
+                        <img class="icon" src="img/js.png" alt="제이쿼리">
+                        <p class="text">
+                            <span class="percent-number">75</span><span class="percent-symbol">%</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+       </div>
+       <!--<script>
+        $(function () {
+    
+    var $window = $(window);
+                var cHeight, startPoint, scrollHeight;
+
+                $window.on('scroll', function() {
+                    //현재 스크롤 위치
+                    scrollHeight = $window.scrollTop();
+
+                    //div(#page2) 위치
+                    cHeight = $('#page2').offset().top;
+
+                    //실행되는 높이값 
+                    startPoint = cHeight - 500;
+
+                    //실행
+                    if (scrollHeight > startPoint) {
+                        //실행문
+                       activateScene2 ();
+                    };
+                     
+                });
+                $window.trigger('scroll');
+    
+    initNav();
+  
+    initScene2();
+    // Scene 2를 표시
+    function initScene2 () {
+        $('#scene-2-content').css({ right: '-50%' });
+    }
+
+    // Scene 2 (2): 차트를 그리기
+    function activateScene2 () {
+
+        var $content = $('#scene-2-content'),
+            $charts = $content.find('.chart');
+
+        // 원형 차트 당 처리
+        $charts.each(function(){
+            var $chart = $(this),
+                // "마스크"를 저장하고 각도 0으로 지정
+                $circleLeft = $chart.find('.left .circle-mask-inner')
+                    .css({ transform: 'rotate(0)' }),
+                $circleRight = $chart.find('.right .circle-mask-inner')
+                    .css({ transform: 'rotate(0)' }),
+                // 백분율 값을 취득
+                $percentNumber = $chart.find('.percent-number'),
+                percentData = $percentNumber.text();
+
+            // 백분율 표시를 일단 0
+            $percentNumber.text(0);
+
+            // 각도 애니메이션
+            $({ percent: 0 }).delay(1000).animate({ percent: percentData }, {
+                duration: 1500, 
+                progress: function () {
+                    var now = this.percent,
+                        deg = now * 360 / 100,
+                        degRight = Math.min(Math.max(deg, 0), 180),
+                        degLeft  = Math.min(Math.max(deg - 180, 0), 180);
+                    $circleRight.css({ transform: 'rotate(' + degRight + 'deg)' });
+                    $circleLeft.css({ transform: 'rotate(' + degLeft + 'deg)' });
+                    $percentNumber.text(Math.floor(now));
+                }
+            });
+        });
+    }
+
+    
+
+    // 네비게이션 초기화
+    function initNav () {
+
+        var $pageMain = $(".pageskip"),
+            $nav = $('#'),
+            $navItem = $nav.find('li'),
+            currentScene = 0;
+
+        updateNav();
+
+        $nav.on('click', 'a', function (event) {
+            event.preventDefault();
+            var i = $(this).closest($navItem).index();
+            if (i === currentScene) {
+                return;
+            }
+            if (i === 1) {
+                initScene2();
+            }
+            currentScene = i;
+            $pageMain.
+                stop(true).
+                animate({ top: - 100 * i + '%' }, 1200, 'easeInOutQuint', function () {
+                    if (i === 1) {
+                        activateScene2(); // Scene 2 렌더링
+                    } else {
+                        initScene2();
+                    }
+                });
+            updateNav();
+        });
+
+        function updateNav () {
+            $navItem.
+                removeClass('active').
+                eq(currentScene).addClass('active');
+        }
+
+    }
+
+});
+        </script>-->
+       <!--<script>
+    $(function(){
+        //페이지2 들어가면 애니메이션 실행 ★
+	var $window = $(window);
+	var cHeight,startPoint,scrollHeight;
+
+	$window.on('scroll',function(){
+		//현재 스크롤 위치
+		scrollHeight = $window.scrollTop();
+		
+		//div(#c) 위치
+		cHeight = $('#page2').offset().top;
+		
+		//실행되는 높이값 
+		startPoint = cHeight-500;
+
+		//실행
+		if(scrollHeight>startPoint){
+			//실행문
+			$('.text').animate({'left':'0'},500);
+		};
+	});
+	$window.trigger('scroll');
+});
+</script>-->
+       <div class="title_box exper">
+           <div class="bg_color">
+               <h2 class="hov_tit">
+                   Experiences
+               </h2>
+           </div>
+           <div class="icon">
+               <ul class="icon_box">
+                  <div class="line"></div>
+                   <li class="icon_lst icon1">
+                       <span></span>
+                       <p>2013 ~ 2015<br><b>우송고등학교 졸업</b></p>
+                   </li>
+                   <li class="icon_lst icon2">
+                       <span></span>
+                       <p>2015<br><b>게다 이자카야 주방 및 손님우대</b></p>
+                   </li>
+                   <li class="icon_lst icon3">
+                       <span></span>
+                       <p>2015 ~ 2016<br><b>(주)비즈코리아 차량 케미컬 용품 판매직</b></p>
+                   </li>
+                   <li class="icon_lst icon4">
+                       <span></span>
+                       <p>2016 ~ 2018<br><b>육군 병장 전역</b></p>
+                   </li>
+                   <li class="icon_lst icon5">
+                       <span></span>
+                       <p>2019.06.26<br><b>대전 그럼컴퓨터아트학원 수료</b></p>
+                   </li>
+               </ul>
+           </div>
+       </div>
+    </div>
+    <div class="page" id="page3">
+  <div class="controls"></div>
+  <div class="container" id="mixItUp">
+   <div class="btn_box">
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter=".web">Web</button>
+        <button class="filter" data-filter=".mobile">Mobile</button>
+        <button class="filter" data-filter=".responsive">Responsive</button>
+        <button class="filter" data-filter=".leaflet">leaflet</button>
+    </div>
+    <div class="mix web" data-myorder="1">
+        <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/genesis_img.png" alt="제네시스">
+           </a>
+        </div>
+        <div class="text_box genesis">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS를 이용한 제네시스 Web 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+    <div class="mix mobile" data-myorder="2">
+       <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/nike_img.png" alt="나이키">
+            </a>
+        </div>
+        <div class="text_box nike">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS, JQUERY를 이용한 나이키 Mobile 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+    <div class="mix responsive" data-myorder="3">
+       <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/lifeplus_img.png" alt="라이프플러스">
+            </a>
+        </div>
+        <div class="text_box lifeplus">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS, JQUERY를 이용한 라이프 플러스 Responsive 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+    <div class="mix mobile" data-myorder="4">
+       <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/sider_img.png" alt="칠성">
+            </a>
+        </div>
+        <div class="text_box lotte">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS, JQUERY를 이용한 롯데칠성음료 Mobile 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+    <div class="mix responsive" data-myorder="5">
+       <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/arena_img.png" alt="아레나">
+            </a>
+        </div>
+        <div class="text_box arena">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS, JQUERY를 이용한 아레나 Responsive 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+    <!--<div class="mix mobile" data-myorder="6">
+        준비중
+    </div>-->
+    <div class="mix responsive" data-myorder="7">
+       <div class="pf_wrap">
+           <a href="#">
+                <img src="./img/nondis_img.png" alt="논디스클로더즈">
+            </a>
+        </div>
+        <div class="text_box nondis">
+            <a href="" class="commt">
+                <span class="coment">
+                    CSS, JQUERY를 이용한 논디스클로더스 Responsive 페이지 구현
+                </span>
+             </a>
+             <ul class="link_box">
+                 <li class="lst_btn"><a href="">main</a></li>
+                 <li class="lst_btn"><a href="">sub1</a></li>
+                 <li class="lst_btn"><a href="">sub2</a></li>
+                 <li class="lst_btn"><a href="">sub3</a></li>
+             </ul>
+        </div>
+    </div>
+   <!-- <div class="mix leaflet" data-myorder="8"></div>-->
+
+  </div>
+  
+  <div class="gap"></div>
+  <div class="gap"></div>
+    </div>
+    <div class="page" id="page4">
+       <div class="posi cloud">
+            <img src="./img/cloud1.png" alt="구름">
+        </div>
+        <div class="posi cloud2">
+            <img src="./img/cloud2.png" alt="구름">
+        </div>
+        <div class="posi cloud3">
+            <img src="./img/cloud3.png" alt="구름">
+        </div>
+        <div class="contact_wrap">
+            <div class="main_img">
+                <!--<img src="./img/desk_contac02.png" alt="데스크" class="desk">
+                <img src="./img/m_contac.png" alt="데스크" class="mobile">-->
+                <div class="main_tit">
+                    <h1 class="contact_tit">WEB DESIGNER</h1>
+                    <p class="name">박현규<p>
+                    <p class="email">gusrb3585@naver.com</p>
+                    <p class="txt">준비가 되있습니다 !</p>
+                    <p class="txt1">불러만 주시면 바로 달려가겠습니다 !</p>
+                </div>
+                <div class="row_tit">
+                    <p class="copy">Copyright&copy;2019. Webdesigner.박현규.All rights reserved.</p>
+                    <p class="txt2">해당 사이트는 1920*1080해상도에 최적화 되었습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        var win_h = $(window).height();
+        var par = 0;
+        $('.page').each(function(index){
+            par = win_h * index;
+            $(this).attr("data-index",par);
+            $(".menu").eq(index).attr("par", par);
+            $(".pageskip li").eq(index).attr("par", par);
+        });
+        $('.page').on("mousewheel DOMMouseScroll",function(e){
+            var sectionPos = parseInt($(this).attr("data-index"));
+            if(e.originalEvent.wheelDelta >= 0) {
+                $("html,body").stop().animate({scrollTop:sectionPos - win_h});
+            return false;
+            } else if (e.originalEvent.wheelDelta < 0) {
+                $("html,body").stop().animate({scrollTop:sectionPos + win_h});
+            return false; 
+            }
+        });    
+        var cur_page = 0;
+        var cur_class = "";
+        $(window).scroll(function(){
+            cur_page = parseInt($(window).scrollTop() / win_h);
+            console.log(cur_page);
+            cur_class = "sc"+cur_page;
+            $(".menu").removeClass("on");
+            $(".effect").removeClass("sc0");
+            $(".effect").removeClass("sc1");
+            $(".effect").removeClass("sc2");
+            $(".effect").removeClass("sc3");
+            $(".effect").addClass(cur_class);
+            $(".menu").eq(cur_page).addClass("on");
+            $(".pageskip li").removeClass("on");
+            $(".pageskip li").eq(cur_page).addClass("on");
+        });
+        $(".menu").click(function(){
+            $("html,body").stop().animate({scrollTop:$(this).attr("par")});
+        });
+        $(".pageskip li").click(function(){
+            $("html,body").stop().animate({scrollTop:$(this).attr("par")});
+        });
+    });    
+</script>
+    <ul class="pageskip">
+        <li class="it1 on"><button><span class="skip_tit">HOME</span> 1</button></li>
+        <li class="it2"><button><span class="skip_tit">ABOUT ME</span> 2</button></li>
+        <li class="it3"><button><span class="skip_tit">WORKING</span> 3</button></li>
+        <li class="it4"><button><span class="skip_tit">CONTACT</span> 4</button></li>
+    </ul>
+</body>
+</html>
