@@ -1,5 +1,5 @@
 @charset "utf-8";
-        .ft{clear: both; width: 100%; height: 115px; border-top: 2px solid #ccc; background: #000;}
+        .ft{clear: both; width: 100%;  border-top: 2px solid #ccc; background: #000; overflow-x:hidden;}
         .ft_sns{width: 100%; height: 30px;  }
         .ft_sns li.item1{width: 24px;height: 24px; background-image: url("./img/twi_icon.png"); background-position: center center; background-size: 18px; background-repeat: no-repeat;}
         .ft_sns li.item2{width: 24px;height: 24px; background-image: url("./img/face_icon.png"); background-position: center center; background-size: 18px; background-repeat: no-repeat;}
@@ -7,18 +7,18 @@
         .ft_sns li{float:right; margin-right: 10px; margin-top: 10px;
         }
         .ft_mid{clear: both; width: 100%;}
-        .ft_mid li{float: left; width: 65px; margin-top: 15px;
-        margin-left: 55px;}
+        .ft_mid li{float: left; width: 55px; margin-top: 15px;
+        margin-left: 50px;}
         .ft_mid li a{color: #fff;  font-size: 14px;}
         
         
-        .linkbox{clear: both; width: 100%; height: 30px; text-align: right;}
-        .linkbox a{color: #ccc; float: left; margin-top: 30px;
-        font-size: 12px;}
+        .linkbox{clear: both; width: 100%; height: 30px; text-align: left; padding-left: 90px;}
+        .linkbox a{color: #ccc; float: left; margin-top: 20px;
+        font-size: 12px; }
         .linkbox li {margin-top: 5px; }
         .linkbox li.item1{margin-left: 5px;}
         .linkbox li.item1 a:after{ content: "|"; color: #ccc;
         padding: 5px}
         
-        .copyright{color: #ccc; font-size: 12px; float: right;
-         margin-right: 5px;}
+        .copyright{color: #ccc; font-size: 12px; float: left;
+         padding-top: 15px; padding-bottom: 15px; padding-left: 75px;}
