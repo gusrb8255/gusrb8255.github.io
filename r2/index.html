@@ -1,0 +1,814 @@
+
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<title>nondisclothes</title>
+	<style>
+        *{margin: 0; padding: 0;}
+        body, html{font-family:'Arial', sans-serif; width: 100%; height: 100%; }
+        body{overflow-x: hidden;}
+        ul{list-style: none;}
+        label, input, button{ outline: 0; border: 0; background-color: transparent; user-select: none;}
+        a {text-decoration: none;}
+        img {border: 0;}
+        .page { clear:both; position:relative; width:100vw; height:100vh; overflow:hidden; box-sizing:border-box;}
+        
+        
+        
+        .collaps.on{right: 0;}
+        .collaps .right_btn.on{right: 65px;}
+        .collaps{width: 65px; height: auto; background-color: #000; position: fixed; top: calc(50% - 164px); border-left: 1px solid #ccc;
+        right: -75px; z-index: 50; transition: 0.2s;}
+        .row_lst{line-height: 2.5; text-align: left; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc;}
+        .row_lst>a{color: #eee; font-size: 12px; padding-left: 5px;}
+        .collaps .right_btn{background-color: #000; width: 30px; height: 30px; position: fixed; right: -30px; top:calc(50% - 15px);  
+        border-radius: 5px 0 0 5px; transition: 0.2s; display: block;}
+        .left_btn{background-color: #000; width: 30px; height: 30px; position: fixed; right: 0px; top:calc(50% - 15px); ;  
+        border-radius: 5px 0 0 5px;}
+        .row_lst:last-child{content: "";}
+        .row_lst:first-child{content: ""; border-top: 1px solid #ccc}
+        .right_btn img{width: 12px; height: 12px; padding-top: 9px; padding-left: 4px;}
+        .left_btn img{width: 12px; height: 12px; padding-top:9px; padding-left: 4px;}
+        
+        .hd{width: 100%; z-index: 40; height: 70px; position: fixed; top: 0; left: 0; background-color: transparent; transition: 0.5s}
+        .hd.on{background-color: #fff; border-bottom: 1px solid #ccc;}
+        .logo img{width: 100px; height: 45px;}
+        .logo{display: block; position: absolute;
+        top: 15px; left: calc(50% - 50px);}
+        
+        #gnb {width: 100%; height: 100%; background: rgba(0,0,0,0.925); position: fixed; top: 0; left: 0;
+        z-index: 55; display: none;}
+        .lst_box{position: absolute; top: calc(50% - 130px); left: calc(50% - 140px);
+        text-align: center; display: block;}
+        .lst_box li{padding: 10px 0; }
+        .lst_box li a{color: #fff; font-weight:600; font-size: 2.5em;}
+        .sub .sub_lst a{font-size: 2em; color: #6f6f6f;}
+        #gnb li .sub{display: none;}
+        #gnb li a.ad.on{display: block;}
+        .close_btn{position: absolute; top: 25px; left: 15px;}
+        .close_btn img {width: 24px; height: 24px;}
+        
+        .menu_call img {width: 24px; height: 24px;}
+        .menu_call{position: absolute; top: 25px; left: 15px;
+        cursor: pointer;}
+        
+        
+        
+        #page1{background-image: url("./img/page_bg7.jpg");
+        background-repeat: no-repeat; background-position: center center; background-size: cover;}
+        
+        .tit{position: absolute; bottom: 15%; left: 5%;}
+        .tit_box{position: absolute; bottom: 5%; left: 8%;}
+        .tit_box>h2{font-size: 2.5em; font-style: italic;}
+        .button_box{width: 80px; height: 40px; background-color: #000; line-height: 30px; position: absolute; bottom: 5.5%;
+         left: 57%; text-align: center; line-height: 40px; border-radius: 2px;}
+        .button_box>a{color: #fff; font-size: 0.8rem;}
+        
+        .title{display: block; padding: 5% 0; padding-left: 5%;}
+        .tit2{font-size: 2em; width: 25%;}
+        
+        #page2{height:120vh;  }
+        
+        .img_box {width: 100%; height: auto; }
+        .img_box a{color: #666;}
+        .img_box .item{width: 46%; height: auto;
+        float: left; margin: 0 2%;  box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 15px; padding: 10px;}
+        .img_box .item .img_wrap{display: block;
+        width: 100%;}
+        .img_box .item .img_wrap .img img{width: 100%;
+        max-width: 550px; display: block;}
+        .text_box {width: 100%; text-align:center;}
+        .text_box .commt .ss_tit2{display: block;}
+        .ss_tit2{color: #000; font-weight: bold;
+        padding-top: 5px; font-size: 1.3em;}
+        .more{position: absolute; bottom: 0; right: 5%; color: #666; font-size: 0.9em;}
+        
+        
+        #page3{width: 100vw;  height:100vh; padding-top: 00%;}
+        .slide_box{width: 800%;}
+        .slide_box .slide {float: left; width: 12.5%;
+        height: 100%; background: #000;}
+        .slide_box .slide>img{width: 100%; height: 80%;}
+        .next{ width: 320px; height: 32px;
+            display: block;
+            background-image: url("./img/bottom_tit.png") ; background-position: center bottom; background-size: 320px 32px; position: absolute; bottom: calc(7% - 26px); left: calc(119% - 445px);}
+        
+        
+        
+        
+        .ft{background-color: #282828; width: 100%; height: auto; }
+        .ft li, a{color: #fff; font-size: 0.8rem;}
+        
+        .ft_wrap{width: 100%; height: 80px; position: relative;}
+        
+        .sns_box img{width: 32px; height: 32px;}
+        .sns_box {width: 150px; position: absolute; top: 10px; left: calc(50% - 75px); }
+        .sns_box li {float: left; width: 50px; text-align: center}
+        
+        
+        .ft_box{text-align: center;width: 300px;clear:both; position: absolute; top: 40px; left: calc(50% - 150px);}
+        .ft_box li a{color: #ccc;}
+        .ft_box li{float: left; width: 100px; line-height: 35px; }
+        
+        .comm_box{clear: both; text-align: center; padding: 40px;
+        border-top: 2px solid #666;}
+        
+        .comm_box li{line-height: 25px;}
+        
+        
+        
+       @media screen and (max-width:767px){
+            
+           .collaps.on{right: 0;}
+        .collaps .right_btn.on{right: 65px;}
+        .collaps{width: 65px; height: auto; background-color: #000; position: fixed; top: calc(50% - 164px);
+        right: -75px; z-index: 50; transition: 0.2s;}
+        .row_lst{line-height: 2.5; text-align: left; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc;}
+        .row_lst>a{color: #eee; font-size: 12px; padding-left: 5px;}
+        .collaps .right_btn{background-color: #000; width: 30px; height: 30px; position: fixed; right: -30px; top:calc(50% - 15px);  
+        border-radius: 5px 0 0 5px; transition: 0.2s; display: block;}
+        .left_btn{background-color: #000; width: 30px; height: 30px; position: fixed; right: 0px; top:calc(50% - 15px); ;  
+        border-radius: 5px 0 0 5px;}
+        .row_lst:last-child{content: "";}
+        .row_lst:first-child{content: ""; border-top: 1px solid #ccc}
+        .right_btn img{width: 12px; height: 12px; padding-top: 9px; padding-left: 4px;}
+        .left_btn img{width: 12px; height: 12px; padding-top:9px; padding-left: 4px;}
+        
+        .hd{width: 100%; z-index: 40; height: 70px; position: fixed; top: 0; left: 0; background-color: transparent; transition: 0.5s}
+        .hd.on{background-color: #fff; border-bottom: 1px solid #ccc;}
+        .logo img{width: 100px; height: 45px;}
+        .logo{display: block; position: absolute;
+        top: 15px; left: calc(50% - 50px);}
+        
+        #gnb {width: 100%; height: 100%; background: rgba(0,0,0,0.925); position: fixed; top: 0; left: 0;
+        z-index: 55; display: none;}
+        .lst_box{position: absolute; top: calc(50% - 130px); left: calc(50% - 140px);
+        text-align: center; display: block;}
+        .lst_box li{padding: 10px 0; }
+        .lst_box li a{color: #fff; font-weight:600; font-size: 2.5em;}
+        .sub .sub_lst a{font-size: 2em; color: #6f6f6f;}
+        #gnb li .sub{display: none;}
+        #gnb li a.ad.on{display: block;}
+        .close_btn{position: absolute; top: 25px; left: 15px;}
+        .close_btn img {width: 24px; height: 24px;}
+        
+        .menu_call img {width: 24px; height: 24px;}
+        .menu_call{position: absolute; top: 25px; left: 15px;
+        cursor: pointer;}
+        
+        
+        
+        #page1{background-image: url("./img/page_bg7.jpg");
+        background-repeat: no-repeat; background-position: center center; background-size: cover;}
+        
+        .tit{position: absolute; bottom: 15%; left: 5%;}
+        .tit_box{position: absolute; bottom: 5%; left: 8%;}
+        .tit_box>h2{font-size: 2.5em; font-style: italic;}
+        .button_box{width: 80px; height: 40px; background-color: #000; line-height: 30px; position: absolute; bottom: 5.5%;
+         left: 57%; text-align: center; line-height: 40px; border-radius: 2px;}
+        .button_box>a{color: #fff; font-size: 0.8rem;}
+        
+        .title{display: block; padding: 5% 0; padding-left: 5%;}
+        .tit2{font-size: 2em; width: 25%;}
+        
+        #page2{height:120vh; }
+        
+        .img_box {width: 100%; height: auto;}
+        .img_box a{color: #666;}
+        .img_box .item{width: 46%; height: auto;
+        float: left; margin: 0 2%;  box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 15px; padding: 10px;}
+        .img_box .item:nth-child(5){display: none;}
+        .img_box .item:nth-child(6){display: none;}
+        .img_box .item:nth-child(7){display: none;}
+        .img_box .item:nth-child(8){display: none;}
+           
+        .img_box .item .img_wrap{display: block;
+        width: 100%;}
+        .img_box .item .img_wrap .img img{width: 100%;
+        max-width: 550px; display: block;}
+        .text_box {width: 100%; text-align:center;}
+        .text_box .commt .ss_tit2{display: block;}
+        .ss_tit2{color: #000; font-weight: bold;
+        padding-top: 5px; font-size: 1.3em;}
+        .more{position: absolute; bottom: 0; right: 5%; color: #666; font-size: 0.9em;}
+        
+        
+        #page3{width: 100vw;  height:100vh; padding-top: 00%;}
+        .slide_box{width: 800%;}
+        .slide_box .slide {float: left; width: 12.5%;
+        height: 100%; background: #000;}
+        .slide_box .slide>img{width: 100%; height: 80%;}
+        .next{ width: 320px; height: 32px;
+            display: block;
+            background-image: url("./img/bottom_tit.png") ; background-position: center bottom; background-size: 320px 32px; position: absolute; bottom: calc(7% - 26px); left: calc(119% - 445px);}
+        
+        
+        
+        
+        .ft{background-color: #282828; width: 100%; height: auto; }
+        .ft li, a{color: #fff; font-size: 0.8rem;}
+        
+        .ft_wrap{width: 100%; height: 80px; position: relative;}
+        
+        .sns_box img{width: 32px; height: 32px;}
+        .sns_box {width: 150px; position: absolute; top: 10px; left: calc(50% - 75px); }
+        .sns_box li {float: left; width: 50px; text-align: center}
+        
+        
+        .ft_box{text-align: center;width: 300px;clear:both; position: absolute; top: 40px; left: calc(50% - 150px);}
+        .ft_box li a{color: #ccc;}
+        .ft_box li{float: left; width: 100px; line-height: 35px; }
+        
+        .comm_box{clear: both; text-align: center; padding: 40px;
+        border-top: 2px solid #666;}
+        
+        .comm_box li{line-height: 25px;}
+        }
+        @media screen and (min-width:768px){
+            
+        .collaps.on{right: 0;}
+        .collaps .right_btn.on{right: 100px;}
+        .collaps{width: 100px; height: auto; background-color: #000; position: fixed; top: calc(50% - 244.5px); border-left: 1px solid #ccc;
+        right: -100px; z-index: 50; transition: 0.2s;}
+        .row_lst{line-height: 2.5; text-align: left; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc;}
+        .row_lst>a{color: #eee; font-size: 1.5em; padding-left: 5px;}
+        .collaps .right_btn{background-color: #000; width: 40px; height: 80px; position: fixed; right: -30px; top:calc(50% - 40px);  
+        border-radius: 5px 0 0 5px; transition: 0.2s; display: block;}
+        .left_btn{background-color: #000; width: 40px; height: 80px; position: fixed; right: 0px; top:calc(50% - 40px); ;  
+        border-radius: 5px 0 0 5px;}
+        .row_lst:last-child{content: "";}
+        .row_lst:first-child{content: ""; border-top: 1px solid #ccc}
+        .right_btn img{width: 32px; height: 32px; padding-top: 25px; padding-left: 4px;}
+        .left_btn img{width: 32px; height: 32px; padding-top:25px; padding-left: 4px;}
+        
+        .hd{width: 100%; z-index: 40; height: 100px; position: fixed; top: 0; left: 0; background-color: transparent; transition: 0.5s}
+        .hd.on{background-color: #fff; border-bottom: 1px solid #ccc;}
+        .logo img{width: 150px; height: 75px;}
+        .logo{display: block; position: absolute;
+        top: 15px; left: calc(50% - 75px);}
+        
+        #gnb {width: 100%; height: 100%; background: rgba(0,0,0,0.925); position: fixed; top: 0; left: 0;
+        z-index: 55; display: none;}
+        .lst_box{position: absolute; top: calc(50% - 186.655px); left: calc(50% - 223.375px);
+        text-align: center; display: block;}
+        .lst_box li{padding: 10px 0; }
+        .lst_box li a{color: #fff; font-weight:600; font-size: 4em;}
+        .sub .sub_lst a{font-size: 2em; color: #6f6f6f;}
+        #gnb li .sub{display: none;}
+        #gnb li a.ad.on{display: block;}
+        .close_btn{position: absolute; top: 25px; left: 15px;}
+        .close_btn img {width: 24px; height: 24px;}
+        
+        .menu_call img {width: 32px; height: 32px;}
+        .menu_call{position: absolute; top: 25px; left: 15px;
+        cursor: pointer;}
+        
+        
+        
+        #page1{background-image: url("./img/page_bg7.jpg");
+        background-repeat: no-repeat; background-position: center center; background-size: cover;}
+        
+        .tit{position: absolute; bottom: 15%; left: 5%; width: 50%;}
+        .tit_box{position: absolute; bottom: 5%; left: 8%;}
+        .tit_box>h2{font-size: 4em; font-style: italic;}
+        .button_box{width: 150px; height: 50px; background-color: #000; line-height: 30px; position: absolute; bottom: 6%;
+         left: 45%; text-align: center; line-height: 50px; border-radius: 2px;}
+        .button_box>a{color: #fff; font-size: 1.2em;}
+        
+        .title{display: block; padding: 5% 0; padding-left: 5%;}
+        .tit2{font-size: 2em; width: 25%;}
+        
+        #page2{height:150vh; }
+            .tit2{font-size: 4em;}
+        .img_box {width: 100%; height: auto;}
+        .img_box a{color: #666; font-size: 1.5em;}
+        .img_box .item{width: 46%; height: auto;
+        float: left; margin: 0 2%;  box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 15px; padding: 10px;}
+        .img_box .item:nth-child(5){display: none;}
+        .img_box .item:nth-child(6){display: none;}
+        .img_box .item:nth-child(7){display: none;}
+        .img_box .item:nth-child(8){display: none;}
+        .img_box .item .img_wrap{display: block;
+        width: 100%;}
+        .img_box .item .img_wrap .img img{width: 100%;
+        max-width: 550px; display: block;}
+        .text_box {width: 100%; text-align:center;}
+        .text_box .commt .ss_tit2{display: block;}
+        .ss_tit2{color: #000; font-weight: bold;
+        padding-top: 5px; font-size: 1.2em;}
+        .more{position: absolute; bottom: 0; right: 5%; color: #666; font-size: 2em;}
+        
+        
+        #page3{width: 100vw;  height:140vh; }
+        .slide_box{width: 800%;}
+        .slide_box .slide {float: left; width: 12.5%;
+        height: 100%; background: #000;}
+        .slide_box .slide>img{width: 100%; height: 80%;}
+        .next{ width: 320px; height: 32px;
+            display: block;
+            background-image: url("./img/bottom_tit.png") ; background-position: center bottom; background-size: 320px 32px; position: absolute; bottom: calc(7% - 26px); left: calc(119% - 445px);}
+        
+        
+        
+        
+        .ft{background-color: #282828; width: 100%; height: auto; }
+        .ft li, a{color: #fff; font-size: 0.8rem;}
+        
+        .ft_wrap{width: 100%; height:140px; position: relative;}
+        
+        .sns_box img{width: 64px; height: 64px;}
+        .sns_box {width: 450px; position: absolute; top: 20px; left: calc(50% - 225px); }
+        .sns_box li {float: left; width: 150px; text-align: center}
+        
+        
+        .ft_box{text-align: center;width: 300px;clear:both; position: absolute; top: 100px; left: calc(50% - 150px);}
+        .ft_box li a{color: #ccc; font-size: 1.2em;}
+        .ft_box li{float: left; width: 100px; line-height: 35px; }
+        
+        .comm_box{clear: both; text-align: center; padding: 40px;
+        border-top: 2px solid #666;}
+        
+        .comm_box li{line-height: 40px; font-size: 1em;}
+        }
+        @media screen and (min-width:960px){
+            
+            .collaps.on{right: 0;}
+        .collaps .right_btn.on{right: 100px;}
+        .collaps{width: 100px; height: auto; background-color: #000; position: fixed; top: calc(50% - 324.5px); border-left: 1px solid #ccc;
+        right: -100px; z-index: 50; transition: 0.2s;}
+        .row_lst{line-height: 80px; text-align: left; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; height: 80px; text-align: center;}
+        .row_lst>a{color: #eee; font-size: 1.2em; }
+        .collaps .right_btn{background-color: #000; width: 40px; height: 80px; position: fixed; right: -30px; top:calc(50% - 40px);  
+        border-radius: 5px 0 0 5px; transition: 0.2s; display: block;}
+        .left_btn{background-color: #000; width: 40px; height: 80px; position: fixed; right: 0px; top:calc(50% - 40px); ;  
+        border-radius: 5px 0 0 5px;}
+        .row_lst:last-child{content: "";}
+        .row_lst:first-child{content: ""; border-top: 1px solid #ccc}
+        .right_btn img{width: 28px; height: 28px; padding-top: 25px; padding-left: 4px;}
+        .left_btn img{width: 28px; height: 28px; padding-top:25px; padding-left: 4px;}
+        
+        .hd{width: 100%; z-index: 40; height: 100px; position: fixed; top: 0; left: 0; background-color: transparent; transition: 0.5s}
+        .hd.on{background-color: #fff; border-bottom: 1px solid #ccc;}
+        .logo img{width: 150px; height: 75px;}
+        .logo{display: block; position: absolute;
+        top: 10px; left: calc(50% - 75px);}
+        
+        #gnb {width: 100%; height: 100%; background: rgba(0,0,0,0.925); position: fixed; top: 0; left: 0;
+        z-index: 55; display: none;}
+        .lst_box{position: absolute; top: calc(50% - 186.655px); left: calc(50% - 223.375px);
+        text-align: center; display: block;}
+        .lst_box li{padding: 10px 0; }
+        .lst_box li a{color: #fff; font-weight:600; font-size: 4em;}
+        .sub .sub_lst a{font-size: 2em; color: #6f6f6f;}
+        #gnb li .sub{display: none;}
+        #gnb li a.ad.on{display: block;}
+        .close_btn{position: absolute; top: 35px; left: 15px;}
+        .close_btn img {width: 28px; height: 28px;}
+        
+        .menu_call img {width: 32px; height: 32px;}
+        .menu_call{position: absolute; top:calc(50% - 16px); left: 15px;
+        cursor: pointer;}
+        
+        
+        
+        #page1{background-image: url("./img/page_bg1.jpg");
+        background-repeat: no-repeat; background-position: top center; background-size: 100%; width: 100%; height: 100%;}
+        
+        .tit{position: absolute; bottom: 15%; left: 8%; width: 20%;}
+        .tit_box{position: absolute; bottom: 5%; left: 8%;}
+        .tit_box>h2{font-size: 4em; font-style: italic;}
+        .button_box{width: 150px; height: 50px; background-color: #000; line-height: 30px; position: absolute; bottom: 6.5%;
+         left: 30%; text-align: center; line-height: 50px; border-radius: 2px;}
+        .button_box>a{color: #fff; font-size: 1.2em;}
+        
+        .title{display: block; padding: 5% 0; padding-left: 5%;}
+        .tit2{font-size: 2em; width: 25%;}
+        
+        #page2{height:160vh; }
+        .tit2{font-size: 3em;}
+        .img_box {width: 100%; height: auto;}
+        .img_box a{color: #666; font-size: 1em;}
+        .img_box .item{width: 20%; height: auto;
+        float: left; margin: 42px;  box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 15px; padding: 15px;}
+        .img_box .item:nth-child(5){display: block;}
+        .img_box .item:nth-child(6){display: block;}
+        .img_box .item:nth-child(7){display: block;}
+        .img_box .item:nth-child(8){display: block;}
+        .img_box .item .img_wrap{display: block;
+        width: 100%;}
+        .img_box .item .img_wrap .img img{width: 100%;
+        max-width: 550px; display: block;}
+        .text_box {width: 100%; text-align:center;}
+        .text_box .commt .ss_tit2{display: block;}
+        .ss_tit2{color: #000; font-weight: bold;
+        padding-top: 5px; font-size: 1.2em;}
+        .more{position: absolute; bottom: 0; right: 5%; color: #666; font-size: 1.5em;}
+        
+        
+        #page3{width: 100vw;  height:140vh; }
+        .slide_box{width: 800%;}
+        
+        .slide_box .slide {float: left; width: 12.5%;
+        height: 100%; }
+            .slide01, .slide02, .slide03, .slide04, .slide05, .slide06{display: none;}
+        .slide_box .slide>img{width: 100%; height: 80%; }
+            
+          
+        
+        
+        
+        
+        
+        .ft{background-color: #282828; width: 100%; height: auto; }
+        .ft li, a{color: #fff; font-size: 0.8rem;}
+        
+        .ft_wrap{width: 100%; height:140px; position: relative;}
+        
+        .sns_box img{width: 64px; height: 64px;}
+        .sns_box {width: 450px; position: absolute; top: 20px; left: calc(50% - 225px); }
+        .sns_box li {float: left; width: 150px; text-align: center}
+        
+        
+        .ft_box{text-align: center;width: 300px;clear:both; position: absolute; top: 100px; left: calc(50% - 150px);}
+        .ft_box li a{color: #ccc; font-size: 1.2em;}
+        .ft_box li{float: left; width: 100px; line-height: 35px; }
+        
+        .comm_box{clear: both; text-align: center; padding: 40px;
+        border-top: 2px solid #666;}
+        
+        .comm_box li{line-height: 40px; font-size: 1em;}
+            
+        }
+        
+        
+        
+        
+	</style>
+	<script>
+        $(document).ready(function(){
+           $(window).scroll(function(){
+               var par = parseInt($(window).scrollTop());
+               if(par>=200){
+                   $(".hd").addClass("on");
+               } else {
+                   $(".hd").removeClass("on");
+               }
+           })
+        });
+    </script>
+	<script>
+        $(document).ready(function(){
+           $(".menu_call").click(function(){
+               $("#gnb").fadeIn(0);
+           });
+            $(".close_btn").click(function(){
+               $("#gnb").fadeOut(0); 
+            });
+        });
+</script> <!--메뉴 스크립-->
+    <script>
+        $(document).ready(function(){
+           $(".left_btn, .right_btn").click(function(){
+              $(".collaps, .right_btn").toggleClass("on");
+           });
+        });
+    </script> <!--오른쪽 사이드-->
+    <script>
+        $(document).ready(function(){
+           $("#gnb .lst_box .item1 .ad").click(function(){
+               $("#gnb .lst_box .item1 .ad").removeClass("on");
+               $("#gnb .lst_box .item1 .sub").css("display","none");
+               $(this).addClass("on");
+               $(this).siblings(".sub").slideDown();
+           });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var wd = parseInt($(window).width());
+            var intv = setInterval(function(){
+            nextAni(); }, 3000);
+            function nextAni(){
+                $(".slide_box").not(":animated").animate({"margin-left":-wd+"px"},800, function(){
+                    $(".slide_box .slide").eq(0).appendTo($(".slide_box"));
+                    $(".slide_box").css("margin-left", "0px");
+                });
+            }
+        });
+    </script>
+    
+</head>
+<body>
+        <label for="ck" class="left_btn">
+            <img src="./img/left.png" alt="메뉴">
+        </label>
+        <nav id="gnb">
+           <label for="ck" class="close_btn">
+               <img src="./img/cancel.png" alt="닫기">
+           </label>
+            <ul class="lst_box">
+                <li class="item1">
+                   <a class="ad">SHOP</a>
+                    <ul class="sub">
+                        <li class="sub_lst"><a href="#">19 S/S</a></li>
+                    </ul>
+                </li>
+                <li class="item2"><a href="">COLLECTION</a></li>
+                <li class="item3"><a href="">INFORMATION</a></li>
+                <li class="item4"><a href="">NEWS</a></li>
+            </ul>
+        </nav>
+    <header class="page hd">
+       <div class="collaps">
+      <label for="ck" class="right_btn">
+          <img src="./img/right.png" alt="오른쪽">
+      </label>
+       <ul class="lst_box2">
+           <li class="row_lst"><a href="#">Login</a></li>
+           <li class="row_lst"><a href="#">Join</a></li>
+           <li class="row_lst"><a href="#">My page</a></li>
+           <li class="row_lst"><a href="#">Order</a></li>
+           <li class="row_lst"><a href="#">Cart</a></li>
+           <li class="row_lst"><a href="#">Notice</a></li>
+           <li class="row_lst"><a href="#">Q/A</a></li>
+           <li class="row_lst"><a href="#">Review</a></li>
+       </ul>
+   </div>
+        <label for="ck" class="left_btn">
+            <img src="./img/left.png" alt="메뉴">
+        </label>
+        <a href="#" class="logo">
+            <img src="./img/logo.png" alt="로고">
+        </a>
+        <label for="ck" class="menu_call">
+            <img src="./img/plus.png" alt="메뉴">
+        </label>
+    </header>
+    <div class="page" id="page1">
+       <img src="./img/tit2.png" alt="티트" class="tit">
+       <div class="tit_box">
+           <h2>2019 S/S</h2>
+       </div>
+       <div class="button_box">
+           <a href="#">바로가기</a>
+       </div>
+    </div>
+    <div class="page" id="page2">
+        <div class="title">
+            <h2 class="tit2">SHOP</h2>
+        </div>
+        <ul class="img_box">
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs5.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                            3M LINE CRISPY JUMPER<br>(IVORY)
+                        </span>
+                        
+                        <span class="ss_tit2">
+                            149,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs6.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                            3M LINE CRISPY SHORTS
+                            <br>(IVORY)
+                        </span>
+                        <span class="ss_tit2">
+                            82,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs7.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                            STRING WIND HOODIE<br>(IVORY)
+                        </span>
+                        <span class="ss_tit2">
+                            155,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs8.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                           STRING WIND PANTS<br>
+                           (IVORY)
+                        </span>
+                        <span class="ss_tit2">
+                            155,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs1.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                           TIEDYE REFLECTOR T SHIRT<br>
+                           (PINK)
+                        </span>
+                        <span class="ss_tit2">
+                            66,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs2.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                           TIEDYE REFLECTOR PANTS<br>
+                           (PINK)
+                        </span>
+                        <span class="ss_tit2">
+                            79,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs3.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                           TIEDYE REFLECTOR T SHIRT<br>
+                           (SKY)
+                        </span>
+                        <span class="ss_tit2">
+                            66,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img_wrap">
+                    <a href="#" class="img">
+                        <img src="./img/ss_fs4.jpg" alt="의류">
+                     </a>  
+                </div>
+                <div class="text_box">
+                    <a class="commt">
+                        <span class="ss_tit">
+                           TIEDYE REFLECTOR PANTS<br>
+                           (PINK)
+                        </span>
+                        <span class="ss_tit2">
+                            79,000원
+                        </span>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+        <a href="#" class="more">&#43; more</a>
+    </div>
+    <div class="page" id="page3">
+       <div class="title">
+            <h2 class="tit2">LOOKBOOK</h2>
+        </div>
+        <ul class="slide_box">
+            <li class="slide slide01">
+                <img src="./img/lb01.jpg" alt="룩북1">
+                
+            </li>
+            <li class="slide slide02">
+                <img src="./img/lb02.jpg" alt="룩북2">
+             
+            </li>
+            <li class="slide slide03">
+                <img src="./img/lb03.jpg" alt="룩북3">
+              
+            </li>
+            <li class="slide slide04">
+                <img src="./img/lb04.jpg" alt="룩북4">
+             
+            </li>
+            <li class="slide slide05">
+                <img src="./img/lb05.jpg" alt="룩북5">
+               
+            </li>
+            <li class="slide slide06">
+                <img src="./img/lb06.jpg" alt="룩북6">
+            </li>
+            <li class="slide slide07">
+                <img src="./img/page_bg2.jpg" alt="룩북1">
+                
+            </li>
+            <li class="slide slide08">
+                <img src="./img/page_bg3.jpg" alt="룩북2">
+             
+            </li>
+            <li class="slide slide09">
+                <img src="./img/page_bg4.jpg" alt="룩북3">
+              
+            </li>
+            <li class="slide slide010">
+                <img src="./img/page_bg5.jpg" alt="룩북4">
+             
+            </li>
+            <li class="slideslide011">
+                <img src="./img/page_bg6.jpg" alt="룩북5">
+               
+            </li>
+            <li class="slide slide12">
+                <img src="./img/page_bg7.jpg" alt="룩북6">
+              
+            </li>
+        </ul>
+        
+    </div>
+    <footer class="ft">
+           <div class="ft_wrap">
+            <ul class="ft_box">
+                <li class="ft_lst">
+                    <a href="#">Agreement</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">Privacy Policy</a>
+                </li>
+                <li class="ft_lst">
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+            <ul class="sns_box">
+                <li class="sns_lst">
+                    <a href="#">
+                        <img src="./img/facebook.png" alt="페이스북" >
+                    </a>
+                </li>
+                <li class="sns_lst">
+                    <a href="#">
+                        <img src="./img/instagram.png" alt="인스타그램">
+                    </a>
+                </li>
+                <li class="sns_lst">
+                    <a href="#">
+                        <img src="./img/twitter.png" alt="트위터" >
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="comm_box">
+            <li class="comm_lst">업체명 : Nondisclothes</li>
+            <li class="comm_lst">대표자 : 박동진</li>
+            <li class="comm_lst">사업장소재지 : 2F, 37-16, Gwangseong-ro, Mapo-gu, Seoul, Republic of Korea</li>
+            <li class="comm_lst">사업자번호 : 164-45-00377</li>
+            <li class="comm_lst">통신판매업 신고번호 : 신고 중</li>
+            <li class="comm_lst">고객센터 : 070-4675-7657</li>
+            <li class="comm_lst">개인정보 관리 책임자 : 박동진(논디스클로즈)</li>
+            <li class="comm_lst">이메일 : nondisclothesarchive@gmail.com</li>
+        </ul>
+    </footer>
+</body>
+</html>
