@@ -1,0 +1,150 @@
+@charset "utf-8";
+:focus {outline:0; border: 0;}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul, li{list-style: none;}
+a {text-decoration: none;}
+#wrapper{width: 100%; position: relative;}
+footer{width: 100%;}
+body{font-family: "나눔스퀘어";}
+body, html{overflow-x: hidden;}
+
+.hd_top, #contents {width: 1400px; margin: 0 auto;}
+.top{position: fixed; width: 100%; z-index: 200; background: rgba(0,0,0,.8); height: 60px;}
+.top:hover{background: rgba(0,0,0,.8); position: fixed;}
+header{ width: 100%;}
+header .logo{float: left; width: 110px; height: 30px; line-height: 40px; padding: 10px 0;}
+
+header .meun{ width: 1290px; float: left;}
+header .meun>ul>li {float: left; height: 30px; line-height: 60px; padding: 0 25px;
+					margin-left: 40px;}
+header .meun ul li a{color: #fff; font-size: 16px; font-family: "나눔스퀘어" }
+header .meun ul li:hover a{color: #a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+.submeun1 .su01, .submeun2 .su01, .submeun3 .su01, .submeun4 .su01{width: 1400px; 
+									 margin:0 auto; position: relative;}
+
+.submeun1{display: block; position: fixed; width: 100%; top: 60px; 
+				height: 300px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;}
+.submeun2{display: block; position: fixed; width: 100%; top: 60px;
+				height: 300px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;}
+.submeun3{display: block; position: fixed; width: 100%; top: 60px;
+				height: 300px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;}
+.submeun4{display: block; position: fixed; width: 100%; top: 60px;
+				height: 300px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;}
+
+.submeun1 ul{position: absolute; width: 1290px; right: -65px; top: 20px;}
+.submeun1 ul li a{color: #fff;}
+
+.submeun2 ul{position: absolute; width: 1290px; right: 0;top: 10px; }
+.submeun2 ul li a{color: #fff;}
+
+.submeun3 ul{position: absolute; width: 1290px; right: -65px; top: 20px; }
+.submeun3 ul li a{color: #fff;}
+
+.submeun4 ul{position: absolute; width: 1290px; right: -65px; top: 20px; }
+.submeun4 ul li a{color: #fff;}
+
+
+
+header{width: 100%;}
+header .meun .row{vertical-align: middle;}
+header .sh_bar{width: 140px; height: 30px;
+	height: 30px; line-height: 45px; margin-top: 10px;}
+header .sh_bar {background: rgba(0,0,0,.5); border-bottom: 1px solid #404040; margin-top: 15px;}
+header .sh_bar .search{color: #fff; width: 100px; height: 30px; background:rgba(0,0,0,0); border: 0;
+					float: right; ;}
+
+.submeun1 ul li:hover a{color: #a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+.submeun3 ul li:hover a{color: #a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+.submeun4 ul li:hover a{color: #a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+
+.quick{display: block; position: fixed; width: 150px; top: 60px;
+				height: 200px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;
+				left: 1297px;}
+.quick a{color: #fff; margin-left: 10px;}
+.quick a:hover{color:#a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+
+.quick2{display: block; position: fixed; width: 150px; top: 60px;
+				height: 100px; line-height: 40px; background: rgba(0,0,0,.8); z-index: 1000;
+				left: 1480px;}
+.quick2 a{color: #fff; margin-left: 10px;}
+.quick2 a:hover{color:#a4694b; border-bottom: 1px solid #a4694b; padding-bottom: 2px;}
+
+
+.submeun2 .one{width:270px; height: 113px; background: url(../image/gg70.png) no-repeat;background-position: 0 0; cursor: pointer;
+			transition: all 0.5s;}
+.submeun2 .two{width:270px; height: 115px; background: url(../image/gg80.png) no-repeat;background-position: 0 0; cursor: pointer;
+			transition: all 0.5s;}
+.submeun2 .three{width:275px; height: 117px; background: url(../image/gg80sport.png) no-repeat;background-position: 0 0; cursor: pointer;
+			transition: all 0.5s;}
+.submeun2 .four{width:275px; height: 117px; background: url(../image/gg90.png) no-repeat;background-position: 0 0; cursor: pointer;
+			transition: all 0.5s;}
+
+.submeun2 .one:hover{background-position: -275px 0;}
+.submeun2 .two:hover{background-position: -275px 0;}
+.submeun2 .three:hover{background-position: -275px 0;}
+.submeun2 .four:hover{background-position: -275px 0;}
+
+.submeun2 ul li{float: left; padding:0 20px; margin-top: 50px;}
+
+.submeun2 h3{font-size: 18px; color: #fff; opacity: 0.8; padding: -60px 0;}
+
+#bg{width: 100%; height: 1080px; background: url(../image1/main.jpg) no-repeat;}
+#section .op{margin-left: 255px;  color: #fff; position: absolute; left: 0; top: 630px;}
+#section .op .text0{font-size: 60px; font-family: 'Hind', sans-serif;}
+#section .op .text1{font-size: 25px;}
+#section .op .text2{padding:30px 0; font-size: 20px;}
+#section .op .list li{float: left; padding:5px 40px 0 0;}
+#section .op .list li a{color: #fff; font-size: 20px; border-bottom: 2px solid #fff; padding-bottom: 5px;}
+#section .op .list li:hover a{color: #a4694b; border-bottom: 2px solid #a4694b; 
+							transition: all 0.2s ease-in; }
+
+#bg2{width: 100%; height: 600px; background: url(../image1/bg2.jpg) no-repeat;}
+
+
+.contents .cont_1{margin-left: 255px; position: absolute; top: 1200px;}
+.contents .p1{color:#a4694b; font-size: 40px; font-family: 'Hind', sans-serif;}
+.contents .p2{font-size: 19px; line-height: 28px;}
+.contents .cont_1 .p1, .p2, .btn{clear: right; padding: 10px 0;}
+
+.contents2 .ct_bg1{width: 100%; height: 600px; background: #fff;}
+.contents2 .ct_bg1 img{margin-top: 60px; float: left;}
+.contents2 .ct_bg1 .p3, .p4 {position: relative; left: 200px; top: 240px; }
+.contents2 .ct_bg1 .p3{color:#a4694b; font-size: 40px;  font-family: 'Hind', sans-serif;}
+.contents2 .ct_bg1 .p4{font-size: 19px; line-height: 28px;}
+
+.contents2 .ct_bg2{width: 100%; height: 750px; background:#f3f3f3;}
+.contents2 .ct_bg2 img{float: right;}
+.contents2 .ct_bg2 .p5, .p6 {position: relative; left: 150px; top: 260px; }
+.contents2 .ct_bg2 .p5{color:#a4694b; font-size: 40px;  font-family: 'Hind', sans-serif;}
+.contents2 .ct_bg2 .p6{font-size: 19px; line-height: 28px;}
+
+
+footer{clear: left;}
+footer .icon_list>p {color:#fff; text-align: center; padding-top: 20px; font-size: 15px;}
+footer .icon_list{height: 100px; background: #000; text-align: center;}
+footer .icon_list ul {margin-top: 20px;}
+footer .icon_list ul li {display: inline; padding: 0 20px;}
+
+footer .ft2{ height: 80px; background: #dbdbdb;text-align: center;}
+footer .ft2 ul li{display: inline; padding:40px; }
+footer .ft2 ul li a{line-height: 80px; color: #666666; font-size: 14px;}
+footer .ft3{height: 80px; background:#e6e6e6;}
+footer .ft3 .left{float: left;}
+footer .ft3 .left ul li{float: left; padding: 33px;}
+footer .ft3 .left ul li a{color:#666; font-size: 18px;}
+footer .ft3 .left ul li a:hover{border-bottom: 1px solid #666; padding: 5px 0;}
+footer .ft3 .right{float: right; line-height: 80px; color: #666; font-size: 12px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
