@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="ko">
 <head>
@@ -197,6 +199,10 @@
         .about .hov_tit{ text-indent: 16px; clear: both; width: 170px;}
         .about .coment1{ line-height: 30px; clear: both; padding-top: 20px;}
         
+        .about2{top: 20%; left: 5%; display: none;} 
+        .about2 .hov_tit{ text-indent: 16px; clear: both; width: 170px;}
+        .about2 .coment1{ line-height: 30px; clear: both; padding-top: 20px;}
+        
         .profile{top: 20%; left: 25%;}
         .profile .hov_tit{ text-indent: 16px; clear: both;}
         .profile .coment2{ line-height: 30px; clear: both; padding-top: 20px;}
@@ -360,31 +366,46 @@
             
             .cloud3{width: 200%; bottom: -5%;}
             
-            #page2{background-size: 120%; background-position: bottom right;height: 160vh;}
+            #page2{background-size: 50%; background-position: bottom right;height: 100vh;}
             
             
             .title_box{width: 100%; position: relative; clear: both; padding: 30px 0 }
             
             .bg_color{ height: 22px;}
-            .hov_tit{font-size: 1.5em; line-height: 22px;}
+            .hov_tit{font-size: 1.5em; line-height: 22px; }
             
-            .about{top: 0; left: 0; padding-left: 5%; }
+            .about{top: 0; left: 0; padding-left: 5%; display: none;}
+            .about2{top: 0; left: 0; padding-left: 5%; display: block;}
             .coment1{width: 90%; font-size: 0.9em;}
             
-            .profile{top: 0; left: 0; padding-left: 5%;}
+            .profile{top: 0; left: 0; padding-left: 5%;display: none}
             .coment2{width: 90%; font-size: 0.9em;}
             
-            .exper{top: 0; left: 0; margin-top:-140%; padding-left: 5%;}
+            .exper{top: 0; left: 0; margin-top:-110%; padding-left: 5%;}
             .coment3{width: 90%;}
             .icon_lst p{font-size: 0.9em;}
-            .icon_box .icon1{top: 20px; left: 0;}
+            .icon_box .icon1{top: 20px; left: 0; }
             .icon_box .icon2{top: 90px; left: 0;}
             .icon_box .icon3{top: 165px;left: 0;}
             .icon_box .icon4{top: 240px; left: 0;}
             .icon_box .icon5{top: 315px; left: 0;}
-            
+           
             .skill{top: 0; left: 0; padding-left: 5%;}
-            .coment4{width: 10%;}
+            .coment4{width: 90%;}
+            .charts{width: 90%;}
+            
+            .chart{ width:100px; height: 100px; margin: 0;  margin-left: 0px; margin-top: 5px;}
+            .charts:first-child .chart{margin-left: 40px;}
+            .circle-mask-inner{width: 35px; height: 70px;}
+            .circle-body{width: 70px; height: 70px;}
+            .chart-content{width: 50px; height: 10px;
+            top: 10px; left: 25px; }
+            
+            .chart-content .icon{bottom: 32px;}
+            .chart-content .text{bottom: 20px;}
+            
+            
+            
             
             
             #page4 .posi{width: 200%;}
@@ -400,7 +421,7 @@
             .email{font-size: 1em; text-indent: 0;}
             .txt, .txt1{font-size: 0.8em; text-indent: 0;}
             
-            .row_tit{bottom: 30%;left: -5%; font-size: 0.7em; width: 100%; text-align:center;}
+            .row_tit{bottom: 35%;left: -5%; font-size: 0.7em; width: 100%; text-align:center;}
         }
         @media screen and (min-width:768px){
             
@@ -476,6 +497,19 @@
            </div>
            <div class="coment1">
                <b>호기심이 많은</b> 박현규입니다.<br>
+               호기심에 답을 찾기 위하여
+               꾸준한 연구와 계발을 통해
+               명쾌한 답을 찾는 디자이너가 되겠습니다!
+           </div>
+       </div>
+       <div class="title_box about2">
+           <div class="bg_color">
+           <h2 class="hov_tit">
+                   About Me
+               </h2>
+           </div>
+           <div class="coment1">
+               <b>호기심이 많은 24살 동구에 거주중인</b> 박현규입니다.<br>
                호기심에 답을 찾기 위하여
                꾸준한 연구와 계발을 통해
                명쾌한 답을 찾는 디자이너가 되겠습니다!
