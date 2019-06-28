@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/mixitup.css">
+     <link rel="stylesheet" href="./css/ktswiper.css">
     
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="./js/vendor/modernizr.custom.min.js"></script>
@@ -32,6 +33,9 @@
       });
     });
   </script>
+  
+    <script src="./js/ktswiper.min.js"></script>
+    <script src="./slider01.js"></script>
     
 	<style>
         *{margin: 0; padding: 0;}
@@ -275,6 +279,21 @@
         .nondis .lst_btn:nth-child(4){display: none;}
         
         
+        #vs2 {  height:100%; padding-top: 5%; display: none; } 
+        #vs2:before { content:"Port folio"; display:block; width: 100%; clear:both; line-height: 36px; font-size:2em; text-align:center; padding-bottom:15px;  font-weight: bold; font-family: 'Noto Sans KR', sans-serif; color: #333; } 
+        #vs2 li.slide_01 { float: left; width: 100%; }
+        #vs2 li div.slide_01_inner {  width: 100%;  }
+        #vs2 .img_wrap { width: 100%; }
+        #vs2 .img_wrap img { display: block; width:90%;  height: auto;  margin: 0 auto;}
+        #vs2 .slide_01:nth-child(3) img {width: 55%;}
+        #vs2 .slide_01:nth-child(5) img {width: 55%;}
+        .p_index{font-weight: bold; text-align: center;
+        font-size:1em; margin-top:1em; color:#333;}
+        .p_text{ font-size:0.9em; height: 90px; text-align: center;
+        padding-top: 5%;}
+        .btn_wrap{width: 100%; margin-top: -10%;}
+        .btn_more2_wrap, .more2 { line-height:45px; font-size:1rem; font-weight:bold; display:block; text-align: center; background: #000; width: 20%; margin-left: 20%; height: 45px; border-radius: 5px; float: left;}  
+        .btn_more2{color: #fff;}
         
         
         #page4{width: 100%; height: 100%; background-image: url("./img/ft_bg.jpg"); background-size:cover; background-position:center center; background-repeat: no-repeat;}
@@ -323,7 +342,7 @@
             .pageskip{display: none;}
             #page1{background-position: top left;}
             .hd{width: 100%; top: 0; left: 0;}
-            .nav{width: 100%; left: (50% - 230px);}
+            .nav{width: 100%; left: (50% - 230px); }
             .nav .menu{width: 25%; padding: 16px 0; font-size: 1em;}
 
             .nav.dot .effect{margin-left: -45px;}
@@ -366,7 +385,7 @@
             
             .cloud3{width: 200%; bottom: -5%;}
             
-            #page2{background-size: 50%; background-position: bottom right;height: 100vh;}
+            #page2{background-size: 120%; background-position: bottom right;height: 130vh;}
             
             
             .title_box{width: 100%; position: relative; clear: both; padding: 30px 0 }
@@ -381,14 +400,14 @@
             .profile{top: 0; left: 0; padding-left: 5%;display: none}
             .coment2{width: 90%; font-size: 0.9em;}
             
-            .exper{top: 0; left: 0; margin-top:-110%; padding-left: 5%;}
+            .exper{top: 0; left: 0; margin-top:-120%; padding-left: 5%;}
             .coment3{width: 90%;}
             .icon_lst p{font-size: 0.9em;}
-            .icon_box .icon1{top: 20px; left: 0; }
-            .icon_box .icon2{top: 90px; left: 0;}
-            .icon_box .icon3{top: 165px;left: 0;}
-            .icon_box .icon4{top: 240px; left: 0;}
-            .icon_box .icon5{top: 315px; left: 0;}
+            .icon_box .icon1{top: 20px; left: 0; display: none;}
+            .icon_box .icon2{top: 20px; left: 0;}
+            .icon_box .icon3{top: 90px;left: 0;}
+            .icon_box .icon4{top: 165px; left: 0;}
+            .icon_box .icon5{top: 240px; left: 0;}
            
             .skill{top: 0; left: 0; padding-left: 5%;}
             .coment4{width: 90%;}
@@ -422,10 +441,14 @@
             .txt, .txt1{font-size: 0.8em; text-indent: 0;}
             
             .row_tit{bottom: 35%;left: -5%; font-size: 0.7em; width: 100%; text-align:center;}
+            
+            #page3{height: 70vh;}
+            .container{display: none;}
+            .controls{display: none;}
+            #vs2{display: block;}
         }
         @media screen and (min-width:768px){
-            
-            
+
         }
         @media screen and (min-width:960px){
             
@@ -789,144 +812,273 @@
        </div>
     </div>
     <div class="page" id="page3">
-  <div class="controls"></div>
-  <div class="container" id="mixItUp">
-   <div class="btn_box">
-        <button class="filter" data-filter="all">All</button>
-        <button class="filter" data-filter=".web">Web</button>
-        <button class="filter" data-filter=".mobile">Mobile</button>
-        <button class="filter" data-filter=".responsive">Responsive</button>
-        <button class="filter" data-filter=".leaflet">leaflet</button>
-    </div>
-    <div class="mix web" data-myorder="1">
-        <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/genesis_img.png" alt="제네시스">
-           </a>
+      <div class="controls"></div>
+      <div class="container" id="mixItUp">
+       <div class="btn_box">
+            <button class="filter" data-filter="all">All</button>
+            <button class="filter" data-filter=".web">Web</button>
+            <button class="filter" data-filter=".mobile">Mobile</button>
+            <button class="filter" data-filter=".responsive">Responsive</button>
+            <button class="filter" data-filter=".leaflet">leaflet</button>
         </div>
-        <div class="text_box genesis">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS를 이용한 제네시스 Web 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/w1">main</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub1.html">sub1</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub2.html">sub2</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub3.html">sub3</a></li>
-             </ul>
+        <div class="mix web" data-myorder="1">
+            <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/genesis_img.png" alt="제네시스">
+               </a>
+            </div>
+            <div class="text_box genesis">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS를 이용한 제네시스 Web 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/w1">main</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub1.html">sub1</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub2.html">sub2</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/w1/sub3.html">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-    </div>
-    <div class="mix mobile" data-myorder="2">
-       <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/nike_img.png" alt="나이키">
-            </a>
+        <div class="mix mobile" data-myorder="2">
+           <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/nike_img.png" alt="나이키">
+                </a>
+            </div>
+            <div class="text_box nike">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS, JQUERY를 이용한 나이키 Mobile 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/m2">main</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/m2/sub1.html">sub1</a></li>
+                     <li class="lst_btn"><a href="">sub2</a></li>
+                     <li class="lst_btn"><a href="">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-        <div class="text_box nike">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS, JQUERY를 이용한 나이키 Mobile 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/m2">main</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/m2/sub1.html">sub1</a></li>
-                 <li class="lst_btn"><a href="">sub2</a></li>
-                 <li class="lst_btn"><a href="">sub3</a></li>
-             </ul>
+        <div class="mix responsive" data-myorder="3">
+           <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/lifeplus_img.png" alt="라이프플러스">
+                </a>
+            </div>
+            <div class="text_box lifeplus">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS, JQUERY를 이용한 라이프 플러스 Responsive 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/r3">main</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/r3/sub1.html">sub1</a></li>
+                     <li class="lst_btn"><a href="">sub2</a></li>
+                     <li class="lst_btn"><a href="">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-    </div>
-    <div class="mix responsive" data-myorder="3">
-       <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/lifeplus_img.png" alt="라이프플러스">
-            </a>
+        <div class="mix mobile" data-myorder="4">
+           <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/sider_img.png" alt="칠성">
+                </a>
+            </div>
+            <div class="text_box lotte">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS, JQUERY를 이용한 롯데칠성음료 Mobile 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/m3">main</a></li>
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/m3/sub1.html">sub1</a></li>
+                     <li class="lst_btn"><a href="">sub2</a></li>
+                     <li class="lst_btn"><a href="">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-        <div class="text_box lifeplus">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS, JQUERY를 이용한 라이프 플러스 Responsive 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/r3">main</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/r3/sub1.html">sub1</a></li>
-                 <li class="lst_btn"><a href="">sub2</a></li>
-                 <li class="lst_btn"><a href="">sub3</a></li>
-             </ul>
+        <div class="mix responsive" data-myorder="5">
+           <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/arena_img.png" alt="아레나">
+                </a>
+            </div>
+            <div class="text_box arena">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS, JQUERY를 이용한 아레나 Responsive 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/r5">main</a></li>
+                     <li class="lst_btn"><a href="">sub1</a></li>
+                     <li class="lst_btn"><a href="">sub2</a></li>
+                     <li class="lst_btn"><a href="">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-    </div>
-    <div class="mix mobile" data-myorder="4">
-       <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/sider_img.png" alt="칠성">
-            </a>
+        <div class="mix mobile" data-myorder="6">
+            준비중
         </div>
-        <div class="text_box lotte">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS, JQUERY를 이용한 롯데칠성음료 Mobile 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/m3">main</a></li>
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/m3/sub1.html">sub1</a></li>
-                 <li class="lst_btn"><a href="">sub2</a></li>
-                 <li class="lst_btn"><a href="">sub3</a></li>
-             </ul>
+        <div class="mix responsive" data-myorder="7">
+           <div class="pf_wrap">
+               <a href="#">
+                    <img src="./img/nondis_img.png" alt="논디스클로더즈">
+                </a>
+            </div>
+            <div class="text_box nondis">
+                <a href="" class="commt">
+                    <span class="coment">
+                        CSS, JQUERY를 이용한 논디스클로더스 Responsive 페이지 구현
+                    </span>
+                 </a>
+                 <ul class="link_box">
+                     <li class="lst_btn"><a href="https://gusrb8255.github.io/r2">main</a></li>
+                     <li class="lst_btn"><a href="">sub1</a></li>
+                     <li class="lst_btn"><a href="">sub2</a></li>
+                     <li class="lst_btn"><a href="">sub3</a></li>
+                 </ul>
+            </div>
         </div>
-    </div>
-    <div class="mix responsive" data-myorder="5">
-       <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/arena_img.png" alt="아레나">
-            </a>
-        </div>
-        <div class="text_box arena">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS, JQUERY를 이용한 아레나 Responsive 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/r5">main</a></li>
-                 <li class="lst_btn"><a href="">sub1</a></li>
-                 <li class="lst_btn"><a href="">sub2</a></li>
-                 <li class="lst_btn"><a href="">sub3</a></li>
-             </ul>
-        </div>
-    </div>
-    <!--<div class="mix mobile" data-myorder="6">
-        준비중
-    </div>-->
-    <div class="mix responsive" data-myorder="7">
-       <div class="pf_wrap">
-           <a href="#">
-                <img src="./img/nondis_img.png" alt="논디스클로더즈">
-            </a>
-        </div>
-        <div class="text_box nondis">
-            <a href="" class="commt">
-                <span class="coment">
-                    CSS, JQUERY를 이용한 논디스클로더스 Responsive 페이지 구현
-                </span>
-             </a>
-             <ul class="link_box">
-                 <li class="lst_btn"><a href="https://gusrb8255.github.io/r2">main</a></li>
-                 <li class="lst_btn"><a href="">sub1</a></li>
-                 <li class="lst_btn"><a href="">sub2</a></li>
-                 <li class="lst_btn"><a href="">sub3</a></li>
-             </ul>
-        </div>
-    </div>
-   <!-- <div class="mix leaflet" data-myorder="8"></div>-->
+        <div class="mix leaflet" data-myorder="8"></div>
 
-  </div>
-  
-  <div class="gap"></div>
-  <div class="gap"></div>
+      </div>
+
+      <div class="gap"></div>
+      <div class="gap"></div>
+      <!--모바일 슬라이드 구현-->
+      <ul id="vs2" class="ktswiper-track">
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/genesis_img.png" alt="제네시스">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">제네시스 웹</p>
+                    <p class="p_text">
+                        CSS를 이용한 제네시스 웹 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/w1" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/w1/sub2.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/nike_img.png" alt="나이키">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">나이키 모바일</p>
+                    <p class="p_text">
+                        CSS, Jquery를 이용한 나이키 모바일 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/m2" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/m2/sub1.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/arena_img.png" alt="아레나">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">아레나 반응형</p>
+                    <p class="p_text">
+                        CSS, Jquery를 이용한 아레나 반응형 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r5" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r5/sub1.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/sider_img.png" alt="롯데칠성">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">롯데칠성음료 모바일</p>
+                    <p class="p_text">
+                        CSS, Jquery를 이용한 롯데칠성음료 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/m3" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/m3/sub1.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/lifeplus_img.png" alt="라이프플러스">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">라이프플러스 반응형</p>
+                    <p class="p_text">
+                        CSS, Jquery를 이용한 라이프플러스 반응형 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r3" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r3/sub1.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="slide_01 ktswiper-slide" data-ktswiper-index="1" aria-hidden="true" tabindex="0">
+            <div class="slide_01_inner">
+                <div class="img_wrap">
+                    <img src="./img/nondis_img.png" alt="논디스클로더스">
+                </div>
+                <div class="txt_wrap">
+                    <p class="p_index" style="">논디스클로더스 반응형</p>
+                    <p class="p_text">
+                        CSS, Jquery를 이용한 논디스클로더스 페이지 구현
+                    </p>
+                    <div class="btn_wrap">
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r2" class="btn_more2" target="_blank">main</a>
+                        </div>
+                        <div class="btn_more2_wrap">
+                            <a href="https://gusrb8255.github.io/r2/sub1.html" class="btn_more2" target="_blank">sub1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
     </div>
     <div class="page" id="page4">
        <div class="posi cloud">
