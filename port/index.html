@@ -341,12 +341,13 @@
         @media screen and (max-width:767px){
             .pageskip{display: none;}
             #page1{background-position: top left;}
+            .nav .menu{width: 25%; padding: 16px 0; font-size: 1em;}
             .hd{width: 100%; top: 0; left: 0;}
             .nav{width: 100%; left: (50% - 230px); }
-            .nav .menu{width: 25%; padding: 16px 0; font-size: 1em;}
+            
 
             .nav.dot .effect{margin-left: -45px;}
-            
+          
             .effect.sc0 .border {  width:92px; }
             .effect.sc1 .border {  width:186px; }
             .effect.sc2 .border { width:275px; }
@@ -357,7 +358,7 @@
             .effect.sc2 .radio {  left:268px; }
             .effect.sc3 .radio {  left:355px; }
             
-            .tit_box{ top: 15% ;left: calc(50% - 148.88px);}
+            .tit_box{ top: 15% ;left: calc(50% - 100px);}
             .tit_box .tit1{font-size: 2.5em;}
             
             
@@ -385,6 +386,8 @@
             
             .cloud3{width: 200%; bottom: -5%;}
             
+           
+            
             #page2{background-size: 120%; background-position: bottom right;height: 130vh;}
             
             
@@ -400,7 +403,7 @@
             .profile{top: 0; left: 0; padding-left: 5%;display: none}
             .coment2{width: 90%; font-size: 0.9em;}
             
-            .exper{top: 0; left: 0; margin-top:-120%; padding-left: 5%;}
+            .exper{top: 0; left: 0; margin-top:-110%; padding-left: 5%;}
             .coment3{width: 90%;}
             .icon_lst p{font-size: 0.9em;}
             .icon_box .icon1{top: 20px; left: 0; display: none;}
@@ -448,9 +451,111 @@
             #vs2{display: block;}
         }
         @media screen and (min-width:768px){
+            body{overflow-x: hidden;}
+            .pageskip{display: none;}
+            #page1{background-position: center center;}
+            
+            
+            .tit_box{ top: 15% ;left: calc(50% - 155px);}
+            .tit_box .tit1{font-size: 4em;}
+            
+            
+            
+            .aniwrap{ 
+            position: absolute;  width: 100%; height: 100%;
+                top: 35%;left: 35%;}
+            .moon_wrap{position: absolute;top: 1%;left: 2%;width: 30%; height: auto;}
+            
+            .fila{top: 40%; width: 50%; height: 5%; display: none;}
+            .hand{ top: 18%;}
+            .hand img{width: 80%;}
+            
+            @keyframes handAni{
+            0%{right: 40%;top: 130%;}  
+            30%{right: 30%;top: 20%;}
+            35%{right: 30%;top: 20%;}
+            95%{right: 20%;top: 0%;}
+            100%{right: 20%;top: 0%;}
+        }
+            
+            .cloud{width: 200%; bottom: -4%;}
+            
+            .cloud2{width: 200%; bottom: -5%;}
+            
+            .cloud3{width: 200%; bottom: -5%;}
+            
+             #page2{background-size: 60%; background-position: bottom right;}
+            
+            
+            .title_box{width: 100%; position: relative; clear: both; padding: 30px 0 }
+            
+            .bg_color{ height: 22px;}
+            .hov_tit{font-size: 1.5em; line-height: 22px; }
+            
+            .about{top: 0; left: 0; padding-left: 5%; display: none;}
+            .about2{top: 0; left: 0; padding-left: 5%; display: block; margin-top:15%}
+            .coment1{width: 90%; font-size: 1em;}
+            
+            .profile{top: 0; left: 0; padding-left: 5%;display: none}
+            .coment2{width: 90%; font-size: 0.9em;}
+            
+            .exper{top: 0; left: 0; margin-top:-68%; padding-left: 5%;}
+            .coment3{width: 90%;}
+            .icon_box .icon2{left: 400px;}
+            .icon_box .icon4{left: 400px;}
+            
+           
+            .skill{top: 0; left: 0; padding-left: 5%;}
+            .coment4{width: 90%;}
+            .charts{width: 90%;}
+            
+            .chart{ width:100px; height: 100px; margin: 0;  margin-left: 0px; margin-top: 5px;}
+            .charts:first-child .chart{margin-left: 0px;}
+            .circle-mask-inner{width: 35px; height: 70px;}
+            .circle-body{width: 70px; height: 70px;}
+            .chart-content{width: 50px; height: 10px;
+            top: 10px; left: 25px; }
+            
+            .chart-content .icon{bottom: 32px;}
+            .chart-content .text{bottom: 20px;}
+            
+            /*page3*/
+            
+            .text_box{width: 100%; height: 153.59px; background-color:rgba(0,0,0,0.7); z-index: 999; position: absolute; top: 0; left: 0; border-radius: 10px; line-height: 30px;
+            transition: 0.5s; opacity: 0;}
+            .text_box .coment{color: #fff; padding-top: 100px; font-size: 0.8em;}
+            .link_box .lst_btn a{color: #fff; font-size: 0.9em;}
+            .lst_btn{float: left; width: 20%; line-height: 20px; margin: 5px; transition: 0.5s; cursor: pointer; 
+            height: 20px; border: 1px solid #fff;}
+            .mix:active .text_box{opacity: 1;}
+            .lst_btn:active {background-color: rgba(255,255,255,0.8);}
+            .lst_btn:active a{color: #333;}
+            
+    
+            .container .mix{ height:15%; 
+             margin-top: 15%;}
+            
+            /*page4*/
+            #page4 .posi{width: 200%;}
+            #page4 .cloud{top:2%;}
+            #page4 .cloud2{top:6%;}
+            #page4 .cloud3{top:7%;}
+            
+            .main_img{width: 100%; height: 100%; background-image: url("./img/m_contac2.png"); background-size: 100%; 
+            background-position: bottom right;  margin-left: 5%; padding-top: 25%; }
+            .main_tit{left: 5%; top: 10%; line-height: 100px;}
+            .contact_tit{font-size: 4em; text-indent: 0;}
+            .name{font-size:3em; text-indent: 0; }
+            .email{font-size: 2.5em; text-indent: 0;}
+            .txt, .txt1{font-size: 1.5em; text-indent: 0;}
+            
+            .row_tit{bottom: 35%;left: -5%; font-size: 1.2em; width: 100%; text-align:center;}            
 
         }
         @media screen and (min-width:960px){
+            .mix:hover .text_box{opacity: 1;}
+            .lst_btn:hover {background-color: rgba(255,255,255,0.8);}
+            .lst_btn:hover a{color: #333;}
             
         }
         
@@ -476,7 +581,7 @@
         </header>
         <div class="tit_box">
             <p class="tit1">
-                PORTFOLIO
+                You are welcome
             </p>
         </div>
         <div class="aniwrap">
@@ -921,9 +1026,9 @@
                  </ul>
             </div>
         </div>
-        <div class="mix mobile" data-myorder="6">
+        <!--<div class="mix mobile" data-myorder="6">
             준비중
-        </div>
+        </div>-->
         <div class="mix responsive" data-myorder="7">
            <div class="pf_wrap">
                <a href="#">
@@ -944,7 +1049,7 @@
                  </ul>
             </div>
         </div>
-        <div class="mix leaflet" data-myorder="8"></div>
+        <!--<div class="mix leaflet" data-myorder="8"></div>-->
 
       </div>
 
